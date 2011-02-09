@@ -13,6 +13,8 @@ Sure! However, you will need to sign a Contributor License Agreement before we w
 
 Yes! In fact, there are a number of proprietary extensions already developed for Canvas by Instructure. You are more than welcome to write your own plugins in the same vein.
 
+If you are interested in finding out more about plugins for Canvas by Instructure, please [contact us](http://www.instructure.com/).
+
 ### How to I get professional services and support?
 
 You will need to buy a commercial license. See [our website](http://www.instructure.com/) for more information on pricing.

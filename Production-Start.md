@@ -15,9 +15,9 @@ Choose your server configuration
 
 You can choose to run Canvas on one or many servers, hosted by a database. You can install the database on the same server as the one Canvas is hosted from, or you can install it separately. No matter what you choose, you will simply need to ensure that all Canvas instances can communicate with your database server, wherever it is.
 
-Additionally, one of your Canvas app servers will need to run automated jobs. Please select one of the servers running Canvas to do this.
+Additionally, you will need one Canvas app server to run automated jobs. Again, this can be one of your web servers, or it can be a dedicated node. While there is no downside to running the automated job daemon alongside your webserver, if you plan on having much traffic it is recommended to keep the job traffic and user traffic partitioned onto different nodes for best performance.
 
-For the purposes of this tutorial, we will be referring to the server (possibly one of many) that is running Canvas as *appserver*, whereas we'll be referring to the server running your database as *dbserver*.
+For the purposes of this tutorial, we will be referring to the server (possibly one of many) that is running Canvas as *appserver*, whereas we'll be referring to the server running your database as *dbserver*. An *appserver* node can either be hosting the website, be processing automated jobs, or both, depending on whether or not you set up a webserver or the automated jobs daemon.
 
 Database installation and configuration
 ======
@@ -35,7 +35,7 @@ If MySQL isn't already on the host you are planning on running your database on,
 sysadmin@dbserver:~$ sudo apt-get install mysql-server
 ```
 
-N.B., if you're running MacOS X and using the excellent [Homebrew](https://github.com/mxcl/homebrew) tool, then you can just run `brew install mysql`
+N.B., if you're running MacOS X and using the excellent [Homebrew](https://github.com/mxcl/homebrew) tool, then you can just run `brew install mysql`. Note that you need [Xcode](http://developer.apple.com/tools/xcode/) though.
 
 ### Running MySQL on a different server
 
@@ -83,7 +83,7 @@ sysadmin@appserver:~/canvas$ git checkout --track -b stable origin/stable
 Using a Tarball or a Zip
 -----------------
 
-You can also download a tarball or zipfile, thanks to [GitHub](http://github.com/).
+You can also download a tarball or zipfile.
   
    * [Canvas Tarball](http://www.instructure.com/code/canvas-stable.tar.gz)
    * [Canvas Zip](http://www.instructure.com/code/canvas-stable.zip)
@@ -126,10 +126,10 @@ We now need to install the Ruby libraries and packages that Canvas needs. On Deb
 
 ```
 sysadmin@appserver:~$ sudo apt-get install ruby ruby-dev zlib1g-dev rake rubygems libxml2-dev libmysqlclient-dev \
-                                           libxslt1-dev libsqlite3-dev libhttpclient-ruby nano imagemagick
+                                           libxslt1-dev libsqlite3-dev libhttpclient-ruby nano imagemagick irb
 ```
 
-(note that for OS X, the vanilla Ruby that comes with your Mac should be fine)
+(note that for OS X, the vanilla Ruby that comes with your Mac should be fine, but you will need [Xcode](http://developer.apple.com/tools/xcode/))
 
 Ruby Gems
 ------------
@@ -154,7 +154,13 @@ sysadmin@appserver:~$ sudo apt-get update
 sysadmin@appserver:~$ sudo apt-get install rubygems
 ```
 
-If you cannot use the above Ubuntu PPA, you can also do the following sequence of steps (assuming you have at least one version of Ruby Gems installed):
+If you cannot use the above Ubuntu PPA, you can also do the following (assuming you have at least one version of Ruby Gems installed):
+
+```
+sysadmin@appserver:~$ sudo gem update --system
+```
+
+Some very old versions of Ruby Gems require even more steps:
 
 ```
 sysadmin@appserver:~$ sudo gem install rubygems-update
@@ -245,6 +251,35 @@ The above step is keyed off of a configuration file you've edited previously (*d
 ```
 sysadmin@appserver:/var/rails/canvas$ RAILS_ENV=production rake db:generate_data
 ```
+
+Canvas ownership
+=========
+
+### Making sure Canvas can't write to more things than it can.
+
+Set up or choose a user you want the Canvas Rails application to run as. This can be the same user as your webserver (*www-data* on Debian/Ubuntu), your personal user account, or something else. Once you've chosen or created a new user, you need to change the ownership of key files in your application root to that user, like so
+
+```
+sysadmin@appserver:~$ cd /var/rails/canvas
+sysadmin@appserver:/var/rails/canvas$ sudo adduser --disabled-password --gecos canvas canvasuser
+sysadmin@appserver:/var/rails/canvas$ sudo mkdir -p log tmp/pids public/assets public/stylesheets/compiled
+sysadmin@appserver:/var/rails/canvas$ sudo touch Gemfile.lock
+sysadmin@appserver:/var/rails/canvas$ sudo chown -R canvasuser config/environment.rb log tmp public/assets \
+                                                               public/stylesheets/compiled Gemfile.lock
+```
+
+Passenger will choose the user to run the application on based on the ownership settings of *config/environment.rb*. Note that it is probably wise to ensure that the ownership settings of all other files besides the ones with permissions set just above are restrictive, and only allow your *canvasuser* user account to read the rest of the files.
+
+### Making sure other users can't read private Canvas files
+
+There are a number of files in your configuration directory (`/var/rails/canvas/config`) that contain passwords, encryption keys, and other private data that would compromise the security of your Canvas installation if it became public. These are the *.yml* files inside the *config* directory, and we want to make them readable only by the *canvasuser* user.
+
+```
+sysadmin@appserver:/var/rails/canvas$ sudo chown canvasuser config/*.yml
+sysadmin@appserver:/var/rails/canvas$ sudo chmod 400 config/*.yml
+```
+
+Note that once you change these settings, to modify the configuration files henceforth, you will have to use *sudo*.
 
 Apache configuration
 =========
@@ -375,35 +410,6 @@ If you want to get a certificate for your Canvas installation that will be accep
 
 For more information on setting up Apache with SSL, please see [O'Reilly OnLamp.com's instructions](http://onlamp.com/pub/a/onlamp/2008/03/04/step-by-step-configuring-ssl-under-apache.html), [Apache's official SSL documentation](http://httpd.apache.org/docs/2.0/ssl/), or any one of [many certificate authority's websites](http://www.dmoz.org/Computers/Security/Public_Key_Infrastructure/PKIX/Tools_and_Services/Third_Party_Certificate_Authorities/).
 
-Canvas ownership
-=========
-
-### Making sure Canvas can't write to more things than it can.
-
-Set up or choose a user you want the Canvas Rails application to run as. This can be the same user as your webserver (*www-data* on Debian/Ubuntu), your personal user account, or something else. Once you've chosen or created a new user, you need to change the ownership of key files in your application root to that user, like so
-
-```
-sysadmin@appserver:~$ cd /var/rails/canvas
-sysadmin@appserver:/var/rails/canvas$ sudo adduser --disabled-password --gecos canvas canvasuser
-sysadmin@appserver:/var/rails/canvas$ sudo mkdir -p log tmp/pids public/assets public/stylesheets/compiled
-sysadmin@appserver:/var/rails/canvas$ sudo touch Gemfile.lock
-sysadmin@appserver:/var/rails/canvas$ sudo chown -R canvasuser config/environment.rb log tmp public/assets \
-                                                               public/stylesheets/compiled Gemfile.lock
-```
-
-Passenger will choose the user to run the application on based on the ownership settings of *config/environment.rb*. Note that it is probably wise to ensure that the ownership settings of all other files besides the ones with permissions set just above are restrictive, and only allow your *canvasuser* user account to read the rest of the files.
-
-### Making sure other users can't read private Canvas files
-
-There are a number of files in your configuration directory (`/var/rails/canvas/config`) that contain passwords, encryption keys, and other private data that would compromise the security of your Canvas installation if it became public. These are the *.yml* files inside the *config* directory, and we want to make them readable only by the *canvasuser* user.
-
-```
-sysadmin@appserver:/var/rails/canvas$ sudo chown canvasuser config/*.yml
-sysadmin@appserver:/var/rails/canvas$ sudo chmod 400 config/*.yml
-```
-
-Note that once you change these settings, to modify the configuration files henceforth, you will have to use *sudo*.
-
 Automated jobs
 ========
 
@@ -411,15 +417,20 @@ Canvas has some automated jobs that need to run at occasional intervals, such as
 
 Canvas comes with a daemon process that will monitor and manage any automated jobs that need to happen. If your application root is */var/rails/canvas*, this daemon process manager can be found at */var/rails/canvas/script/canvas_init*. 
 
-Please select just one of your Canvas app servers to run these automated jobs. Canvas currently doesn't support multiple automated job daemons, but should soon.
+**Please select just one of your Canvas app servers to run these automated jobs.** Canvas currently doesn't support multiple automated job daemons, but should soon.
+
+Because Canvas has so many jobs to run, it is advisable to dedicate one of your app servers to be just a job server. You can do this by simply skipping the Apache steps on one of your app servers, and then only on that server follow these automated jobs setup instructions.
 
 Gem location
 -----
 
-To get automated jobs to work, you also need to tell the automated jobs start/stop daemon about your *GEM_HOME*. Open up *script/canvas_init* and uncomment the *GEM_HOME* definition, setting the variable to the appropriate value.
+To get automated jobs to work, you also need to tell the automated jobs start/stop daemon about your *GEM_HOME*. You can do this by creating a *GEM_HOME* file in your config directory like so (assuming you did `export GEM_HOME=...` earlier):
 
 ```
-sysadmin@appserver:/var/rails/canvas$ sudo nano script/canvas_init
+sysadmin@appserver:~$ cd /var/rails/canvas
+sysadmin@appserver:/var/rails/canvas$ echo $GEM_HOME | sudo tee config/GEM_HOME
+/home/sysadmin/gems
+sysadmin@appserver:/var/rails/canvas$
 ```
 
 Installation
@@ -447,4 +458,3 @@ Common configuration options
 ========
 
 There are many other aspects of Canvas that you can now configure, having a working production environment. Please see [[Canvas Integration]] for more information.
-

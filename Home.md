@@ -13,6 +13,7 @@ Getting Help
  * You can join #canvas-lms on [Freenode](http://freenode.net/using_the_network.shtml) and talk to the community.
  * You can read one of our tutorials (below).
  * You can read our [[FAQ]].
+ * You can visit our [general Canvas usage support portal](http://support.instructure.com/forums).
 
 Contributing
 -----------
@@ -49,7 +50,7 @@ Once you have a copy of Git installed on your system, getting the latest source 
 
 ### Using a Tarball or a Zip
 
-You can also download a tarball or zipfile, thanks to [GitHub](http://github.com/).
+You can also download a tarball or zipfile.
   
    * [Canvas Tarball](http://www.instructure.com/code/canvas-stable.tar.gz)
    * [Canvas Zip](http://www.instructure.com/code/canvas-stable.zip)

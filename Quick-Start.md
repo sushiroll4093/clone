@@ -19,7 +19,7 @@ There are two primary ways to get a copy of Canvas
 Using Git
 -----------
 
-You can install [Git](http://git-scm.com/) on Debian/Ubuntu by running
+If you don't already have [Git](http://git-scm.com/), you can install it on Debian/Ubuntu by running
 
 ```
 $ sudo apt-get install git-core
@@ -36,7 +36,7 @@ Once you have a copy of Git installed on your system, getting the latest source 
 Using a Tarball or a Zip
 -----------------
 
-You can also download a tarball or zipfile, thanks to [GitHub](http://github.com/).
+You can also download a tarball or zipfile.
   
    * [Canvas Tarball](http://www.instructure.com/code/canvas-stable.tar.gz)
    * [Canvas Zip](http://www.instructure.com/code/canvas-stable.zip)
@@ -52,28 +52,22 @@ Dependency Installation
 External dependencies
 -----------
 
+### Debian/Ubuntu 
+
 We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install. We recommend that you run:
 
 ```
 $ sudo apt-get install ruby ruby-dev zlib1g-dev rake rubygems libxml2-dev libmysqlclient-dev libxslt1-dev \
-                       libsqlite3-dev libhttpclient-ruby imagemagick
+                       libsqlite3-dev libhttpclient-ruby imagemagick irb
 ```
 
-For OS X, you'll need to install MySQL.  You have some options, including the old standbys MacPort and Fink, but we recommend [Homebrew](https://github.com/mxcl/homebrew).  For Homebrew, you can get MySQL running with:
+### Mac OS X
+
+For OS X, you'll need to install [Xcode](http://developer.apple.com/tools/xcode/), and make sure you have Ruby 1.8.7 or newer. You can find out what version of Ruby your Mac came with by running:
 
 ```
-$ brew install mysql
-
+$ ruby -v
 ```
-
-You'll also need to install Ruby 1.8.7+.  We recommend using [RVM](http://rvm.beginrescueend.com/).  Once installed, run:
-
-```
-$ rvm install ruby-1.8.7
-
-```
-
-This will install Ruby, RubyGems, and all necessary dependencies (except, of course the gems... which we'll cover next).
 
 Ruby Gems
 ------------
@@ -82,13 +76,13 @@ Most of Canvas' dependencies are Ruby Gems. Ruby Gems are a Ruby-specific packag
 
 ### Upgrading Ruby Gems to 1.3.6 or later
 
-If you ran the above dependency installation command, you just installed Ruby Gems. For Mac users, feel free to skip ahead to "Bundler and Canvas dependencies" below. Unfortunately, Ubuntu 10.04 doesn't provide a recent enough Ruby Gems framework to support Canvas, as Canvas requires the use of Ruby Gems 1.3.6. To find out what version of Ruby Gems you have, you can run
+If you ran the above Ubuntu/Debian dependency installation command or are running OS X, you either have or just installed Ruby Gems. Unfortunately, many operating systems don't provide a recent enough Ruby Gems framework to support Canvas, as Canvas requires the use of Ruby Gems 1.3.6 or newer. To find out what version of Ruby Gems you have, you can run
 
 ```
 $ gem -v
 ```
 
-You can upgrade Ruby Gems to 1.3.6 or later easily using an Ubuntu PPA (or something similar). For Ubuntu 10.04, we recommend trying [Mackenzie Morgan's Ruby Gem backport PPA](https://launchpad.net/~maco.m/+archive/ruby). If you have the *python-software-properties* package installed (most Ubuntu installations do), you can add this PPA and upgrade Ruby Gems as follows:
+If you run Ubuntu, you can upgrade Ruby Gems to 1.3.6 or later easily using an Ubuntu PPA (or something similar). For Ubuntu 10.04, we recommend trying [Mackenzie Morgan's Ruby Gem backport PPA](https://launchpad.net/~maco.m/+archive/ruby). If you have the *python-software-properties* package installed (most Ubuntu installations do), you can add this PPA and upgrade Ruby Gems as follows:
 
 ```
 $ sudo apt-add-repository ppa:maco.m/ruby
@@ -96,7 +90,13 @@ $ sudo apt-get update
 $ sudo apt-get install rubygems
 ```
 
-If you cannot use the above Ubuntu PPA, you can also do the following sequence of steps (assuming you have at least one version of Ruby Gems installed):
+If you are running OS X or otherwise cannot use the above Ubuntu PPA, you can also try the following (assuming you at least have some version of Ruby Gems installed):
+
+```
+$ sudo gem update --system
+```
+
+It is possible that even the above command won't work. If it ran, and `gem -v` shows 1.3.6 or newer, you're fine. However, some very old versions of Ruby Gems will require even more work first, like so:
 
 ```
 $ sudo gem install rubygems-update
@@ -114,21 +114,36 @@ $ mkdir ~/gems
 $ export GEM_HOME=~/gems
 ```
 
-Of course, your *GEM_HOME* environment variable, used this way, will only last the duration of your shell session. If you'd like this environment variable to last between shell sessions, you can add `export GEM_HOME=~/gems` to the bottom of your `~/.bashrc` file.
+Of course, your *GEM_HOME* environment variable, used this way, will only last the duration of your shell session. If you'd like this environment variable to last between shell sessions, you can add `export GEM_HOME=~/gems` to the bottom of your `~/.bashrc` file on Debian/Ubuntu, or your `~/.bash_login` file on Mac OS X.
 
-Bundler and Canvas dependencies
+Bundler
 ----------
 
 Canvas uses Bundler as an additional layer on top of Ruby Gems to manage versioned dependencies. Bundler is great!
 
-Once you have installed Ruby Gems and configured your *GEM_HOME*, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler, like below.
+Assuming your *GEM_HOME* is configured, you can install Bundler using Ruby Gems:
+
+```
+$ gem install bundler
+```
+
+Canvas Dependencies
+---------
+
+### Disable MySQL
+
+Next, since we are using SQLite for this Quick Start and don't want to require you to bother with installing and configuring MySQL (for that, please see [[Production Start]]), you need to comment out the MySQL dependency in the *Gemfile* in your Canvas root.
+
+Open the file *Gemfile* in your favorite text editor, find the line that starts with `gem 'mysql'`, and put a `#` character before it, commenting out the line.
+
+### Install remaining dependencies
+
+Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, and disabled MySQL, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler.
 
 ```
 ~$ cd canvas
-~/canvas$ gem install bundler
 ~/canvas$ $GEM_HOME/bin/bundle install
 ```
-
 
 Data setup
 ========
@@ -172,6 +187,13 @@ config.action_controller.perform_caching = true
 config.action_view.cache_template_loading = true
 ' > config/environments/development-local.rb
 ```
+
+Please be aware that the instructions described in the [[Production Start]] tutorial will give you a *much* faster Canvas installation.
+
+A note about emails
+=======
+
+Canvas will often attempt to send email. With the Quick Start instructions, email will go straight to the console that `script/server` is running on. If you want to set up email that actually goes to email addresses, please follow the [[Production Start]] instructions.
 
 Ready, Set, Go!
 =============
