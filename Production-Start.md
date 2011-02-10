@@ -246,12 +246,6 @@ Once your database is configured, we need to actually fill the database with tab
 sysadmin@appserver:/var/rails/canvas$ RAILS_ENV=production rake db:initial_setup
 ```
 
-The above step is keyed off of a configuration file you've edited previously (*domain.yml*). If you change config files later, you may need to regenerate some database information. To do so, please run:
-
-```
-sysadmin@appserver:/var/rails/canvas$ RAILS_ENV=production rake db:generate_data
-```
-
 Canvas ownership
 =========
 
