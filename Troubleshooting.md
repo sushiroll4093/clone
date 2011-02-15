@@ -52,7 +52,7 @@ If you followed the [[Production Start]] instructions, you can get a Rails conso
 
 ```
 sysadmin@appserver:~$ cd /var/rails/canvas
-sysadmin@appserver:/var/rails/canvas$ su canvasuser -c "env GEM_HOME=/home/sysadmin/gems \
+sysadmin@appserver:/var/rails/canvas$ sudo su canvasuser -c "env GEM_HOME=/home/sysadmin/gems \
                                       RAILS_ENV=production script/console"
 ```
 
