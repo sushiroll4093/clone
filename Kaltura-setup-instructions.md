@@ -1,7 +1,7 @@
 Kaltura setup instructions
 ===================================
 
-*These instructions provided graciously by John Desha, with formatting edits.*
+*These instructions provided graciously by John Desha, with wiki formatting edits.*
 
 For installing Kaltura CE on Ubuntu LTS
   
