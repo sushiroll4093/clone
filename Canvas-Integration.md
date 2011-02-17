@@ -48,6 +48,8 @@ You will need an account either at [Kaltura.com](http://www.kaltura.com) or with
  * For *kcw_ui_conf* and *upload_ui_conf* there's not a good solution to get this in the UI.  If you're hosted on Kaltura.com check out [the Kaltura uploading guide](http://corp.kaltura.com/wiki/index.php/Guides:Upload) and [the uploader widget page](http://www.kaltura.org/kaltura-simple-uploader-ksu-uiconf-and-filetype-filters) for some useful defaults.  If you're self-hosted you probably know how to (or hopefully can figure out how to) set up your own ui_confs.
  * Restart both Apache and the automated jobs daemon (`sudo /etc/init.d/apache2 restart && sudo /etc/init.d/canvas_init restart`).
 
+For more detailed information about setting up Kaltura, please see our [[Kaltura setup instructions]].
+
 ### Linked In
  * [Set up a developer accounts with LinkedIn](https://www.linkedin.com/secure/developer) and get your developer API key and secret key.  You'll need to fill out the details of your integration.  You don't need to enter an *OAuth Redirect URL*.
  * Copy `config/linked_in.yml.example` to `config/linked_in.yml` and open it up.  Find the *production* section of the configuration file and correct the configuration file to have your API key and API secret.
