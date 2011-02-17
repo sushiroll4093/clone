@@ -4,13 +4,13 @@ Kaltura setup instructions
 *These instructions provided graciously by John Desha, with formatting edits.*
 
 For installing Kaltura CE on Ubuntu LTS
---------------
   
 Install ubuntu LTS core only.
  I set up a server with 2 GB ram, 4 GB HD, 2 cpu
  
  
-##### Prereq install
+Prereq install
+---------
  
 Install the following packages:
 
@@ -81,8 +81,9 @@ sudo apt-get install xymon
 and set it up in Apache if interested.
 [[http://www.kaltura.org/kaltura-ce-v30-installing-xymon-monitoring-package-ubuntu-1004-0]]
  
-##### Kaltura install
- 
+Kaltura install
+------------
+
 Download [KalturaCE](http://www.kaltura.org/project/community_edition_video_platform) (kalturaCE_v3.0.0.tgz). You need an account to get it.
 
 ```
@@ -98,14 +99,14 @@ answers (blank = default):
 >
 >
 >
-> kalturadev.uen.org
-> desha@uen.org
+> kalturadev.example.com
+> you@example.com
 > *******
 >
 >
 > root
 > *******
-> http://kalturadev.uen.org/hobbit/
+> http://kalturadev.example.com/hobbit/
 > Y
 ```
 
@@ -119,15 +120,18 @@ Note that it will create a new virtual host and log to `/opt/kaltura/`, not `/va
  
 Change `/etc/hosts` first line to:
 ```
-127.0.0.1       kalturadev.uen.org      localhost
+127.0.0.1       kalturadev.example.com      localhost
 ```
  
 Restart Apache
 ```
 sudo /etc/init.d/apache2 restart
 ```
+
+Configure Canvas
+--------------
  
-In a web browser, go to `http://kalturadev.uen.org/start/`
+In a web browser, go to `http://kalturadev.example.com/start/`
  
  * Click on Admin Console (right image) and log in.
  * Click Add New Publisher sub-tab under Publishers tab and add the new user.
