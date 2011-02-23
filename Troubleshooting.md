@@ -42,7 +42,7 @@ https://<your-canvas-hostname>/delayed_jobs
 Try checking the *error_reports* table in the database for any messages possibly pertaining to the problem:
 
 ```
-sysadmin@appserver:~$ echo "select message, backtrace from delayed_jobs order by updated_at desc limit 1;" | \
+sysadmin@appserver:~$ echo "select message, backtrace from error_reports order by id desc limit 1;" | \
                       mysql -u root -p -D canvas_production
 ```
 
