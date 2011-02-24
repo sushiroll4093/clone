@@ -25,6 +25,7 @@ To configure Canvas to use your S3 bucket for file storage:
  * Set *Post-Authorize Callback URL* to `http://<your-canvas-domain>/facebook/add_user`
  * Set *Post-Authorize Redirect URL* to `http://<your-canvas-domain>/facebook/authorize_user`
  * Make a note of your *Canvas Page* value
+ * Set *Canvas Type* to `FBML`
  * In the **Advanced** section set *Deauthorize Callback* to `http://<your-canvas-domain>/facebook/remove_user`
  * Copy `config/facebooker.yml.example` to `config/facebooker.yml` and open it up. Find the *production* section of the configuration file.
  * Replace `api_key: key` with `api_key: <your_application_id>`
