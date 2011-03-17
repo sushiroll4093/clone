@@ -6,7 +6,7 @@ Kaltura setup instructions
 For installing Kaltura CE on Ubuntu LTS
   
 Install ubuntu LTS core only.
- I set up a server with 2 GB ram, 4 GB HD, 2 cpu
+I set up a server with 2 GB ram, 2 cpu. You'll probably want a large-ish amount of hard drive space. This server will be hosting all your videos. Further, with debug logging on, Kaltura can generate ~ 800 MB a day of log data.
  
  
 Prereq install
