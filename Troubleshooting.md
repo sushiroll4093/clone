@@ -62,4 +62,5 @@ The [[Quick Start]] instructions use the default RAILS_ENV value (development), 
 ~$ cd ~/canvas
 ~/canvas $ GEM_HOME=~/gems script/console
 ```
+
 Accessing a Rails console gives you unprecedented control over Canvas' inner workings. Be sure you know what you're doing.
