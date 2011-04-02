@@ -13,7 +13,7 @@ Getting Help
  * You can join #canvas-lms on [Freenode](http://freenode.net/using_the_network.shtml) and talk to the community.
  * You can read one of our tutorials (below).
  * You can read our [[FAQ]].
- * You can visit our [general Canvas usage support portal](http://support.instructure.com/forums).
+ * You can visit our [general Canvas usage support portal](http://support.instructure.com/).
  * You can read our [nascent API docs](http://instructure.github.com/canvas-lms/doc/api/).
 
 Contributing
