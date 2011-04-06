@@ -199,8 +199,8 @@ Canvas default configuration
 Before we set up all the tables in your database, our Rails code depends on a small few configuration files, which ship with good example settings, so, we'll want to set those up quickly. We'll be examining them more shortly. From the root of your Canvas tree, you can pull in the default configuration values like so:
 
 ```
-sysadmin@appserver:/var/rails/canvas$ for config in amazon_s3 database delayed_jobs domain file_store outgoing_mail \
-                                      security; do cp config/$config.yml.example config/$config.yml; done
+sysadmin@appserver:/var/rails/canvas$ for config in amazon_s3 database delayed_jobs domain file_store \
+                 outgoing_mail security; do cp config/$config.yml.example config/$config.yml; done
 ```
 
 Database configuration
