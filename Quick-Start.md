@@ -195,6 +195,17 @@ A note about emails
 
 Canvas will often attempt to send email. With the Quick Start instructions, email will go straight to the console that `script/server` is running on. If you want to set up email that actually goes to email addresses, please follow the [[Production Start]] instructions.
 
+A note about long-running jobs
+========
+
+A few parts of Canvas require a significant amount of work that lasts longer than individual page loads such as course imports and other things. We highly recommend you follow the [[Production Start]] instructions if you need such things to work, but you can get these delayed jobs to run if you really need them to by opening a separate terminal and running:
+
+```
+~/canvas$ script/delayed_job run
+```
+
+You will need to leave this process running as long as you require long-running jobs to work.
+
 Ready, Set, Go!
 =============
 
