@@ -57,8 +57,8 @@ External dependencies
 We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install. We recommend that you run:
 
 ```
-$ sudo apt-get install ruby ruby-dev zlib1g-dev rake rubygems libxml2-dev libmysqlclient-dev libxslt1-dev \
-                       libsqlite3-dev libhttpclient-ruby imagemagick irb libpq-dev
+$ sudo apt-get install ruby ruby-dev zlib1g-dev rake rubygems libxml2-dev libxslt1-dev \
+                       libsqlite3-dev libhttpclient-ruby imagemagick irb
 ```
 
 ### Mac OS X
@@ -130,19 +130,11 @@ $ gem install bundler
 Canvas Dependencies
 ---------
 
-### Disable MySQL
-
-Next, since we are using SQLite for this Quick Start and don't want to require you to bother with installing and configuring MySQL (for that, please see [[Production Start]]), you need to comment out the MySQL dependency in the *Gemfile* in your Canvas root.
-
-Open the file *Gemfile* in your favorite text editor, find the line that starts with `gem 'mysql'`, and put a `#` character before it, commenting out the line.
-
-### Install remaining dependencies
-
-Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, and disabled MySQL, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler.
+Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler.  Since we are using SQLite for this Quick Start and don't want to require you to bother with installing and configuring MySQL or Postgres (for that, please see [[Production Start]]), we'll need to tell bundler to ignore them.
 
 ```
 ~$ cd canvas
-~/canvas$ $GEM_HOME/bin/bundle install
+~/canvas$ $GEM_HOME/bin/bundle install --without postgres mysql
 ```
 
 Data setup
