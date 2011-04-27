@@ -128,6 +128,16 @@ Restart Apache
 sudo /etc/init.d/apache2 restart
 ```
 
+You need to create start scripts for the search daemon and batch manager, so 
+ 
+```
+cd /etc/init.d/
+ln -s /opt/kaltura/app/scripts/searchd.sh kaltura-searchd
+ln -s /opt/kaltura/app/scripts/serviceBatchMgr.sh kaltura-serviceBatchMgr
+update-rc.d kaltura-searchd defaults
+update-rc.d kaltura-serviceBatchMgr defaults
+```
+
 Configure Canvas
 --------------
  
