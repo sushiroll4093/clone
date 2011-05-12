@@ -20,15 +20,14 @@ To configure Canvas to use your S3 bucket for file storage:
 
 Canvas uses Uploadify for file uploading, which in turn uses Flash. If you are uploading files to a different domain than the one being used by your Canvas application, you will need to set up a XML cross-domain policy file in your bucket to avoid sandbox security issues. A typical cross-domain policy file looks like this:
 
-`<cross-domain-policy>`
+```
+<cross-domain-policy>
+<site-control permitted-cross-domain-policies="master-only"/>
+<allow-access-from domain="yourdomain"/>
+</cross-domain-policy>
+```
 
-`<site-control permitted-cross-domain-policies="master-only"/>`
-
-`<allow-access-from domain="yourdomain"/>`
-
-`</cross-domain-policy>`
-
-You can read more about cross-domain policy files [here](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)
+You can read more about cross-domain policy files [here](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).
 
 ### Facebook
  * [Create a new Facebook App](http://www.facebook.com/developers/).
