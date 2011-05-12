@@ -53,7 +53,7 @@ You can read more about cross-domain policy files [here](http://www.adobe.com/de
 ### Kaltura
 You will need an account either at [Kaltura.com](http://www.kaltura.com) or with a self-hosted instance of Kaltura.  
 
- * Copy `config/kaltura.yml.example` to `config/kaltura.yml` and open it up.  Find the *production* section of the configuration file.  This is where you'll fill in the values below.
+ * Go to the '/plugins/kaltura' page on your Canvas instance.  This is where you'll fill in the values below.
  * Go to the management console and click the **Settings** tab.  
  * Under **Integration Settings** you'll find most of what you need, including *partner id*, *subpartner_id*, *secret_key* (administrator secret) and *user_secret_key*
  * You can specify any *player_ui_conf* that you want.  For custom-built players (check out the **Studio** tab) you can see the id in the UI.
