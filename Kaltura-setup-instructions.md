@@ -90,6 +90,11 @@ Download [KalturaCE](http://www.kaltura.org/project/community_edition_video_plat
 cd ~
 tar xvzf kalturaCE_v3.0.0.tgz
 cd kalturaCE_v3.0.0
+```
+
+As per [[http://www.kaltura.org/error-when-trying-get-account-usage-data-internal-server-error]], you'll want to edit `package/app/dwh/ddl/dwh_ddl_install.sh` and fix the typo on line 9. Change UESR to USER.
+
+```
 sudo php install.php
 ```
  
@@ -109,10 +114,6 @@ answers (blank = default):
 > http://kalturadev.example.com/hobbit/
 > Y
 ```
-
-Go fix a typo in `/opt/kaltura/dwh/ddl/dwh_ddl_install.sh`. Line 9: change UESR to USER.
-
-Then rerun `php install.php`
 
 Add this to the bottom of `/etc/apache2/apache2.conf`
 ```
