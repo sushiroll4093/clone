@@ -18,7 +18,7 @@ To configure Canvas to use your S3 bucket for file storage:
  * Open `config/amazon_s3.yml`, find the *production* section, and fill in the *bucket_name*, *access_key_id*, and *secret_access_key* fields in with the values you found out earlier.
  * Restart both Apache and the automated jobs daemon (`sudo /etc/init.d/apache2 restart && sudo /etc/init.d/canvas_init restart`).
 
-Canvas uses Uploadify for file uploading, which in turn uses Flash. If you are uploading files to a different domain than the one being used by your Canvas application, you will need to set up a cross-domain policy file in your bucket to avoid sandbox security issues. A typical cross-domain policy file looks like this:
+Canvas uses Uploadify for file uploading, which in turn uses Flash. If you are uploading files to a different domain than the one being used by your Canvas application, you will need to set up a XML cross-domain policy file in your bucket to avoid sandbox security issues. A typical cross-domain policy file looks like this:
 
 `<cross-domain-policy>`
 
