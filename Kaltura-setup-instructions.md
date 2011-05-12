@@ -110,6 +110,10 @@ answers (blank = default):
 > Y
 ```
 
+Go fix a typo in `/opt/kaltura/dwh/ddl/dwh_ddl_install.sh`. Line 9: change UESR to USER.
+
+Then rerun `php install.php`
+
 Add this to the bottom of `/etc/apache2/apache2.conf`
 ```
 # Include kaltura config
