@@ -357,6 +357,10 @@ In the new file, or new spot, depending, you want to place the following snippet
   ServerAlias files.canvas.example.com
   ServerAdmin youremail@example.com
   DocumentRoot /var/rails/canvas/public
+  RewriteEngine On
+  RewriteCond %{X-Forwarded-Proto} !=https
+  RewriteCond %{REQUEST_URI} !^/health_check
+  RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L]  
   ErrorLog /var/log/apache2/canvas_errors.log
   LogLevel warn
   CustomLog /var/log/apache2/canvas_access.log combined
