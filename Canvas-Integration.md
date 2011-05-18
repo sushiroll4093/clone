@@ -30,19 +30,8 @@ Canvas uses Uploadify for file uploading, which in turn uses Flash. If you are u
 You can read more about cross-domain policy files [here](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html).
 
 ### Facebook
- * [Create a new Facebook App](http://www.facebook.com/developers/).
- * In the **Web Site** section make a note of your *Application ID* and *Application Secret*
- * In the **Facebook Integration** section set *Canvas URL* to `http://<your-canvas-domain>/facebook`
- * Set *Post-Authorize Callback URL* to `http://<your-canvas-domain>/facebook/add_user`
- * Set *Post-Authorize Redirect URL* to `http://<your-canvas-domain>/facebook/authorize_user`
- * Make a note of your *Canvas Page* value
- * Set *Canvas Type* to `FBML`
- * In the **Advanced** section set *Deauthorize Callback* to `http://<your-canvas-domain>/facebook/remove_user`
- * Copy `config/facebooker.yml.example` to `config/facebooker.yml` and open it up. Find the *production* section of the configuration file.
- * Replace `api_key: key` with `api_key: <your_application_id>`
- * Replace `secret_key: secret_key` with `secret_key: <your_application_secret>`
- * Replace `canvas_page_name: page_name` with `canvas_page_name: <your_canvas_page>`
- * Restart both Apache and the automated jobs daemon (`sudo /etc/init.d/apache2 restart && sudo /etc/init.d/canvas_init restart`).
+ * Browse to the Facebook plugin settings at `http://<your-canvas-domain>/plugins/facebook`
+ * Follow the instructions there.
 
 ### Google Docs
 
