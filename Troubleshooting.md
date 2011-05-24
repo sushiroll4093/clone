@@ -64,3 +64,7 @@ The [[Quick Start]] instructions use the default RAILS_ENV value (development), 
 ```
 
 Accessing a Rails console gives you unprecedented control over Canvas' inner workings. Be sure you know what you're doing.
+
+### I get this error message during install: `uninitialized constant Rake::DSL`
+
+If you get this error while following the quick start guides, you may need to use the version of rake installed into your gems folder. Replace all instances of `rake` on the console with `$GEM_HOME/bin/rake`
