@@ -68,3 +68,7 @@ Accessing a Rails console gives you unprecedented control over Canvas' inner wor
 ### I get this error message during install: `uninitialized constant Rake::DSL`
 
 If you get this error while following the quick start guides, you may need to use the version of rake installed into your gems folder. Replace all instances of `rake` on the console with `$GEM_HOME/bin/rake`
+
+### I get `Could not find table` errors when running `rake spec`
+
+Reset the test database using `RAILS_ENV=test rake db:test:reset` then the specs should run.
