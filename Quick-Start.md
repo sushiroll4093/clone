@@ -165,7 +165,7 @@ Database population
 Once your database is configured, we need to actually fill the database with tables and initial data. You can do this by running our *rake* migration and initialization tasks from your application's root:
 
 ```
-~/canvas$ rake db:initial_setup
+~/canvas$ $GEM_HOME/bin/bundle exec rake db:initial_setup
 ```
 
 Performance Tweaks
