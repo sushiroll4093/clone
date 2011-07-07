@@ -36,8 +36,8 @@ You can read more about cross-domain policy files [here](http://www.adobe.com/de
 ### Google Docs
 
  * [Register your instance of Canvas with Google](https://www.google.com/accounts/ManageDomains).
- * Copy `config/google_docs.yml.example` to `config/google_docs.yml` and open it up. Find the *production* section of the configuration file and input the OAuth consumer key and OAuth consumer secret registering with Google gave you.
- * Restart both Apache and the automated jobs daemon (`sudo /etc/init.d/apache2 restart && sudo /etc/init.d/canvas_init restart`).
+ * Browse to the Google Docs plugin settings at `http://<your-canvas-domain>/plugins/google_docs`
+ * Follow the instructions there.
 
 ### Kaltura
 You will need an account either at [Kaltura.com](http://www.kaltura.com) or with a self-hosted instance of Kaltura.  
@@ -53,25 +53,25 @@ For more detailed information about setting up Kaltura, please see our [[Kaltura
 
 ### Linked In
  * [Set up a developer accounts with LinkedIn](https://www.linkedin.com/secure/developer) and get your developer API key and secret key.  You'll need to fill out the details of your integration.  You don't need to enter an *OAuth Redirect URL*.
- * Copy `config/linked_in.yml.example` to `config/linked_in.yml` and open it up.  Find the *production* section of the configuration file and correct the configuration file to have your API key and API secret.
- * Restart both Apache and the automated jobs daemon (`sudo /etc/init.d/apache2 restart && sudo /etc/init.d/canvas_init restart`).
+ * Browse to the LinkedIn plugin settings at `http://<your-canvas-domain>/plugins/linked_in`
+ * Follow the instructions there.
 
 ### Scribd
 
  * [Set up a developer account with Scribd](http://www.scribd.com/developers/signup_api) and [get your developer API key](http://www.scribd.com/account/edit#api).
- * Copy `config/scribd.yml.example` to `config/scribd.yml` and open it up. Find the *production* section of the configuration file and correct the configuration file to have your API key and API secret.
- * Restart both Apache and the automated jobs daemon (`sudo /etc/init.d/apache2 restart && sudo /etc/init.d/canvas_init restart`).
+ * Browse to the Scribd plugin settings at `http://<your-canvas-domain>/plugins/scribd`
+ * Follow the instructions there.
 
 ### TinyChat
 
  * Set up an account with TinyChat and [get a developer API key](http://tinychat.com/developer/dashboard/).
- * Once you have an API key, copy `config/tinychat.yml.example` to `config/tinychat.yml` and open it up. Find the *production* section of the configuration file and replace `api_key: key` with `api_key: <yourkey>`.
- * Restart both Apache and the automated jobs daemon (`sudo /etc/init.d/apache2 restart && sudo /etc/init.d/canvas_init restart`).
+ * Browse to the Tinychat plugin settings at `http://<your-canvas-domain>/plugins/tinychat`
+ * Follow the instructions there.
 
 ### Twitter
 
  * [Register your instance of Canvas with Twitter](http://dev.twitter.com/apps/new).
  * You'll need to specify the *Registered OAuth Callback URL* as `http://<your-canvas-domain>/oauth_success?service=twitter`.
  * Make a note of your *consumer key* and *consumer secret*.
- * Once you have these keys, copy `config/twitter.yml.example` to `config/twitter.yml` and open it up.  Find the *production* section of the configuration file and replace `api_key: key` with `api_key: <your_consumer_key>` and `secret_key: shared_secret` with `secret_key: <your_consumer_secret>`.
- * Restart both Apache and the automated jobs daemon (`sudo /etc/init.d/apache2 restart && sudo /etc/init.d/canvas_init restart`).
+ * Browse to the Twitter plugin settings at `http://<your-canvas-domain>/plugins/twitter`
+ * Follow the instructions there.
