@@ -14,7 +14,7 @@ Getting Help
  * You can read one of our tutorials (below).
  * You can read our [[FAQ]].
  * You can visit our [general Canvas usage support portal](http://support.instructure.com/).
- * You can read our [nascent API docs](http://instructure.github.com/canvas-lms/doc/api/).
+ * You can read our [nascent API docs](http://canvas.instructure.com/doc/api/index.html).
 
 Contributing
 -----------
