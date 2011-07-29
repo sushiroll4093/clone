@@ -424,7 +424,7 @@ Canvas has some automated jobs that need to run at occasional intervals, such as
 
 Canvas comes with a daemon process that will monitor and manage any automated jobs that need to happen. If your application root is */var/rails/canvas*, this daemon process manager can be found at */var/rails/canvas/script/canvas_init*. 
 
-**Please select just one of your Canvas app servers to run these automated jobs.** Canvas currently doesn't support multiple automated job daemons, but should soon.
+**You'll need to run these job daemons on at least one server.** Canvas supports running the background jobs on multiple servers for capacity/redundancy, as well.
 
 Because Canvas has so many jobs to run, it is advisable to dedicate one of your app servers to be just a job server. You can do this by simply skipping the Apache steps on one of your app servers, and then only on that server follow these automated jobs setup instructions.
 
