@@ -28,6 +28,7 @@ Installation Tutorials
 
  * [[Quick Start]]
  * [[Production Start]]
+ * [[Upgrading]]
  * [[Troubleshooting your Canvas installation|Troubleshooting]]
  * [[Integrating Canvas with other systems|Canvas Integration]]
 
