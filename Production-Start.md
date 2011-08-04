@@ -417,6 +417,50 @@ If you want to get a certificate for your Canvas installation that will be accep
 
 For more information on setting up Apache with SSL, please see [O'Reilly OnLamp.com's instructions](http://onlamp.com/pub/a/onlamp/2008/03/04/step-by-step-configuring-ssl-under-apache.html), [Apache's official SSL documentation](http://httpd.apache.org/docs/2.0/ssl/), or any one of [many certificate authority's websites](http://www.dmoz.org/Computers/Security/Public_Key_Infrastructure/PKIX/Tools_and_Services/Third_Party_Certificate_Authorities/).
 
+Cache configuration
+========
+
+Canvas supports two different methods of caching: Memcache and redis. Below are instructions for setting up redis.
+
+Note: With the introduction of OAuth2 into Canvas, setting up redis is a requirement. Delegated authentication through OAuth2 will not function without it.
+
+Redis
+----
+
+Required version: redis 2.2.x.
+
+If you're using Homebrew on Mac OS X, you can install redis by running the command: `brew install redis`.
+
+After installing redis, start the server. There are multiple options for doing this. You can set it up so it runs automatically when the server boots, or you can run it manually.
+
+To run it manually from a Homebrew installation, run the command: `redis-server /usr/local/etc/redis.conf`.
+
+Now we need to go back to your canvas-lms directory and edit a configuration file. Inside the config folder, we're going to copy [cache_store.yml.example](https://github.com/instructure/canvas-lms/blob/stable/config/cache_store.yml.example) and edit it:
+```
+sysadmin@appserver:/var/rails/canvas$ cp config/cache_store.yml.example config/cache_store.yml
+sysadmin@appserver:/var/rails/canvas$ nano config/cache_store.yml
+```
+
+The file starts with all caching methods commented out. Uncomment the redis portion of the config file and update it to appropriately point to the server that is running redis. In our example, redis is running on the same server as Canvas.
+
+```
+# if this file doesn't exist, memcache will be used if there are any
+# servers configured in config/memcache.yml
+development:
+  cache_store: mem_cache_store
+  # if no servers are specified, we'll look in config/memcache.yml
+  # servers:
+  # - localhost
+  #
+  cache_store: redis_store
+  # if no servers are specified, we'll look in config/redis.yml
+  servers:
+  - localhost
+  database: 0
+```
+
+Save the file and restart Canvas.
+
 Automated jobs
 ========
 
