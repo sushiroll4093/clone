@@ -48,3 +48,18 @@ If you are running a production environment, you will probably want to specify t
 ```
 RAILS_ENV=production $GEM_HOME/bin/bundle exec rake db:migrate
 ```
+
+Notification types
+-------------
+
+Sometimes we add new notification types to Canvas. You can make sure yours are up to date by running:
+
+```
+$GEM_HOME/bin/bundle exec rake db:load_notifications
+```
+
+Again, if you are running a production environment, you will probably want to specify that.
+
+```
+RAILS_ENV=production $GEM_HOME/bin/bundle exec rake db:load_notifications
+```
