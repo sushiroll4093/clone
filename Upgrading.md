@@ -11,7 +11,14 @@ git fetch && git reset --hard origin/stable
 
 or some equivalent Git command.
 
-Please note that this command will remove any staged or committed changes that you have made to your local repository.
+Please note that this command will remove any staged or committed changes that you have made to your local repository. Additionally, if you have a checkout of our stable branch from 2011-08-06 or later, you can also do
+
+```
+git fetch && git pull --rebase
+```
+
+to safely update your stable branch and keep your changes. Prior to 2011-08-06 we were force pushing divergent branches to stable (sorry) so `git pull --rebase` will give you conflicts.
+
 
 Configuration and locally stored files
 --------------
