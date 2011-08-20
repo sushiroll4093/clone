@@ -17,7 +17,7 @@ Please note that this command will remove any staged or committed changes that y
 git fetch && git pull --rebase
 ```
 
-to safely update your stable branch and keep your changes. Prior to 2011-08-06 we were force pushing divergent branches to stable (sorry) so `git pull --rebase` will give you conflicts.
+to safely update your stable branch and keep your changes. Prior to 2011-08-06 we were force pushing divergent branches to stable (sorry) so `git pull --rebase` would give you conflicts.
 
 
 Configuration and locally stored files
