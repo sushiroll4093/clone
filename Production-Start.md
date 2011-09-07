@@ -103,6 +103,7 @@ Take your tarball or your checkout and make sure you move the contents to this d
 We'll be referring to */var/rails/canvas* (or whatever you chose) as your Rails application root.
 
 As an example:
+
 ```
 sysadmin@appserver:~$ sudo mkdir -p /var/rails/canvas
 sysadmin@appserver:~$ sudo chown -R sysadmin /var/rails/canvas
