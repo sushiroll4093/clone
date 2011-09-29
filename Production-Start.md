@@ -482,6 +482,7 @@ To get automated jobs to work, you also need to tell the automated jobs start/st
 sysadmin@appserver:~$ cd /var/rails/canvas
 sysadmin@appserver:/var/rails/canvas$ echo $GEM_HOME | sudo tee config/GEM_HOME
 /home/sysadmin/gems
+sysadmin@appserver:/var/rails/canvas$ sudo chown canvasuser:canvasuser /var/rails/canvas/config/GEM_HOME
 sysadmin@appserver:/var/rails/canvas$
 ```
 
