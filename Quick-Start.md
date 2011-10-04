@@ -86,6 +86,11 @@ If you run Ubuntu, you can upgrade Ruby Gems to 1.3.6 or later easily using an U
 
 ```
 $ sudo apt-add-repository ppa:maco.m/ruby
+```
+
+If you have trouble adding the PPA or you are behind a Corporate firewall, please see [this trick](http://rockycode.com/blog/using-ubuntu-ppa-repositories-behind-firewall/) for enabling apt on port 80.  Once you have successfully added the PPA, update and install rubygems:
+
+```
 $ sudo apt-get update
 $ sudo apt-get install rubygems
 ```
