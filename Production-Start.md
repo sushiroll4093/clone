@@ -130,7 +130,7 @@ We now need to install the Ruby libraries and packages that Canvas needs. On Deb
 ```
 sysadmin@appserver:~$ sudo apt-get install ruby ruby-dev zlib1g-dev rake rubygems libxml2-dev \
               libmysqlclient-dev libxslt1-dev libsqlite3-dev libhttpclient-ruby nano imagemagick \
-              irb  libpq-dev
+              irb  libpq-dev nodejs
 ```
 
 (note that for OS X, the vanilla Ruby that comes with your Mac should be fine, but you will need [Xcode](http://developer.apple.com/tools/xcode/))
