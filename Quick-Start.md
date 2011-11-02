@@ -145,9 +145,7 @@ Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please
 JavaScript Runtime
 ------------------
 
-If you plan to run canvas in development, you'll need a JavaScript runtime.  Mac OS X users already have _JavaScript Core_ and don't need to do anything.  Linux users can run `apt-get node` to install node.js.  Other options can be found at the [execjs homepage](https://github.com/sstephenson/execjs).
-
-Running canvas in production does not require this.
+You'll also need a JavaScript runtime to translate our CoffeeScript code to JavaScript and a few other things.  Mac OS X users already have _JavaScript Core_ and don't need to do anything.  Linux users will probably want NodeJS, which should have been installed in the `apt-get install` step above. Other options can be found at the [execjs homepage](https://github.com/sstephenson/execjs).
 
 Data setup
 ========
@@ -178,6 +176,15 @@ Once your database is configured, we need to actually fill the database with tab
 
 ```
 ~/canvas$ $GEM_HOME/bin/bundle exec rake db:initial_setup
+```
+
+File Generation
+-----------
+
+Canvas needs to build a number of assets before it will work correctly. You will need to run:
+
+```
+~/canvas$ $GEM_HOME/bin/bundle exec rake canvas:compile_assets
 ```
 
 Performance Tweaks
