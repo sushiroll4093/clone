@@ -196,6 +196,11 @@ sysadmin@appserver:/var/rails/canvas$ gem install bundler
 sysadmin@appserver:/var/rails/canvas$ $GEM_HOME/bin/bundle install
 ```
 
+JavaScript Runtime
+------------------
+
+You'll also need a JavaScript runtime to translate our CoffeeScript code to JavaScript and a few other things.  Mac OS X users already have _JavaScript Core_ and don't need to do anything.  Linux users will probably want NodeJS, which should have been installed in the `apt-get install` step above. Other options can be found at the [execjs homepage](https://github.com/sstephenson/execjs).
+
 Canvas default configuration
 ------
 
@@ -248,6 +253,15 @@ Once your database is configured, we need to actually fill the database with tab
 
 ```
 sysadmin@appserver:/var/rails/canvas$ RAILS_ENV=production $GEM_HOME/bin/bundle exec rake db:initial_setup
+```
+
+File Generation
+-----------
+
+Canvas needs to build a number of assets before it will work correctly. You will need to run:
+
+```
+sysadmin@appserver:/var/rails/canvas$ $GEM_HOME/bin/bundle exec rake canvas:compile_assets
 ```
 
 Canvas ownership
