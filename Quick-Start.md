@@ -142,6 +142,13 @@ Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please
 ~/canvas$ $GEM_HOME/bin/bundle install --without postgres mysql
 ```
 
+JavaScript Runtime
+------------------
+
+If you plan to run canvas in development, you'll need a JavaScript runtime.  Mac OS X users already have _JavaScript Core_ and don't need to do anything.  Linux users can run `apt-get node` to install node.js.  Other options can be found at the [execjs homepage](https://github.com/sstephenson/execjs).
+
+Running canvas in production does not require this.
+
 Data setup
 ========
 
