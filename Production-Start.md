@@ -267,7 +267,7 @@ sysadmin@appserver:/var/rails/canvas$ $GEM_HOME/bin/bundle exec rake canvas:comp
 Canvas ownership
 =========
 
-### Making sure Canvas can't write to more things than it can.
+### Making sure Canvas can't write to more things than it should.
 
 Set up or choose a user you want the Canvas Rails application to run as. This can be the same user as your webserver (*www-data* on Debian/Ubuntu), your personal user account, or something else. Once you've chosen or created a new user, you need to change the ownership of key files in your application root to that user, like so
 
