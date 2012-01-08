@@ -15,7 +15,7 @@ Getting Help
  * You can read our [[FAQ]].
  * You can visit our [general Canvas usage support portal](http://support.instructure.com/).
  * You can visit our [YouTube Channel](http://www.youtube.com/CanvasLMS#g/p).
- * You can read our [nascent API docs](http://canvas.instructure.com/doc/api/index.html).
+ * You can read our [API docs](http://canvas.instructure.com/doc/api/index.html).
 
 Contributing
 -----------
