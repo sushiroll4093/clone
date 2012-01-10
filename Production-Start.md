@@ -208,7 +208,7 @@ Before we set up all the tables in your database, our Rails code depends on a sm
 
 ```
 sysadmin@appserver:/var/rails/canvas$ for config in amazon_s3 database delayed_jobs domain file_store \
-                 outgoing_mail security; do cp config/$config.yml.example config/$config.yml; done
+                 outgoing_mail security external_migration; do cp config/$config.yml.example config/$config.yml; done
 ```
 
 Database configuration
