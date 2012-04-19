@@ -57,5 +57,5 @@ Once you have a copy of Git installed on your system, getting the latest source 
 
 You can also download a tarball or zipfile.
   
-   * [Canvas Tarball](http://www.instructure.com/code/canvas-stable.tar.gz)
-   * [Canvas Zip](http://www.instructure.com/code/canvas-stable.zip)
+   * [Canvas Tarball](http://github.com/instructure/canvas-lms/tarball/stable)
+   * [Canvas Zip](http://github.com/instructure/canvas-lms/zipball/stable)
