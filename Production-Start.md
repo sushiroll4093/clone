@@ -34,7 +34,7 @@ You can run MySQL on the same server you're going to run Canvas on, or not. It r
 If MySQL isn't already on the host you are planning on running your database on, if the host is Debian/Ubuntu, then this is as easy as 
 
 ```
-sysadmin@dbserver:~$ sudo apt-get install mysql-server
+sysadmin@dbserver:~$ sudo apt-get install mysql-server libmysqlclient-dev
 ```
 
 N.B., if you're running MacOS X and using the excellent [Homebrew](https://github.com/mxcl/homebrew) tool, then you can just run `brew install mysql`. Note that you need [Xcode](http://developer.apple.com/tools/xcode/) though.
