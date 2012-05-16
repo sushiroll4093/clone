@@ -208,17 +208,6 @@ A note about emails
 
 Canvas will often attempt to send email. With the Quick Start instructions, email will go straight to the console that `script/server` is running on. If you want to set up email that actually goes to email addresses, please follow the [[Production Start]] instructions.
 
-A note about long-running jobs
-========
-
-A few parts of Canvas require a significant amount of work that lasts longer than individual page loads such as course imports and other things. We highly recommend you follow the [[Production Start]] instructions if you need such things to work, but you can get these delayed jobs to run if you really need them to by opening a separate terminal and running:
-
-```
-~/canvas$ script/delayed_job run
-```
-
-You will need to leave this process running as long as you require long-running jobs to work.
-
 Ready, Set, Go!
 =============
 
@@ -229,6 +218,11 @@ Now you just need to start the Canvas server! You will need to run the *script/s
 ```
 
 Open up a browser on the same computer as the one running the server and navigate to [[http://localhost:3000/]] and log in with the user credentials you set up during database configuration. If you don't have a browser running on the same computer, just use the hostname of the computer, and go to http://&lt;hostname&gt;:3000/.
+
+A note about long-running jobs
+========
+
+Canvas relies heavily on background job processors to perform tasks that take too long to do in-line during a web request. The [[Production Start]] instructions have details of how to set up dedicated job processors for production environments. For this Quick Start, just starting `script/server` as outlined above will by default run one job processor as well.
 
 Troubleshooting
 ==========
