@@ -4,6 +4,8 @@ Quick Start
 This page will explain how to get a working version of Canvas LMS running as quickly as possible. Note that you probably don't want to use these instructions
 for getting a production-ready system running; for that, please see [[Production Start]].
 
+If you need help installing Canvas or troubleshooting your installation, your best bet is to join the community mailing list or the IRC channel [(see the wiki)](https://github.com/instructure/canvas-lms/wiki) and ask specific questions there. It's likely that somebody else has already tackled the same problem.
+
 Prerequisites
 -------------
 
