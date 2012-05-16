@@ -3,6 +3,8 @@ Production Start
 
 These instructions will walk you through how to get a production-ready instance of [Instructure](http://www.instructure.com/)'s open source Canvas LMS running and serving your users. If you just want to play around with Canvas and get the simplest server running possible, please see the [[Quick Start]] page.
 
+If you need help installing Canvas or troubleshooting your installation, your best bet is to join the community mailing list or the IRC channel [(see the wiki)](https://github.com/instructure/canvas-lms/wiki) and ask specific questions there. It's likely that somebody else has already tackled the same problem.
+
 Prerequisites
 -------------
 
