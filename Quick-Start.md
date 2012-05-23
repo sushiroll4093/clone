@@ -60,7 +60,7 @@ We now need to install the Ruby libraries and packages that Canvas needs. On Deb
 
 ```
 $ sudo apt-get install ruby ruby-dev zlib1g-dev rake rubygems libxml2-dev libxslt1-dev \
-                       libsqlite3-dev libhttpclient-ruby imagemagick irb nodejs
+                       libsqlite3-dev libhttpclient-ruby imagemagick irb coffeescript
 ```
 
 ### Mac OS X
