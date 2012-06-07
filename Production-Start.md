@@ -390,6 +390,7 @@ In the new file, or new spot, depending, you want to place the following snippet
   LogLevel warn
   CustomLog /var/log/apache2/canvas_access.log combined
   SetEnv GEM_HOME /home/sysadmin/gems
+  SetEnv RAILS_ENV production
   <Directory /var/rails/canvas/public>
     Allow from all
     Options -MultiViews
@@ -410,6 +411,7 @@ In the new file, or new spot, depending, you want to place the following snippet
   SSLCertificateFile /etc/ssl/certs/ssl-cert-snakeoil.pem
   SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
   SetEnv GEM_HOME /home/sysadmin/gems
+  SetEnv RAILS_ENV production
   <Directory /var/rails/canvas/public>
     Allow from all
     Options -MultiViews
