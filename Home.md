@@ -5,6 +5,13 @@ Canvas is a new, open-source [LMS](http://en.wikipedia.org/wiki/Learning_managem
 
 Are you looking for one of our commercial subscriptions, professional services, support, or our hosted solution? [Please visit our main website](http://www.instructure.com/).
 
+Trying Out Canvas
+-----------------
+
+If you'd like to use Canvas in your own course, or you just want try Canvas out, there is no need to do all the work of installing it yourself. Canvas Cloud is Free for Teachers to use, [just sign up](https://canvas.instructure.com/register) to get started.
+
+If at a later time you do want to migrate from your own install to Canvas Cloud, or vice versa, you can use the course export and import features to migrate all your content.
+
 Getting Help
 -----------
 
