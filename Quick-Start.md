@@ -51,6 +51,8 @@ Wherever you check out the code to, we're going to call that your application ro
 Dependency Installation
 ==========
 
+Canvas currently requires Ruby 1.8.7 (or compatible, such as Ruby Enterprise Edition). Ruby 1.9.2 support is in the works.
+
 External dependencies
 -----------
 
@@ -65,7 +67,7 @@ $ sudo apt-get install ruby ruby-dev zlib1g-dev rake rubygems libxml2-dev libxsl
 
 ### Mac OS X
 
-For OS X, you'll need to install [Xcode](http://developer.apple.com/tools/xcode/), and make sure you have Ruby 1.8.7 or newer. You can find out what version of Ruby your Mac came with by running:
+For OS X, you'll need to install [Xcode](http://developer.apple.com/tools/xcode/), and make sure you have Ruby 1.8.7. You can find out what version of Ruby your Mac came with by running:
 
 ```
 $ ruby -v
