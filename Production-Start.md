@@ -124,6 +124,8 @@ sysadmin@appserver:/var/rails/canvas$
 Dependency Installation
 ==========
 
+Canvas currently requires Ruby 1.8.7 (or compatible, such as Ruby Enterprise Edition). Ruby 1.9.2 support is in the works.
+
 External dependencies
 -----------
 
