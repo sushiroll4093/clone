@@ -334,6 +334,12 @@ PassengerRoot /usr
 PassengerRuby /usr/bin/ruby
 ```
 
+If you have trouble starting the application because of permissions problems, you might need to add this line to your passenger.conf, site configuration file, or httpd.conf (where canvasuser is the user that Canvas runs as, *www-data* on Debian/Ubuntu systems for example):
+
+```
+PassengerDefaultUser canvasuser
+```
+
 Configure SSL with Apache
 -------------
 
