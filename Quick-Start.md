@@ -149,7 +149,7 @@ Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please
 JavaScript Runtime
 ------------------
 
-You'll also need a JavaScript runtime to translate our CoffeeScript code to JavaScript and a few other things.  Mac OS X users already have _JavaScript Core_ and don't need to do anything.  Linux users will probably want NodeJS, which should have been installed in the `apt-get install` step above. Other options can be found at the [execjs homepage](https://github.com/sstephenson/execjs).
+You'll also need a JavaScript runtime to translate our CoffeeScript code to JavaScript and a few other things.   We use Node.js for this. Mac OS X users can download the installer from [node.js](http://nodejs.org). Linux users should already have it from the `apt-get install` step above.
 
 Data setup
 ========
