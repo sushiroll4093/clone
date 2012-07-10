@@ -67,7 +67,7 @@ $ sudo apt-get install ruby ruby-dev zlib1g-dev rake rubygems libxml2-dev libxsl
 
 ### Mac OS X
 
-For OS X, you'll need to install [Xcode](http://developer.apple.com/tools/xcode/), and make sure you have Ruby 1.8.7. You can find out what version of Ruby your Mac came with by running:
+For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 1.8.7. You can find out what version of Ruby your Mac came with by running:
 
 ```
 $ ruby -v
