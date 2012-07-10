@@ -466,6 +466,7 @@ To run it manually from a Homebrew installation, run the command: `redis-server 
 
 Now we need to go back to your canvas-lms directory and edit a configuration file. Inside the config folder, we're going to copy [cache_store.yml.example](https://github.com/instructure/canvas-lms/blob/stable/config/cache_store.yml.example) and edit it:
 ```
+sysadmin@appserver:/var/rails/canvas$ cd /var/rails/canvas/
 sysadmin@appserver:/var/rails/canvas$ cp config/cache_store.yml.example config/cache_store.yml
 sysadmin@appserver:/var/rails/canvas$ nano config/cache_store.yml
 ```
