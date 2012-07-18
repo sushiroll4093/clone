@@ -22,7 +22,7 @@ Getting Help
  * You can read our [[FAQ]].
  * You can visit our [general Canvas usage support portal](http://support.instructure.com/).
  * You can visit our [Vimeo Channel](https://vimeo.com/instructure).
- * You can read our [API docs](http://canvas.instructure.com/doc/api/index.html).
+ * You can read our [API docs](http://api.instructure.com).
 
 Contributing
 -----------
