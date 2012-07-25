@@ -36,10 +36,12 @@ You can run Postgres on the same server you're going to run Canvas on, or not. I
 If Postgres isn't already on the host you are planning on running your database on, if the host is Debian/Ubuntu, then this is as easy as 
 
 ```
-sysadmin@dbserver:~$ sudo apt-get install postgresql
+sysadmin@dbserver:~$ sudo apt-get install postgresql-9.1
 ```
 
 N.B., if you're running MacOS X and using the excellent [Homebrew](https://github.com/mxcl/homebrew) tool, then you can just run `brew install postgres`. Note that you need [Xcode](http://developer.apple.com/tools/xcode/) though.
+
+Be sure you're running at least Postgres version 9.1.
 
 ### Running Postgres on a different server
 
@@ -53,13 +55,11 @@ You'll want to set up a Canvas user inside of Postgres. To do this, you will nee
 You'll also want to pick a good password to replace *canvas_database_password*. Note that you can also change the name of the databases if you so choose. The configuration file where you tell Canvas about how to connect to this database will need to have the database name changed as well.
 
 ```
-sysadmin@dbserver:~$ psql postgres
-> create database canvas_production;
-> create database canvas_queue_production;
-> create user 'canvas'@'localhost' identified by 'canvas_database_password';
-> grant all privileges on canvas_production.* to 'canvas'@'localhost' with grant option;
-> grant all privileges on canvas_queue_production.* to 'canvas'@'localhost' with grant option;
-> exit
+sysadmin@dbserver:~$ psql -h localhost canvas_production
+> create user canvas password 'canvas_database_password';
+> \q
+sysadmin@dbserver:~$ createdb -h localhost canvas_production -O canvas
+sysadmin@dbserver:~$ createdb -h localhost canvas_queue_production -O canvas
 ```
 
 Getting the code
