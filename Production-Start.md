@@ -8,7 +8,7 @@ If you need help installing Canvas or troubleshooting your installation, your be
 Prerequisites
 -------------
 
-We assume you are minimally familiar with website configuration and administration - specifically, [Apache](http://httpd.apache.org/) and/or generic [Ruby on Rails](http://rubyonrails.org/) setups. It also doesn't hurt to have a small working knowledge of [Git](http://git-scm.com/), [MySQL](http://www.mysql.com/), and [Passenger](http://www.modrails.com/). We'll point out in this tutorial places where you may need to go learn about these components.
+We assume you are minimally familiar with website configuration and administration - specifically, [Apache](http://httpd.apache.org/) and/or generic [Ruby on Rails](http://rubyonrails.org/) setups. It also doesn't hurt to have a small working knowledge of [Git](http://git-scm.com/), [Postgres](http://www.postgresql.org/), and [Passenger](http://www.modrails.com/). We'll point out in this tutorial places where you may need to go learn about these components.
 
 Secondly, this tutorial is targeting POSIX-based systems (like Mac OS X and Linux). This tutorial was written and tested using Ubuntu's latest LTS 10.04.1. If you have a different system, consider setting up a server or virtual machine running the latest [Ubuntu LTS](http://www.ubuntu.com/). We'll assume you've either done so or are familiar with these working parts enough to do translations yourself.
 
