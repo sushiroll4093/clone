@@ -45,7 +45,7 @@ Be sure you're running at least Postgres version 9.1.
 
 ### Running Postgres on a different server
 
-If you are running Postgres on a different server than the server that Canvas will be running on, you'll need to make sure Postgres is listening to connections from foreign clients. You can do this by editing `/etc/mysql/my.cnf` and commenting out the line that specifies a *bind-address* of *127.0.0.1*.
+If you are running Postgres on a different server than the server that Canvas will be running on, you'll need to make sure Postgres is listening to connections from foreign clients. You can do this by editing `postgresql.conf` and `pg_hba.conf` as described in [the Postgres documentation] (http://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html).
 
 Configuring Postgres
 -----------------
