@@ -26,34 +26,34 @@ For the purposes of this tutorial, we will be referring to the server (possibly 
 Database installation and configuration
 ======
 
-Installing MySQL
+Installing Postgres
 ---------
 
-Rails, the library Canvas uses, supports many database adapters, but we primarily use two - MySQL and SQLite (for testing). Since this tutorial is for setting up a production environment, we recommend MySQL.
+Rails, the library Canvas uses, supports many database adapters, but we primarily use - Postgres and SQLite (for testing). Since this tutorial is for setting up a production environment, we recommend Postgres.
 
-You can run MySQL on the same server you're going to run Canvas on, or not. It really doesn't matter. Just make sure the server you're running Canvas on can talk to the MySQL database.
+You can run Postgres on the same server you're going to run Canvas on, or not. It really doesn't matter. Just make sure the server you're running Canvas on can talk to the Postgres database.
 
-If MySQL isn't already on the host you are planning on running your database on, if the host is Debian/Ubuntu, then this is as easy as 
+If Postgres isn't already on the host you are planning on running your database on, if the host is Debian/Ubuntu, then this is as easy as 
 
 ```
-sysadmin@dbserver:~$ sudo apt-get install mysql-server libmysqlclient-dev
+sysadmin@dbserver:~$ sudo apt-get install postgresql
 ```
 
-N.B., if you're running MacOS X and using the excellent [Homebrew](https://github.com/mxcl/homebrew) tool, then you can just run `brew install mysql`. Note that you need [Xcode](http://developer.apple.com/tools/xcode/) though.
+N.B., if you're running MacOS X and using the excellent [Homebrew](https://github.com/mxcl/homebrew) tool, then you can just run `brew install postgres`. Note that you need [Xcode](http://developer.apple.com/tools/xcode/) though.
 
-### Running MySQL on a different server
+### Running Postgres on a different server
 
-If you are running MySQL on a different server than the server that Canvas will be running on, you'll need to make sure MySQL is listening to connections from foreign clients. You can do this by editing `/etc/mysql/my.cnf` and commenting out the line that specifies a *bind-address* of *127.0.0.1*.
+If you are running Postgres on a different server than the server that Canvas will be running on, you'll need to make sure Postgres is listening to connections from foreign clients. You can do this by editing `/etc/mysql/my.cnf` and commenting out the line that specifies a *bind-address* of *127.0.0.1*.
 
-Configuring MySQL
+Configuring Postgres
 -----------------
 
-You'll want to set up a Canvas user inside of MySQL. To do this, you will need to execute some SQL commands to create the necessary user and databases. Note that in the below commands, you'll want to replace *localhost* with the hostname of the server Canvas is running on, if Canvas is running on a different server than MySQL.
+You'll want to set up a Canvas user inside of Postgres. To do this, you will need to execute some SQL commands to create the necessary user and databases. Note that in the below commands, you'll want to replace *localhost* with the hostname of the server Canvas is running on, if Canvas is running on a different server than Postgres.
 
 You'll also want to pick a good password to replace *canvas_database_password*. Note that you can also change the name of the databases if you so choose. The configuration file where you tell Canvas about how to connect to this database will need to have the database name changed as well.
 
 ```
-sysadmin@dbserver:~$ mysql -u root -p
+sysadmin@dbserver:~$ psql postgres
 > create database canvas_production;
 > create database canvas_queue_production;
 > create user 'canvas'@'localhost' identified by 'canvas_database_password';
