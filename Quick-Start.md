@@ -74,7 +74,7 @@ For OS X, you'll need to install the [Command Line Tools for Xcode](http://devel
 $ ruby -v
 ```
 
-You also the [xmlsec library](http://www.aleksey.com/xmlsec/) installed. The easiest way to get that is via [homebrew](http://mxcl.github.com/homebrew/). Once you have homebrew installed, just run:
+You also need the [xmlsec library](http://www.aleksey.com/xmlsec/) installed. The easiest way to get that is via [homebrew](http://mxcl.github.com/homebrew/). Once you have homebrew installed, just run:
 
 ```
 $ brew install libxmlsec1
