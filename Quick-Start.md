@@ -62,7 +62,8 @@ We now need to install the Ruby libraries and packages that Canvas needs. On Deb
 
 ```
 $ sudo apt-get install ruby ruby-dev zlib1g-dev rake rubygems libxml2-dev libxslt1-dev \
-                       libsqlite3-dev libhttpclient-ruby imagemagick irb coffeescript
+                       libsqlite3-dev libhttpclient-ruby imagemagick irb coffeescript \
+                       libxmlsec1-dev
 ```
 
 ### Mac OS X
@@ -71,6 +72,12 @@ For OS X, you'll need to install the [Command Line Tools for Xcode](http://devel
 
 ```
 $ ruby -v
+```
+
+You also the [xmlsec library](http://www.aleksey.com/xmlsec/) installed. The easiest way to get that is via [homebrew](http://mxcl.github.com/homebrew/). Once you have homebrew installed, just run:
+
+```
+$ brew install libxmlsec1
 ```
 
 Ruby Gems
