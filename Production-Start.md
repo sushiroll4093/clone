@@ -219,13 +219,13 @@ sysadmin@appserver:/var/rails/canvas$ for config in amazon_s3 database delayed_j
 Database configuration
 -------------
 
-Now we need to set up your database configuration to point to your MySQL server and your production databases. Open the file *config/database.yml*, and find the **production** environment section. You can open this file with an editor like this:
+Now we need to set up your database configuration to point to your Postgres server and your production databases. Open the file *config/database.yml*, and find the **production** environment section. You can open this file with an editor like this:
 
 ```
 sysadmin@appserver:/var/rails/canvas$ nano config/database.yml
 ```
 
-Update this section to reflect your MySQL server's location and authentication credentials. This is the place you will put the password and database name, along with anything else you set up, from the MySQL setup steps.
+Update this section to reflect your Postgres server's location and authentication credentials. This is the place you will put the password and database name, along with anything else you set up, from the Postgres setup steps.
 
 Outgoing mail configuration
 ---------------
