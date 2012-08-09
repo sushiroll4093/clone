@@ -55,8 +55,7 @@ You'll want to set up a Canvas user inside of Postgres. To do this, you will nee
 You'll also want to pick a good password to replace *canvas_database_password*. Note that you can also change the name of the databases if you so choose. The configuration file where you tell Canvas about how to connect to this database will need to have the database name changed as well.
 
 ```
-sysadmin@dbserver:~$ createdb canvas_production
-sysadmin@dbserver:~$ psql -h localhost canvas_production
+sysadmin@dbserver:~$ psql -h localhost
 > create user canvas password 'canvas_database_password';
 > \q
 sysadmin@dbserver:~$ createdb -h localhost canvas_production -O canvas
