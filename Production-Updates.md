@@ -10,23 +10,23 @@ Here are my notes (haven't been fully tested - in the process):
 
 * $ cp /var/rails/canvas/config /var/rails/canvas/config-old
 
-* sudo cp -av * /var/rails/canvas
+* $ sudo cp -av * /var/rails/canvas
 
-* sudo touch Gemfile.lock
+* $ sudo touch Gemfile.lock
 
-* sudo bundle install
+* $ sudo bundle install
 
-* sudo /etc/init.d/apache2 restart
+* $ sudo /etc/init.d/apache2 restart
 
 * Try It
  
 
 Errors? Try:
-* tail -n 1000 /var/rails/canvas/log/production.log
+* $ tail -n 1000 /var/rails/canvas/log/production.log
 
-* sudo $GEM_HOME/bin/bundle exec rake canvas:compile_assets
+* $ sudo $GEM_HOME/bin/bundle exec rake canvas:compile_assets
 
-* sudo bundle exec rake db:migrate
+* $ sudo bundle exec rake db:migrate
 
-* sudo chown -R canvasuser config/environment.rb log tmp public/assets \
-*                                                                public/stylesheets/compiled Gemfile.lock
+* $ sudo chown -R canvasuser config/environment.rb log tmp public/assets \
+                                                                public/stylesheets/compiled Gemfile.lock
