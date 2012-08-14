@@ -4,11 +4,11 @@ Here are my notes (haven't been fully tested - in the process):
 
 * These notes assume you followed the Production Start and we will use the same folder structure.
 
-* cd ~/canvas
+* $ cd ~/canvas
 
-* sudo git pull main-origin stable
+* $ sudo git pull main-origin stable
 
-* cp /var/rails/canvas/config /var/rails/canvas/config-old
+* $ cp /var/rails/canvas/config /var/rails/canvas/config-old
 
 * sudo cp -av * /var/rails/canvas
 
