@@ -25,6 +25,14 @@ Configuration and locally stored files
 
 If you did not upgrade using Git, you will need to know what files to replace, and what files to keep. In general, you want to keep anything in the `config` directory that ends in `.yml`. Further, if you are using local storage for uploaded files and attachments, you will want to preserve files in your local storage directory, which defaults to `tmp/files`
 
+Upgrade and Install Bundled Gems
+-------------
+After upgrading the source make sure to also upgrade all required gems:
+
+```
+$GEM_HOME/bin/bundle install
+```
+
 Compiled Assets
 -------------
 
