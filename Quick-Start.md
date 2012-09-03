@@ -153,6 +153,12 @@ Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please
 ~/canvas$ $GEM_HOME/bin/bundle install --without postgres mysql
 ```
 
+If there is a warning about libcurl being missing (Seen on Ubuntu 11.04) run the following, then the above command again.
+
+```
+apt-get install libcurl4-gnutls-dev
+```
+
 JavaScript Runtime
 ------------------
 
