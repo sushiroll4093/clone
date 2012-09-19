@@ -447,14 +447,14 @@ For more information on setting up Apache with SSL, please see [O'Reilly OnLamp.
 Cache configuration
 ========
 
-Canvas supports two different methods of caching: Memcache and redis. Below are instructions for setting up redis.
+Canvas supports two different methods of caching: Memcache and redis. However, there are some features of Canvas that require redis to use, such as OAuth2, so it's recommended that you use redis for caching as well to keep things simple.
 
-Note: With the introduction of OAuth2 into Canvas, setting up redis is a requirement. Delegated authentication through OAuth2 will not function without it.
+Below are instructions for setting up redis.
 
 Redis
 ----
 
-Required version: redis 2.2.x.
+Required version: redis 2.2.x or above. redis 2.6 has been confirmed to work.
 
 If you're using Homebrew on Mac OS X, you can install redis by running the command: `brew install redis`.
 
@@ -464,30 +464,42 @@ After installing redis, start the server. There are multiple options for doing t
 
 To run it manually from a Homebrew installation, run the command: `redis-server /usr/local/etc/redis.conf`.
 
-Now we need to go back to your canvas-lms directory and edit a configuration file. Inside the config folder, we're going to copy [cache_store.yml.example](https://github.com/instructure/canvas-lms/blob/stable/config/cache_store.yml.example) and edit it:
+Now we need to go back to your canvas-lms directory and edit the configuration. Inside the config folder, we're going to copy [cache_store.yml.example](https://github.com/instructure/canvas-lms/blob/stable/config/cache_store.yml.example) and edit it:
 ```
 sysadmin@appserver:/var/rails/canvas$ cd /var/rails/canvas/
 sysadmin@appserver:/var/rails/canvas$ cp config/cache_store.yml.example config/cache_store.yml
 sysadmin@appserver:/var/rails/canvas$ nano config/cache_store.yml
 ```
 
-The file starts with all caching methods commented out. Uncomment the redis portion of the config file and update it to appropriately point to the server that is running redis. In our example, redis is running on the same server as Canvas.
+The file starts with all caching methods commented out. Uncomment the `cache_store: redis_store` line of the config file. 
 
-```
+```yaml
 # if this file doesn't exist, memcache will be used if there are any
 # servers configured in config/memcache.yml
-development:
-  cache_store: mem_cache_store
-  # if no servers are specified, we'll look in config/memcache.yml
-  # servers:
-  # - localhost
-  #
+production:
   cache_store: redis_store
   # if no servers are specified, we'll look in config/redis.yml
+  # servers:
+  # - localhost
+  # database: 0
+```
+
+Then specify your redis instance information in `redis.yml`, by coping and editing [redis.yml.example](https://github.com/instructure/canvas-lms/blob/stable/config/redis.yml.example):
+```
+sysadmin@appserver:/var/rails/canvas$ cd /var/rails/canvas/
+sysadmin@appserver:/var/rails/canvas$ cp config/redis.yml.example config/redis.yml
+sysadmin@appserver:/var/rails/canvas$ nano config/redis.yml
+```
+
+```yaml
+production:
   servers:
   - localhost
-  database: 0
 ```
+
+In our example, redis is running on the same server as Canvas. That's not ideal in a production setup, since Rails and redis are both memory-hungry. Just change 'localhost' to the address of your redis instance server.
+
+Canvas has the option of using a different redis instance for cache and for other data. The simplest option is to use the same redis instance for both. If you would like to split them up, keep the redis.yml config for data redis, but add another separate server list to cache_store.yml to specify which instance to use for caching.
 
 Save the file and restart Canvas.
 
