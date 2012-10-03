@@ -39,7 +39,7 @@ If Postgres isn't already on the host you are planning on running your database 
 sysadmin@dbserver:~$ sudo apt-get install postgresql-9.1
 ```
 
-N.B., if you're running MacOS X and using the excellent [Homebrew](https://github.com/mxcl/homebrew) tool, then you can just run `brew install postgres`. Note that you need [Xcode](http://developer.apple.com/tools/xcode/) though.
+N.B., if you're running MacOS X and using the excellent [Homebrew](https://github.com/mxcl/homebrew) tool, then you can just run `brew install postgresql`. Note that you need [Xcode](http://developer.apple.com/tools/xcode/) though.
 
 Be sure you're running at least Postgres version 9.1.
 
