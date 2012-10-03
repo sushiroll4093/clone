@@ -229,10 +229,15 @@ Ready, Set, Go!
 Now you just need to start the Canvas server! You will need to run the *script/server* daemon:
 
 ```
-~/canvas$ script/server
+~/canvas$ $GEM_HOME/bin/bundle exec script/server
 ```
 
 Open up a browser on the same computer as the one running the server and navigate to [[http://localhost:3000/]] and log in with the user credentials you set up during database configuration. If you don't have a browser running on the same computer, just use the hostname of the computer, and go to http://&lt;hostname&gt;:3000/.
+
+Logging in For the First Time
+===========
+
+Your username and password will be whatever you set it up to be during the `rake db:initial_setup` step above. (You should have seen a prompt on the command line that asked for your email and password.)
 
 A note about long-running jobs
 ========
