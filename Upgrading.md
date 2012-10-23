@@ -51,9 +51,12 @@ Often, there is some minor database migration that needs to happen for all of th
 $GEM_HOME/bin/bundle exec rake db:migrate
 ```
 
-If you are running a production environment, you will probably want to specify that.
+If you are running a production environment, you will probably want to specify that. In addition, to ensure less downtime, you can run "predeploy" migrations (changes to schema required for the new version, but backwards compatible with old, currently running code) separately prior to rolling the code out to your full production environment.
 
 ```
+<from a location with access to the production database, but not currently serving web requests or running jobs>
+RAILS_ENV=production $GEM_HOME/bin/bundle exec rake db:migrate:predeploy
+<deploy new code to running web servers and job servers>
 RAILS_ENV=production $GEM_HOME/bin/bundle exec rake db:migrate
 ```
 
