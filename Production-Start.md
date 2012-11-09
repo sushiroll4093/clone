@@ -129,15 +129,29 @@ Canvas currently requires Ruby 1.8.7 (or compatible, such as Ruby Enterprise Edi
 External dependencies
 -----------
 
+### Debian/Ubuntu 
+
 We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there's a few packages you're going to need to install. We recommend that you run:
 
 ```
 sysadmin@appserver:~$ sudo apt-get install ruby ruby-dev zlib1g-dev rake rubygems libxml2-dev \
               libmysqlclient-dev libxslt1-dev libsqlite3-dev libhttpclient-ruby nano imagemagick \
-              irb  libpq-dev nodejs libxmlsec1-dev libcurl-dev
+              irb  libpq-dev nodejs libxmlsec1-dev libcurl-dev libxmlsec1
 ```
 
-(note that for OS X, the vanilla Ruby that comes with your Mac should be fine, but you will need [Xcode](http://developer.apple.com/tools/xcode/))
+### Mac OS X
+
+For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 1.8.7. You can find out what version of Ruby your Mac came with by running:
+
+```
+$ ruby -v
+```
+
+You also need the [xmlsec library](http://www.aleksey.com/xmlsec/) installed. The easiest way to get that is via [homebrew](http://mxcl.github.com/homebrew/). Once you have homebrew installed, just run:
+
+```
+$ brew install xmlsec1
+```
 
 Ruby Gems
 ------------
