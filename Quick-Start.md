@@ -77,7 +77,7 @@ $ ruby -v
 You also need the [xmlsec library](http://www.aleksey.com/xmlsec/) installed. The easiest way to get that is via [homebrew](http://mxcl.github.com/homebrew/). Once you have homebrew installed, just run:
 
 ```
-$ brew install libxmlsec1
+$ brew install xmlsec1
 ```
 
 Ruby Gems
