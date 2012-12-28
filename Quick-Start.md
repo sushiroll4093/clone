@@ -51,7 +51,7 @@ Wherever you check out the code to, we're going to call that your application ro
 Dependency Installation
 ==========
 
-Canvas currently requires Ruby 1.8.7 (or compatible, such as Ruby Enterprise Edition). Ruby 1.9.2 support is in the works.
+Canvas currently supports Ruby 1.9.3 and Ruby 1.8.7. It's recommended that you use 1.9.3, as support for Ruby 1.8 will be dropped.
 
 External dependencies
 -----------
