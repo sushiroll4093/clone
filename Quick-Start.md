@@ -66,6 +66,14 @@ $ sudo apt-get install ruby ruby-dev zlib1g-dev rake rubygems libxml2-dev libxsl
                        libxmlsec1-dev
 ```
 
+Node.js instalation:
+
+```
+$ sudo add-apt-repository ppa:chris-lea/node.js
+$ sudo apt-get update
+$ sudo apt-get install nodejs
+```
+
 ### Mac OS X
 
 For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 1.8.7. You can find out what version of Ruby your Mac came with by running:
