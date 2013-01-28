@@ -63,10 +63,10 @@ We now need to install the Ruby libraries and packages that Canvas needs. On Deb
 ```
 $ sudo apt-get install ruby ruby-dev zlib1g-dev rake rubygems libxml2-dev libxslt1-dev \
                        libsqlite3-dev libhttpclient-ruby imagemagick irb coffeescript \
-                       libxmlsec1-dev
+                       libxmlsec1-dev postgresql
 ```
 
-Node.js instalation:
+Node.js installation:
 
 ```
 $ sudo add-apt-repository ppa:chris-lea/node.js
@@ -82,10 +82,10 @@ For OS X, you'll need to install the [Command Line Tools for Xcode](http://devel
 $ ruby -v
 ```
 
-You also need the [xmlsec library](http://www.aleksey.com/xmlsec/) installed. The easiest way to get that is via [homebrew](http://mxcl.github.com/homebrew/). Once you have homebrew installed, just run:
+You also need Postgres and the [xmlsec library](http://www.aleksey.com/xmlsec/) installed. The easiest way to get these is via [homebrew](http://mxcl.github.com/homebrew/). Once you have homebrew installed, just run:
 
 ```
-$ brew install xmlsec1
+$ brew install xmlsec1 postgresql
 ```
 
 Ruby Gems
@@ -154,11 +154,11 @@ $ gem install bundler
 Canvas Dependencies
 ---------
 
-Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler.  Since we are using SQLite for this Quick Start and don't want to require you to bother with installing and configuring MySQL or Postgres (for that, please see [[Production Start]]), we'll need to tell bundler to ignore them.
+Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler.  Since we are using PostgreSQL for this Quick Start and don't want to require you to bother with installing and configuring MySQL, we'll need to tell bundler to ignore it.
 
 ```
 ~$ cd canvas
-~/canvas$ $GEM_HOME/bin/bundle install --without postgres mysql
+~/canvas$ $GEM_HOME/bin/bundle install --without mysql
 ```
 
 If there is a warning about libcurl being missing (Seen on Ubuntu 11.04) run the following, then the above command again.
@@ -188,10 +188,12 @@ Before we set up all the tables in your database, our Rails code depends on a sm
 Database configuration
 ---------
 
-Now we need to set up your database configuration. We have provided a sample file for quickstarts, so you just need to copy it in.
+Now we need to set up your database configuration. We have provided a sample file for quickstarts, so you just need to copy it in. You'll also want to create two databases. Depending on your OS (i.e. on Linux), you may need to use a postgres user to create the database, and configure database.yml to use a specific username to connect. See the [[Production Start]] tutorial for details on doing that. On OS X, your local user will have permissions create databases already, so no special configuration is necessary.
 
 ```
-~/canvas$ cp config/database.yml.sqlite-example config/database.yml
+~/canvas$ cp config/database.yml.example config/database.yml
+~/canvas$ createdb canvas_development
+~/canvas$ createdb canvas_queue_development
 ```
 
 Database population
