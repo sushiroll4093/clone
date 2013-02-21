@@ -61,8 +61,8 @@ External dependencies
 We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install. We recommend that you run:
 
 ```
-$ sudo apt-get install ruby1.9.1 ruby1.9.1-dev zlib1g-dev rake rubygems libxml2-dev libxslt1-dev \
-                       libsqlite3-dev libhttpclient-ruby imagemagick irb coffeescript \
+$ sudo apt-get install ruby1.9.1 ruby1.9.1-dev zlib1g-dev rubygems1.9.1 libxml2-dev libxslt1-dev \
+                       libsqlite3-dev libhttpclient-ruby imagemagick irb1.9.1 coffeescript \
                        libxmlsec1-dev postgresql
 ```
 
