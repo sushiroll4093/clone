@@ -51,7 +51,7 @@ Wherever you check out the code to, we're going to call that your application ro
 Dependency Installation
 ==========
 
-Canvas currently supports Ruby 1.9.3 and Ruby 1.8.7. It's recommended that you use 1.9.3, as support for Ruby 1.8 will be dropped.
+Canvas requires Ruby 1.9.3. A minimum version of 1.9.3p286 is recommended. If you are using Debian/Ubuntu, note that apt refers to ruby 1.9.3 as ruby1.9.1 for compatibility reasons.
 
 External dependencies
 -----------
@@ -61,7 +61,7 @@ External dependencies
 We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install. We recommend that you run:
 
 ```
-$ sudo apt-get install ruby ruby-dev zlib1g-dev rake rubygems libxml2-dev libxslt1-dev \
+$ sudo apt-get install ruby1.9.1 ruby1.9.1-dev zlib1g-dev rake rubygems libxml2-dev libxslt1-dev \
                        libsqlite3-dev libhttpclient-ruby imagemagick irb coffeescript \
                        libxmlsec1-dev postgresql
 ```
@@ -76,7 +76,7 @@ $ sudo apt-get install nodejs
 
 ### Mac OS X
 
-For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 1.8.7. You can find out what version of Ruby your Mac came with by running:
+For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 1.9.3. You can find out what version of Ruby your Mac came with by running:
 
 ```
 $ ruby -v
@@ -91,47 +91,12 @@ $ brew install xmlsec1 postgresql
 Ruby Gems
 ------------
 
-Most of Canvas' dependencies are Ruby Gems. Ruby Gems are a Ruby-specific package management system that currently operates orthogonally to operating-system package management systems. While we hope to eventually make packages of Canvas for various packaging systems soon, until we do, the Ruby Gems system will be required.
-
-### Upgrading Ruby Gems to 1.3.6 or later
-
-If you ran the above Ubuntu/Debian dependency installation command or are running OS X, you either have or just installed Ruby Gems. Unfortunately, many operating systems don't provide a recent enough Ruby Gems framework to support Canvas, as Canvas requires the use of Ruby Gems 1.3.6 or newer. To find out what version of Ruby Gems you have, you can run
-
-```
-$ gem -v
-```
-
-If you run Ubuntu, you can upgrade Ruby Gems to 1.3.6 or later easily using an Ubuntu PPA (or something similar). For Ubuntu 10.04, we recommend trying [Mackenzie Morgan's Ruby Gem backport PPA](https://launchpad.net/~maco.m/+archive/ruby). If you have the *python-software-properties* package installed (most Ubuntu installations do), you can add this PPA and upgrade Ruby Gems as follows:
-
-```
-$ sudo apt-add-repository ppa:maco.m/ruby
-```
-
-If you have trouble adding the PPA or you are behind a Corporate firewall, please see [this trick](http://rockycode.com/blog/using-ubuntu-ppa-repositories-behind-firewall/) for enabling apt on port 80.  Once you have successfully added the PPA, update and install rubygems:
-
-```
-$ sudo apt-get update
-$ sudo apt-get install rubygems
-```
-
-If you are running OS X or otherwise cannot use the above Ubuntu PPA, you can also try the following (assuming you at least have some version of Ruby Gems installed):
-
-```
-$ sudo gem update --system
-```
-
-It is possible that even the above command won't work. If it ran, and `gem -v` shows 1.3.6 or newer, you're fine. However, some very old versions of Ruby Gems will require even more work first, like so:
-
-```
-$ sudo gem install rubygems-update
-$ sudo /var/lib/gems/1.8/bin/update_rubygems
-$ sudo gem update --system
-```
+Most of Canvas' dependencies are Ruby Gems. Ruby Gems are a Ruby-specific package management system that operates orthogonally to operating-system package management systems.
 
 Installing Gems to a user folder
 ------
 
-Once you have the latest Ruby Gems, we want to configure where Ruby Gems will install packages to. You can do this by setting the *GEM_HOME* environment variable prior to running either Ruby Gems, Bundler (described below), or Canvas.
+We want to configure where Ruby Gems will install packages to. You can do this by setting the *GEM_HOME* environment variable prior to running either Ruby Gems, Bundler (described below), or Canvas.
 
 ```
 $ mkdir ~/gems
