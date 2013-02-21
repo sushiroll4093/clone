@@ -124,7 +124,7 @@ sysadmin@appserver:/var/rails/canvas$
 Dependency Installation
 ==========
 
-Canvas currently supports Ruby 1.9.3 and Ruby 1.8.7. It's recommended that you use 1.9.3, as support for Ruby 1.8 will be dropped.
+Canvas requires Ruby 1.9.3. A minimum version of 1.9.3p286 is recommended. If you are using Debian/Ubuntu, note that apt refers to ruby 1.9.3 as ruby1.9.1 for compatibility reasons.
 
 External dependencies
 -----------
@@ -134,14 +134,14 @@ External dependencies
 We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there's a few packages you're going to need to install. We recommend that you run:
 
 ```
-sysadmin@appserver:~$ sudo apt-get install ruby ruby-dev zlib1g-dev rake rubygems libxml2-dev \
+sysadmin@appserver:~$ sudo apt-get install ruby1.9.1 ruby1.9.1-dev rubygems1.9.1 zlib1g-dev libxml2-dev \
               libmysqlclient-dev libxslt1-dev libsqlite3-dev libhttpclient-ruby nano imagemagick \
-              irb  libpq-dev nodejs libxmlsec1-dev libcurl-dev libxmlsec1
+              irb1.9.1 libpq-dev nodejs libxmlsec1-dev libcurl-dev libxmlsec1
 ```
 
 ### Mac OS X
 
-For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 1.8.7. You can find out what version of Ruby your Mac came with by running:
+For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 1.9.3. You can find out what version of Ruby your Mac came with by running:
 
 ```
 $ ruby -v
@@ -156,39 +156,7 @@ $ brew install xmlsec1
 Ruby Gems
 ------------
 
-Most of Canvas' dependencies are Ruby Gems. Ruby Gems are a Ruby-specific package management system that currently operates orthogonally to operating-system package management systems. While we hope to eventually make packages of Canvas for various packaging systems soon, until we do, the Ruby Gems system will be required.
-
-### Upgrading Ruby Gems to 1.3.6 or later
-
-If you ran the above dependency installation command, you just installed Ruby Gems. Unfortunately, Ubuntu 10.04 doesn't provide a recent enough Ruby Gems framework to support Canvas, as Canvas requires the use of Ruby Gems 1.3.6 or newer. To find out what version of Ruby Gems you have, you can run
-
-```
-sysadmin@appserver:~$ gem -v
-1.3.7
-sysadmin@appserver:~$
-```
-
-You can upgrade Ruby Gems to 1.3.6 or newer easily using an Ubuntu PPA (or something similar). For Ubuntu 10.04, we recommend trying [Mackenzie Morgan's Ruby Gem backport PPA](https://launchpad.net/~maco.m/+archive/ruby). If you have the *python-software-properties* package installed (most Ubuntu installations do), you can add this PPA and upgrade Ruby Gems as follows:
-
-```
-sysadmin@appserver:~$ sudo apt-add-repository ppa:maco.m/ruby
-sysadmin@appserver:~$ sudo apt-get update
-sysadmin@appserver:~$ sudo apt-get install rubygems
-```
-
-If you cannot use the above Ubuntu PPA, you can also do the following (assuming you have at least one version of Ruby Gems installed):
-
-```
-sysadmin@appserver:~$ sudo gem update --system
-```
-
-Some very old versions of Ruby Gems require even more steps:
-
-```
-sysadmin@appserver:~$ sudo gem install rubygems-update
-sysadmin@appserver:~$ sudo /var/lib/gems/1.8/bin/update_rubygems
-sysadmin@appserver:~$ sudo gem update --system
-```
+Most of Canvas' dependencies are Ruby Gems. Ruby Gems are a Ruby-specific package management system that operates orthogonally to operating-system package management systems.
 
 Installing Gems to a user folder
 ------
