@@ -84,7 +84,7 @@ and set it up in Apache if interested.
 Kaltura install
 ------------
 
-Download [KalturaCE](http://www.kaltura.org/project/community_edition_video_platform) (kalturaCE_v3.0.0.tgz). You need an account to get it. Instructure runs a slightly tweaked version available [here](http://packages.instructure.com/kalturaCE_v3.0.0-instructure.tar.gz), but we recommend you install the official version.
+Download [KalturaCE](http://www.kaltura.org/project/community_edition_video_platform) (kalturaCE_v3.0.0.tgz). You need an account to get it. Instructure runs a slightly tweaked version available [here](https://s3.amazonaws.com/instructure-kaltura/kalturaCE_v3.0.0-instructure.tar.gz), but we recommend you install the official version.
 
 ```
 cd ~
