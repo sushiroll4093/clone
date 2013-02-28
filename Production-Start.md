@@ -67,16 +67,6 @@ sysadmin@dbserver:~$ createdb -h localhost canvas_production -O canvas
 sysadmin@dbserver:~$ createdb -h localhost canvas_queue_production -O canvas
 ```
 
-Installing some Prerequisites (ubuntu 12.04LTS server)
-============
-A fresh install of ubuntu 12.04 server requires some extras installed for canvas and ruby to play nice with it all. also when asked in the guide to install libcurl-dev remove it from the list to install as it is taken care of by the libcurl4-gnutils-dev package. 
-
-```
-sudo apt-get install build-essential
-sudo apt-get install libcurl4-gnutls-dev
-sudo apt-get install openjdk-7-jre
-```
-
 Getting the code
 ======
 
@@ -138,6 +128,17 @@ sysadmin@appserver:/var/rails/canvas$
 
 Dependency Installation
 ==========
+
+Installing some Prerequisites (ubuntu 12.04LTS server)
+---------------
+A fresh install of ubuntu 12.04 server requires some extras installed for canvas and ruby to play nice with it all. also when asked in the guide to install libcurl-dev remove it from the list to install as it is taken care of by the libcurl4-gnutils-dev package. 
+
+```
+sudo apt-get install build-essential
+sudo apt-get install libcurl4-gnutls-dev
+sudo apt-get install openjdk-7-jre
+```
+
 
 Canvas requires Ruby 1.9.3. A minimum version of 1.9.3p286 is recommended. If you are using Debian/Ubuntu, note that apt refers to ruby 1.9.3 as ruby1.9.1 for compatibility reasons.
 
