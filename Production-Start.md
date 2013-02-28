@@ -74,6 +74,7 @@ A fresh install of ubuntu 12.04 server requires some extras installed for canvas
 ```
 sudo apt-get install build-essential
 sudo apt-get install libcurl4-gnutls-dev
+sudo apt-get install openjdk-7-jre
 ```
 
 Getting the code
