@@ -18,7 +18,7 @@ Other factors that should be considered:
 * Must be accessible to screen readers and other assistive technology devices
 
 ## Places to Start
-If you're new to Canvas development, there are guides in this wiki for getting your dev environment set up (including getting specs running). Make sure you've given us a signed code contributor agreement, then *start with something small*. Get to know the commit process with something small like a bug fix or a UI tweak. If you're not sure where to start post a message on the mailing list.
+If you're new to Canvas development, there are guides in this wiki for getting your dev environment set up (including getting specs running). Make sure you've given us a signed [[code contributor agreement|ica.pdf]], then *start with something small*. Get to know the commit process with something small like a bug fix or a UI tweak. If you're not sure where to start post a message on the mailing list.
 
 Once you've got your feet under you then you can start working on larger projects. For anything more than a bug fix, it probably makes sense to coordinate through the mailing list, since it's possible someone else is working on the same thing.
 
