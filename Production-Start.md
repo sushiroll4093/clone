@@ -54,12 +54,26 @@ You'll want to set up a Canvas user inside of Postgres. To do this, you will nee
 
 You'll also want to pick a good password to replace *canvas_database_password*. Note that you can also change the name of the databases if you so choose. The configuration file where you tell Canvas about how to connect to this database will need to have the database name changed as well.
 
+Ubuntu 12.04 tips
+----------------
+dont forget to su - postgres 
+it also asked for a mysterious password when using flag -h localhost so drop that as well. and everything will work perfectly.
+
 ```
 sysadmin@dbserver:~$ psql -h localhost
 > create user canvas password 'canvas_database_password';
 > \q
 sysadmin@dbserver:~$ createdb -h localhost canvas_production -O canvas
 sysadmin@dbserver:~$ createdb -h localhost canvas_queue_production -O canvas
+```
+
+Installing some Prerequisites (ubuntu 12.04LTS server)
+============
+A fresh install of ubuntu 12.04 server requires some extras installed for canvas and ruby to play nice with it all. also when asked in the guide to install libcurl-dev remove it from the list to install as it is taken care of by the libcurl4-gnutils-dev package. 
+
+```
+sudo apt-get install build-essential
+sudo apt-get install libcurl4-gnutls-dev
 ```
 
 Getting the code
