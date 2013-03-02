@@ -35,9 +35,7 @@ You can run Postgres on the same server you're going to run Canvas on, or not. I
 
 If Postgres isn't already on the host you are planning on running your database on, if the host is Debian/Ubuntu, then this is as easy as 
 
-```
-sysadmin@dbserver:~$ sudo apt-get install postgresql-9.1
-```
+    sysadmin@dbserver:~$ sudo apt-get install postgresql-9.1
 
 N.B., if you're running MacOS X and using the excellent [Homebrew](https://github.com/mxcl/homebrew) tool, then you can just run `brew install postgresql`. Note that you need [Xcode](http://developer.apple.com/tools/xcode/) though.
 
@@ -50,22 +48,16 @@ If you are running Postgres on a different server than the server that Canvas wi
 Configuring Postgres
 -----------------
 
-You'll want to set up a Canvas user inside of Postgres. To do this, you will need to execute some SQL commands to create the necessary user and databases. Note that in the below commands, you'll want to replace *localhost* with the hostname of the server Canvas is running on, if Canvas is running on a different server than Postgres.
-
-You'll also want to pick a good password to replace *canvas_database_password*. Note that you can also change the name of the databases if you so choose. The configuration file where you tell Canvas about how to connect to this database will need to have the database name changed as well.
+You'll want to set up a Canvas user inside of Postgres. e that in the below commands, you'll want to replace *localhost* with the hostname of the server Canvas is running on, if Canvas is running on a different server than Postgres.
 
 Ubuntu 12.04 tips
 ----------------
-dont forget to su - postgres 
-it also asked for a mysterious password when using flag -h localhost so drop that as well. and everything will work perfectly.
 
-```
-sysadmin@dbserver:~$ psql -h localhost
-> create user canvas password 'canvas_database_password';
-> \q
-sysadmin@dbserver:~$ createdb -h localhost canvas_production -O canvas
-sysadmin@dbserver:~$ createdb -h localhost canvas_queue_production -O canvas
-```
+    # createuser will prompt you for a password for database user
+    sysadmin@dbserver:~$ sudo -u postgres createuser canvas --no-createdb \
+       --no-superuser --no-createrole --pwprompt
+    sysadmin@dbserver:~$ sudo -u postgres createdb canvas_production --owner=canvas
+    sysadmin@dbserver:~$ sudo -u postgres createdb canvas_queue_production --owner=canvas
 
 Getting the code
 ======
@@ -77,17 +69,13 @@ Using Git
 
 You can install [Git](http://git-scm.com/) on Debian/Ubuntu by running
 
-```
-sysadmin@appserver:~$ sudo apt-get install git-core
-```
+    sysadmin@appserver:~$ sudo apt-get install git-core
 
 Once you have a copy of Git installed on your system, getting the latest source for Canvas is as simple as checking out code from the repo, like so:
 
-```
-sysadmin@appserver:~$ git clone https://github.com/instructure/canvas-lms.git canvas
-sysadmin@appserver:~$ cd canvas
-sysadmin@appserver:~/canvas$ git checkout --track -b stable origin/stable
-```
+    sysadmin@appserver:~$ git clone https://github.com/instructure/canvas-lms.git canvas
+    sysadmin@appserver:~$ cd canvas
+    sysadmin@appserver:~/canvas$ git branch --set-upstream stable origin/stable
 
 Using a Tarball or a Zip
 -----------------
@@ -101,102 +89,74 @@ Code installation
 ======
 
 We need to put the Canvas code in the location where it will run from. On a Unix machine, choosing something like the following is a good choice:
-```
-/var/rails/canvas
-```
+
+    /var/canvas
 
 Take your tarball or your checkout and make sure you move the contents to this directory you've chosen such that all of the directories inside the canvas directory (app, config, db, doc, public, etc). all exist inside this new directory you chose.
 
-We'll be referring to */var/rails/canvas* (or whatever you chose) as your Rails application root.
+We'll be referring to */var/canvas* (or whatever you chose) as your Rails application root.
 
 As an example:
 
-```
-sysadmin@appserver:~$ sudo mkdir -p /var/rails/canvas
-sysadmin@appserver:~$ sudo chown -R sysadmin /var/rails/canvas
-sysadmin@appserver:~$ cd canvas
-sysadmin@appserver:~/canvas$ ls
-app     db   Gemfile  log     Rakefile  spec  tmp
-config  doc  lib      public  script    test  vendor
-sysadmin@appserver:~/canvas$ cp -av * /var/rails/canvas
-sysadmin@appserver:~/canvas$ cd /var/rails/canvas
-sysadmin@appserver:/var/rails/canvas$ ls
-app     db   Gemfile  log     Rakefile  spec  tmp
-config  doc  lib      public  script    test  vendor
-sysadmin@appserver:/var/rails/canvas$
-```
+    sysadmin@appserver:~$ sudo mkdir -p /var/canvas
+    sysadmin@appserver:~$ sudo chown -R sysadmin /var/canvas
+    sysadmin@appserver:~$ cd canvas
+    sysadmin@appserver:~/canvas$ ls
+    app     db   Gemfile  log     Rakefile  spec  tmp
+    config  doc  lib      public  script    test  vendor
+    sysadmin@appserver:~/canvas$ cp -av * /var/canvas
+    sysadmin@appserver:~/canvas$ cd /var/canvas
+    sysadmin@appserver:/var/canvas$ ls
+    app     db   Gemfile  log     Rakefile  spec  tmp
+    config  doc  lib      public  script    test  vendor
+    sysadmin@appserver:/var/canvas$
 
 Dependency Installation
 ==========
 
-Installing some Prerequisites (ubuntu 12.04LTS server)
----------------
-A fresh install of ubuntu 12.04 server requires some extras installed for canvas and ruby to play nice with it all. also when asked in the guide to install libcurl-dev remove it from the list to install as it is taken care of by the libcurl4-gnutils-dev package. 
-
-```
-sudo apt-get install build-essential
-sudo apt-get install libcurl4-gnutls-dev
-sudo apt-get install openjdk-7-jre
-```
-
-
-Canvas requires Ruby 1.9.3. A minimum version of 1.9.3p286 is recommended. If you are using Debian/Ubuntu, note that apt refers to ruby 1.9.3 as ruby1.9.1 for compatibility reasons.
+Canvas requires Ruby 1.9.3. A minimum version of 1.9.3p286 is recommended.
 
 External dependencies
 -----------
 
 ### Debian/Ubuntu 
 
+Brightbox provides [updated versions of passenger and ruby](http://www.brightbox.co.uk/docs:ruby-ng) that you will want to get:
+
+    sudo apt-get install python-software-properties
+    sudo apt-add-repository ppa:brightbox/ruby-ng
+    sudo apt-get update
+
 We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there's a few packages you're going to need to install. We recommend that you run:
 
-```
-sysadmin@appserver:~$ sudo apt-get install ruby1.9.1 ruby1.9.1-dev rubygems1.9.1 zlib1g-dev libxml2-dev \
-              libmysqlclient-dev libxslt1-dev libsqlite3-dev libhttpclient-ruby nano imagemagick \
-              irb1.9.1 libpq-dev nodejs libxmlsec1-dev libcurl-dev libxmlsec1
-```
+
+    sysadmin@appserver:~$ sudo apt-get install ruby1.9.3 \
+      zlib1g-dev libxml2-dev libmysqlclient-dev libxslt1-dev \
+      imagemagick libpq-dev nodejs libxmlsec1-dev libcurl4-gnutls-dev \
+      libxmlsec1 build-essential openjdk-7-jre
 
 ### Mac OS X
 
 For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 1.9.3. You can find out what version of Ruby your Mac came with by running:
 
-```
-$ ruby -v
-```
+    $ ruby -v
 
 You also need the [xmlsec library](http://www.aleksey.com/xmlsec/) installed. The easiest way to get that is via [homebrew](http://mxcl.github.com/homebrew/). Once you have homebrew installed, just run:
 
-```
-$ brew install xmlsec1
-```
+    $ brew install xmlsec1
 
 Ruby Gems
 ------------
 
 Most of Canvas' dependencies are Ruby Gems. Ruby Gems are a Ruby-specific package management system that operates orthogonally to operating-system package management systems.
 
-Installing Gems to a user folder
-------
-
-Once you have the latest Ruby Gems, we want to configure where Ruby Gems will install packages to. You can do this by setting the *GEM_HOME* environment variable prior to running either Ruby Gems, Bundler (described below), or Canvas.
-
-```
-sysadmin@appserver:~$ mkdir /home/sysadmin/gems
-sysadmin@appserver:~$ export GEM_HOME=/home/sysadmin/gems
-```
-
-Of course, your *GEM_HOME* environment variable, used this way, will only last the duration of your shell session. We'll explain the necessary places to configure the *GEM_HOME* environment variable below, such as your Apache configuration, automated jobs support, and other things.
-
 Bundler and Canvas dependencies
 ----------
 
 Canvas uses Bundler as an additional layer on top of Ruby Gems to manage versioned dependencies. Bundler is great!
 
-Once you have installed Ruby Gems and configured your *GEM_HOME*, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler, like below.
-
-```
-sysadmin@appserver:/var/rails/canvas$ gem install bundler
-sysadmin@appserver:/var/rails/canvas$ $GEM_HOME/bin/bundle install
-```
+    sysadmin@appserver:/var/canvas$ sudo gem install bundler
+    sysadmin@appserver:/var/canvas$ bundle install --path vendor/bundle --without=sqlite
 
 JavaScript Runtime
 ------------------
@@ -208,19 +168,16 @@ Canvas default configuration
 
 Before we set up all the tables in your database, our Rails code depends on a small few configuration files, which ship with good example settings, so, we'll want to set those up quickly. We'll be examining them more shortly. From the root of your Canvas tree, you can pull in the default configuration values like so:
 
-```
-sysadmin@appserver:/var/rails/canvas$ for config in amazon_s3 database delayed_jobs domain file_store \
-                 outgoing_mail security external_migration; do cp config/$config.yml.example config/$config.yml; done
-```
+    sysadmin@appserver:/var/canvas$ for config in amazon_s3 database \
+      delayed_jobs domain file_store outgoing_mail security external_migration
+    do cp config/$config.yml.example config/$config.yml; done
 
 Database configuration
 -------------
 
 Now we need to set up your database configuration to point to your Postgres server and your production databases. Open the file *config/database.yml*, and find the **production** environment section. You can open this file with an editor like this:
 
-```
-sysadmin@appserver:/var/rails/canvas$ nano config/database.yml
-```
+    sysadmin@appserver:/var/canvas$ nano config/database.yml
 
 Update this section to reflect your Postgres server's location and authentication credentials. This is the place you will put the password and database name, along with anything else you set up, from the Postgres setup steps.
 
@@ -229,9 +186,7 @@ Outgoing mail configuration
 
 For Canvas to work properly, you need an outgoing SMTP mail server. All you need to do is get valid outgoing SMTP settings. Open *config/outgoing_mail.yml*:
 
-```
-sysadmin@appserver:/var/rails/canvas$ nano config/outgoing_mail.yml
-```
+    sysadmin@appserver:/var/canvas$ nano config/outgoing_mail.yml
 
 Find the **production** section and configure it to match your SMTP provider's settings. Note that the *domain* and *outgoing_address* fields are not for SMTP, but are for Canvas. *domain* is required, and is the domain name that outgoing emails are expected to come from. *outgoing_address* is optional, and if provided, will show up as the address in the *From* field of emails Canvas sends.
 
@@ -242,9 +197,7 @@ URL configuration
 
 In many notification emails, and other events that aren't triggered by a web request, Canvas needs to know the URL that it is visible from. For now, these are all constructed based off a domain name. Please edit the **production** section of *config/domain.yml* to be the appropriate domain name for your Canvas installation. For the *domain* field, this will be the part between `http://` and the next `/`. Instructure uses *canvas.instructure.com*.
 
-```
-sysadmin@appserver:/var/rails/canvas$ nano config/domain.yml
-```
+    sysadmin@appserver:/var/canvas$ nano config/domain.yml
 
 Note that the optional *files_domain* field is required if you plan to host user-uploaded files and wish to be secure. *files_domain* must be a different hostname from the browser's perspective, even though it can be the same Apache server, and even the same IP address.
 
@@ -253,18 +206,14 @@ Database population
 
 Once your database is configured, we need to actually fill the database with tables and initial data. You can do this by running our *rake* migration and initialization tasks from your application's root:
 
-```
-sysadmin@appserver:/var/rails/canvas$ RAILS_ENV=production $GEM_HOME/bin/bundle exec rake db:initial_setup
-```
+    sysadmin@appserver:/var/canvas$ RAILS_ENV=production bundle exec rake db:initial_setup
 
 File Generation
 -----------
 
 Canvas needs to build a number of assets before it will work correctly. You will need to run:
 
-```
-sysadmin@appserver:/var/rails/canvas$ $GEM_HOME/bin/bundle exec rake canvas:compile_assets
-```
+    sysadmin@appserver:/var/canvas$ bundle exec rake canvas:compile_assets
 
 Canvas ownership
 =========
@@ -273,24 +222,22 @@ Canvas ownership
 
 Set up or choose a user you want the Canvas Rails application to run as. This can be the same user as your webserver (*www-data* on Debian/Ubuntu), your personal user account, or something else. Once you've chosen or created a new user, you need to change the ownership of key files in your application root to that user, like so
 
-```
-sysadmin@appserver:~$ cd /var/rails/canvas
-sysadmin@appserver:/var/rails/canvas$ sudo adduser --disabled-password --gecos canvas canvasuser
-sysadmin@appserver:/var/rails/canvas$ sudo mkdir -p log tmp/pids public/assets public/stylesheets/compiled
-sysadmin@appserver:/var/rails/canvas$ sudo touch Gemfile.lock
-sysadmin@appserver:/var/rails/canvas$ sudo chown -R canvasuser config/environment.rb log tmp public/assets \
-                                                               public/stylesheets/compiled Gemfile.lock
-```
+    sysadmin@appserver:~$ cd /var/canvas
+    sysadmin@appserver:/var/canvas$ sudo adduser --disabled-password --gecos canvas canvasuser
+    sysadmin@appserver:/var/canvas$ sudo mkdir -p log tmp/pids public/assets public/stylesheets/compiled
+    sysadmin@appserver:/var/canvas$ sudo touch Gemfile.lock
+    sysadmin@appserver:/var/canvas$ sudo chown -R canvasuser config/environment.rb log tmp public/assets \
+                                      public/stylesheets/compiled Gemfile.lock config.ru
 
 Passenger will choose the user to run the application on based on the ownership settings of *config/environment.rb*. Note that it is probably wise to ensure that the ownership settings of all other files besides the ones with permissions set just above are restrictive, and only allow your *canvasuser* user account to read the rest of the files.
 
 ### Making sure other users can't read private Canvas files
 
-There are a number of files in your configuration directory (`/var/rails/canvas/config`) that contain passwords, encryption keys, and other private data that would compromise the security of your Canvas installation if it became public. These are the *.yml* files inside the *config* directory, and we want to make them readable only by the *canvasuser* user.
+There are a number of files in your configuration directory (`/var/canvas/config`) that contain passwords, encryption keys, and other private data that would compromise the security of your Canvas installation if it became public. These are the *.yml* files inside the *config* directory, and we want to make them readable only by the *canvasuser* user.
 
 ```
-sysadmin@appserver:/var/rails/canvas$ sudo chown canvasuser config/*.yml
-sysadmin@appserver:/var/rails/canvas$ sudo chmod 400 config/*.yml
+sysadmin@appserver:/var/canvas$ sudo chown canvasuser config/*.yml
+sysadmin@appserver:/var/canvas$ sudo chmod 400 config/*.yml
 ```
 
 Note that once you change these settings, to modify the configuration files henceforth, you will have to use *sudo*.
@@ -303,15 +250,11 @@ Installation
 
 You're now going to need to set up the webserver. We're going to use [Apache](http://httpd.apache.org/) and [Passenger](http://www.modrails.com/) to serve the Canvas content. If you are on Debian/Ubuntu, you can quickly do this by typing
 
-```
-sysadmin@appserver:/var/rails/canvas$ sudo apt-get install apache2 libapache2-mod-passenger
-```
+    sysadmin@appserver:/var/canvas$ sudo apt-get install passenger-common1.9.1 libapache2-mod-passenger apache2
 
 We'll be using mod_rewrite, so you'll want to enable that.
 
-```
-sysadmin@appserver:/var/rails/canvas$ sudo a2enmod rewrite
-```
+    sysadmin@appserver:/var/canvas$ sudo a2enmod rewrite
 
 Once you have Apache and Passenger installed, we're going to need to set up Apache, Passenger, and your Rails app to all know about each other. This will be a brief overview, and for more detail, you should check out the [Passenger documentation for setting up Apache](http://www.modrails.com/documentation/Users%20guide%20Apache.html).
 
@@ -320,65 +263,48 @@ Configure Passenger with Apache
 
 First, make sure Passenger is enabled for your Apache configuration. In Debian/Ubuntu, the *libapache2-mod-passenger* package should have put symlinks inside of */etc/apache2/mods-enabled/* called *passenger.conf* and *passenger.load*. If it didn't or they are disabled somehow, you can enable passenger by running:
 
-```
-sysadmin@appserver:/var/rails/canvas$ sudo a2enmod passenger
-```
+    sysadmin@appserver:/var/canvas$ sudo a2enmod passenger
 
 In other setups, you just need to make sure you add the following lines to your Apache configuration, changing paths to appropriate values if necessary:
 
-```
-LoadModule passenger_module /usr/lib/apache2/modules/mod_passenger.so
-PassengerRoot /usr
-PassengerRuby /usr/bin/ruby
-```
+    LoadModule passenger_module /usr/lib/apache2/modules/mod_passenger.so
+    PassengerRoot /usr
+    PassengerRuby /usr/bin/ruby
 
 If you have trouble starting the application because of permissions problems, you might need to add this line to your passenger.conf, site configuration file, or httpd.conf (where canvasuser is the user that Canvas runs as, *www-data* on Debian/Ubuntu systems for example):
 
-```
-PassengerDefaultUser canvasuser
-```
+    PassengerDefaultUser canvasuser
 
 Configure SSL with Apache
 -------------
 
 Next, we need to make sure your Apache configuration supports SSL. Debian/Ubuntu doesn't ship Apache with the SSL module enabled by default, so you will need to create the appropriate symlinks to enable it.
 
-```
-sysadmin@appserver:/var/rails/canvas$ sudo a2enmod ssl
-```
+    sysadmin@appserver:/var/canvas$ sudo a2enmod ssl
 
 On other systems, you need to make sure something like below is in your config:
 
-```
-LoadModule ssl_module /usr/lib/apache2/modules/mod_ssl.so
-SSLRandomSeed startup builtin
-SSLRandomSeed startup file:/dev/urandom 512
-SSLRandomSeed connect builtin
-SSLRandomSeed connect file:/dev/urandom 512
-SSLSessionCache        shmcb:/var/run/apache2/ssl_scache(512000)
-SSLSessionCacheTimeout  300
-SSLMutex  file:/var/run/apache2/ssl_mutex
-SSLCipherSuite HIGH:MEDIUM:!ADH
-SSLProtocol all -SSLv2
-```
+    LoadModule ssl_module /usr/lib/apache2/modules/mod_ssl.so
+    SSLRandomSeed startup builtin
+    SSLRandomSeed startup file:/dev/urandom 512
+    SSLRandomSeed connect builtin
+    SSLRandomSeed connect file:/dev/urandom 512
+    SSLSessionCache        shmcb:/var/run/apache2/ssl_scache(512000)
+    SSLSessionCacheTimeout  300
+    SSLMutex  file:/var/run/apache2/ssl_mutex
+    SSLCipherSuite HIGH:MEDIUM:!ADH
+    SSLProtocol all -SSLv2
 
 Configure Canvas with Apache
 ---------------
 
 Now we need to tell Passenger about your particular Rails application. First, disable any Apache VirtualHosts you don't want running. On Debian/Ubuntu, you can simply unlink any of the symlinks in the */etc/apache2/sites-enabled* subdirectory you aren't interested in. In other set-ups, you can remove or comment out VirtualHosts you don't want. 
 
-```
-sysadmin@appserver:/var/rails/canvas$ cd /etc/apache2/sites-enabled
-sysadmin@appserver:/etc/apache2/sites-enabled$ ls
-000-default
-sysadmin@appserver:/etc/apache2/sites-enabled$ sudo unlink 000-default
-```
+    sysadmin@appserver:/var/canvas$ sudo unlink /etc/apache2/sites-enabled/000-default
 
 Now, we need to make a VirtualHost for your app. On Debian/Ubuntu, we are going to need to make a new file called */etc/apache2/sites-available/canvas*. On other setups, find where you put VirtualHosts definitions. You can open this file like so:
 
-```
-sysadmin@appserver:/etc/apache2/sites-enabled$ sudo nano /etc/apache2/sites-available/canvas
-```
+    sysadmin@appserver:/etc/apache2/sites-enabled$ sudo nano /etc/apache2/sites-available/canvas
 
 In the new file, or new spot, depending, you want to place the following snippet. **You will want to modify** the lines designated *ServerName*(2), *ServerAdmin*(2), *DocumentRoot*(2), *SetEnv*(2), *Directory*(2), and probably *SSLCertificateFile*(1) and *SSLCertificateKeyFile*(1), discussed below in the "Note about SSL Certificates".
 
@@ -387,7 +313,7 @@ In the new file, or new spot, depending, you want to place the following snippet
   ServerName canvas.example.com
   ServerAlias files.canvas.example.com
   ServerAdmin youremail@example.com
-  DocumentRoot /var/rails/canvas/public
+  DocumentRoot /var/canvas/public
   RewriteEngine On
   RewriteCond %{HTTP:X-Forwarded-Proto} !=https
   RewriteCond %{REQUEST_URI} !^/health_check
@@ -395,9 +321,8 @@ In the new file, or new spot, depending, you want to place the following snippet
   ErrorLog /var/log/apache2/canvas_errors.log
   LogLevel warn
   CustomLog /var/log/apache2/canvas_access.log combined
-  SetEnv GEM_HOME /home/sysadmin/gems
   SetEnv RAILS_ENV production
-  <Directory /var/rails/canvas/public>
+  <Directory /var/canvas/public>
     Allow from all
     Options -MultiViews
   </Directory>
@@ -406,7 +331,7 @@ In the new file, or new spot, depending, you want to place the following snippet
   ServerName canvas.example.com
   ServerAlias files.canvas.example.com
   ServerAdmin youremail@example.com
-  DocumentRoot /var/rails/canvas/public
+  DocumentRoot /var/canvas/public
   ErrorLog /var/log/apache2/canvas_errors.log
   LogLevel warn
   CustomLog /var/log/apache2/canvas_ssl_access.log combined
@@ -416,9 +341,8 @@ In the new file, or new spot, depending, you want to place the following snippet
   # the following ssl certificate files are generated for you from the ssl-cert package.
   SSLCertificateFile /etc/ssl/certs/ssl-cert-snakeoil.pem
   SSLCertificateKeyFile /etc/ssl/private/ssl-cert-snakeoil.key
-  SetEnv GEM_HOME /home/sysadmin/gems
   SetEnv RAILS_ENV production
-  <Directory /var/rails/canvas/public>
+  <Directory /var/canvas/public>
     Allow from all
     Options -MultiViews
   </Directory>
@@ -463,12 +387,13 @@ After installing redis, start the server. There are multiple options for doing t
 To run it manually from a Homebrew installation, run the command: `redis-server /usr/local/etc/redis.conf`.
 
 Now we need to go back to your canvas-lms directory and edit the configuration. Inside the config folder, we're going to copy [cache_store.yml.example](https://github.com/instructure/canvas-lms/blob/stable/config/cache_store.yml.example) and edit it:
-```
-sysadmin@appserver:/var/rails/canvas$ cd /var/rails/canvas/
-sysadmin@appserver:/var/rails/canvas$ cp config/cache_store.yml.example config/cache_store.yml
-sysadmin@appserver:/var/rails/canvas$ nano config/cache_store.yml
-```
 
+    sysadmin@appserver:/var/canvas$ sudo apt-get install redis-server
+    sysadmin@appserver:/var/canvas$ cd /var/canvas/
+    sysadmin@appserver:/var/canvas$ cp config/cache_store.yml.example config/cache_store.yml
+    sysadmin@appserver:/var/canvas$ nano config/cache_store.yml
+
+The file starts with all caching methods commented out. Uncomment the `cache_store: redis_store` line of the config file. 
 The file starts with all caching methods commented out. Uncomment the `cache_store: redis_store` line of the config file. 
 
 ```yaml
@@ -481,13 +406,13 @@ production:
   # - localhost
   # database: 0
 ```
+  database: 0
 
 Then specify your redis instance information in `redis.yml`, by coping and editing [redis.yml.example](https://github.com/instructure/canvas-lms/blob/stable/config/redis.yml.example):
-```
-sysadmin@appserver:/var/rails/canvas$ cd /var/rails/canvas/
-sysadmin@appserver:/var/rails/canvas$ cp config/redis.yml.example config/redis.yml
-sysadmin@appserver:/var/rails/canvas$ nano config/redis.yml
-```
+
+    sysadmin@appserver:/var/canvas$ cd /var/canvas/
+    sysadmin@appserver:/var/canvas$ cp config/redis.yml.example config/redis.yml
+    sysadmin@appserver:/var/canvas$ nano config/redis.yml
 
 ```yaml
 production:
@@ -511,33 +436,21 @@ Automated jobs
 
 Canvas has some automated jobs that need to run at occasional intervals, such as email reports, statistics gathering, and a few other things. Your Canvas installation will not function properly without support for automated jobs, so we'll need to set that up as well.
 
-Canvas comes with a daemon process that will monitor and manage any automated jobs that need to happen. If your application root is */var/rails/canvas*, this daemon process manager can be found at */var/rails/canvas/script/canvas_init*. 
+Canvas comes with a daemon process that will monitor and manage any automated jobs that need to happen. If your application root is */var/canvas*, this daemon process manager can be found at */var/canvas/script/canvas_init*. 
 
 **You'll need to run these job daemons on at least one server.** Canvas supports running the background jobs on multiple servers for capacity/redundancy, as well.
 
 Because Canvas has so many jobs to run, it is advisable to dedicate one of your app servers to be just a job server. You can do this by simply skipping the Apache steps on one of your app servers, and then only on that server follow these automated jobs setup instructions.
 
-Gem location
------
-
-To get automated jobs to work, you also need to tell the automated jobs start/stop daemon about your *GEM_HOME*. You can do this by creating a *GEM_HOME* file in your config directory like so (assuming you did `export GEM_HOME=...` earlier):
-
-```
-sysadmin@appserver:~$ cd /var/rails/canvas
-sysadmin@appserver:/var/rails/canvas$ echo $GEM_HOME | sudo tee config/GEM_HOME
-/home/sysadmin/gems
-sysadmin@appserver:/var/rails/canvas$
-```
-
 Installation
 ----
 
-If you're on Debian/Ubuntu, you can install this daemon process very easily, first by making a symlink from */var/rails/canvas/script/canvas_init* to */etc/init.d/canvas_init*, and then by configuring this script to run at valid runlevels (we'll be making an *upstart* script soon):
+If you're on Debian/Ubuntu, you can install this daemon process very easily, first by making a symlink from */var/canvas/script/canvas_init* to */etc/init.d/canvas_init*, and then by configuring this script to run at valid runlevels (we'll be making an *upstart* script soon):
 
 ```
-sysadmin@appserver:/var/rails/canvas$ sudo ln -s /var/rails/canvas/script/canvas_init /etc/init.d/canvas_init
-sysadmin@appserver:/var/rails/canvas$ sudo update-rc.d canvas_init defaults
-sysadmin@appserver:/var/rails/canvas$ sudo /etc/init.d/canvas_init start
+sysadmin@appserver:/var/canvas$ sudo ln -s /var/canvas/script/canvas_init /etc/init.d/canvas_init
+sysadmin@appserver:/var/canvas$ sudo update-rc.d canvas_init defaults
+sysadmin@appserver:/var/canvas$ sudo /etc/init.d/canvas_init start
 ```
 
 Ready, set, go!
