@@ -132,6 +132,12 @@ If there is a warning about libcurl being missing (Seen on Ubuntu 11.04) run the
 apt-get install libcurl4-gnutls-dev
 ```
 
+If you are running Ubuntu LTS 12+ you will need to run the following commands:
+```
+sudo apt-get install make
+sudo apt-get install postgresql-server-dev-9.1
+```
+
 JavaScript Runtime
 ------------------
 
