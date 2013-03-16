@@ -170,7 +170,7 @@ Before we set up all the tables in your database, our Rails code depends on a sm
 
     sysadmin@appserver:/var/canvas$ for config in amazon_s3 database \
       delayed_jobs domain file_store outgoing_mail security external_migration
-    do cp config/$config.yml.example config/$config.yml; done
+    do sudo cp config/$config.yml.example config/$config.yml; done
 
 Database configuration
 -------------
