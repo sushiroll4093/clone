@@ -167,6 +167,21 @@ Now we need to set up your database configuration. We have provided a sample fil
 ~/canvas$ createdb canvas_queue_development
 ```
 
+Note: When installing postgres with brew, you may have trouble connecting to the database and you may get an error like:
+
+```
+bandersons-MacBook-Pro-2:canvas banderson$ createdb canvas_development
+createdb: could not connect to database postgres: could not connect to server: No such file or directory
+    Is the server running locally and accepting
+    connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
+```
+
+If you get a connection error when creating your databases, run the following and add it to your .bash_profile:
+
+```
+export PGHOST=localhost
+```
+
 Database population
 -----------
 
