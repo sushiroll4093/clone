@@ -238,7 +238,11 @@ Your username and password will be whatever you set it up to be during the `rake
 A note about long-running jobs
 ========
 
-Canvas relies heavily on background job processors to perform tasks that take too long to do in-line during a web request. The [[Production Start]] instructions have details of how to set up dedicated job processors for production environments. For this Quick Start, just starting `script/server` as outlined above will by default run one job processor as well.
+Canvas relies heavily on background job processors to perform tasks that take too long to do in-line during a web request. The [[Production Start]] instructions have details of how to set up dedicated job processors for production environments. To start a background job processor, run the following command:
+
+```
+~/canvas$ $GEM_HOME/bin/bundle exec script/delayed_job run
+```
 
 Troubleshooting
 ==========
