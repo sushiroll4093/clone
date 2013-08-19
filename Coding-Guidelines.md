@@ -9,7 +9,7 @@ The following checklist is worked through for every commit:
 * Ensure that the tests and test plan cover all necessary cases.
 * Ensure that the code follows the language coding conventions.
 * Ensure that the code is well designed and architected.
-* Ensure that all user-facing strings/dates/times/numbers are internationalized.
+* Ensure that all user-facing strings/dates/times/numbers are [internationalized](I18n).
 
 Other factors that should be considered:
 
