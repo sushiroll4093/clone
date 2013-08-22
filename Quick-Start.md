@@ -63,7 +63,7 @@ We now need to install the Ruby libraries and packages that Canvas needs. On Deb
 ```
 $ sudo apt-get install ruby1.9.1 ruby1.9.1-dev zlib1g-dev rubygems1.9.1 libxml2-dev libxslt1-dev \
                        libsqlite3-dev libhttpclient-ruby imagemagick irb1.9.1 \
-                       libxmlsec1-dev postgresql
+                       libxmlsec1-dev postgresql python-software-properties
 ```
 
 Node.js installation:
