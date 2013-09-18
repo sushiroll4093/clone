@@ -376,7 +376,7 @@ Below are instructions for setting up redis.
 Redis
 ----
 
-Required version: redis 2.2.x or above. redis 2.6 has been confirmed to work.
+Required version: redis 2.6.x or above.
 
 If you're using Homebrew on Mac OS X, you can install redis by running the command: `brew install redis`.
 
