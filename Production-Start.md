@@ -405,7 +405,6 @@ production:
   # - localhost
   # database: 0
 ```
-  database: 0
 
 Then specify your redis instance information in `redis.yml`, by coping and editing [redis.yml.example](https://github.com/instructure/canvas-lms/blob/stable/config/redis.yml.example):
 
