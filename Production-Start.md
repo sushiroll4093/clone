@@ -380,7 +380,7 @@ Required version: redis 2.6.x or above.
 
 If you're using Homebrew on Mac OS X, you can install redis by running the command: `brew install redis`.
 
-For Ubuntu, you can use the redis-server package.  However, on lucid, it's not new enough, so Instructure has provided at backport PPA to provide it: https://launchpad.net/~instructure/+archive/backports.
+For Ubuntu, you can use the redis-server package.  However, on precise, it's not new enough, so you'll want to use a backport PPA to provide it: https://launchpad.net/~chris-lea/+archive/redis-server.
 
 After installing redis, start the server. There are multiple options for doing this. You can set it up so it runs automatically when the server boots, or you can run it manually.
 
