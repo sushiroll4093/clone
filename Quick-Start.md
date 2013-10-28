@@ -230,6 +230,15 @@ Canvas needs to build a number of assets before it will work correctly. You will
 Performance Tweaks
 ======
 
+Installing redis will significantly improve your Canvas performance. For detailed instructions, see [[Production Start#redis]]. On OS X, use the following:
+
+```
+brew install redis
+redis-server /usr/local/etc/redis.conf
+echo -e "development:\n  cache_store: redis_store" > config/cache_store.yml
+echo -e "development:\n  servers:\n  - redis://localhost" > config/redis.yml
+```
+
 If you plan on doing Canvas development, you'll probably want to skip this step, but if you're just looking to try out Canvas, there's some minor configuration tweaks you can make to give yourself a real performance boost. All you need to do is add three lines to a file in your configuration directory.
 
 ```
