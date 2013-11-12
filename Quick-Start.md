@@ -177,7 +177,7 @@ Now we need to set up your database configuration. We have provided a sample fil
 Note: When installing postgres with brew, you may have trouble connecting to the database and you may get an error like:
 
 ```
-bandersons-MacBook-Pro-2:canvas banderson$ createdb canvas_development
+~/canvas$ createdb canvas_development
 createdb: could not connect to database postgres: could not connect to server: No such file or directory
     Is the server running locally and accepting
     connections on Unix domain socket "/var/pgsql_socket/.s.PGSQL.5432"?
@@ -187,6 +187,28 @@ If you get a connection error when creating your databases, run the following an
 
 ```
 export PGHOST=localhost
+```
+
+If, after that, you get another error like:
+
+```
+~/canvas$ createdb canvas_development
+createdb: could not connect to database template1: could not connect to server: Connection refused
+    Is the server running on host "localhost" (::1) and accepting
+    TCP/IP connections on port 5432?
+could not connect to server: Connection refused
+    Is the server running on host "localhost" (127.0.0.1) and accepting
+    TCP/IP connections on port 5432?
+could not connect to server: Connection refused
+    Is the server running on host "localhost" (fe80::1) and accepting
+    TCP/IP connections on port 5432?
+```
+
+then postgres may not be running.  To start it:
+
+```
+$ initdb /usr/local/var/postgres -E utf8
+$ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 ```
 
 Database population
