@@ -130,6 +130,7 @@ If you are running Ubuntu LTS 12+ you will need to run the following commands:
 ```
 sudo apt-get install make
 sudo apt-get install postgresql-server-dev-9.1
+sudo apt-get install g++
 ```
 
 Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler.  Since we are using PostgreSQL for this Quick Start and don't want to require you to bother with installing and configuring MySQL, we'll need to tell bundler to ignore it.
