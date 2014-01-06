@@ -201,6 +201,15 @@ In many notification emails, and other events that aren't triggered by a web req
 
 Note that the optional *files_domain* field is required if you plan to host user-uploaded files and wish to be secure. *files_domain* must be a different hostname from the browser's perspective, even though it can be the same Apache server, and even the same IP address.
 
+Security configuration
+---------------------
+
+You must insert randomized strings of at least 20 characters in this file:
+
+     sysadmin@appserver:/var/canvas$ cp config/security.yml.example config/security.yml
+
+     sysadmin@appserver:/var/canvas$ nano config/security.yml
+  
 Database population
 -----------
 
@@ -376,7 +385,9 @@ Below are instructions for setting up redis.
 Redis
 ----
 
-Required version: redis 2.6.x or above.
+Required version: redis 2.6.x or above.  
+
+**Note:  Ubuntu installs an older version by default.  See http://redis.io/download for instructions on how to manually install redis 2.6.x or above manually or use the PPA below.**
 
 If you're using Homebrew on Mac OS X, you can install redis by running the command: `brew install redis`.
 
