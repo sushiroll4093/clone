@@ -183,6 +183,7 @@ Database configuration
 
 Now we need to set up your database configuration to point to your Postgres server and your production databases. Open the file *config/database.yml*, and find the **production** environment section. You can open this file with an editor like this:
 
+    sysadmin@appserver:/var/canvas$ cp config/database.yml.example config/database.yml
     sysadmin@appserver:/var/canvas$ nano config/database.yml
 
 Update this section to reflect your Postgres server's location and authentication credentials. This is the place you will put the password and database name, along with anything else you set up, from the Postgres setup steps.
@@ -192,6 +193,7 @@ Outgoing mail configuration
 
 For Canvas to work properly, you need an outgoing SMTP mail server. All you need to do is get valid outgoing SMTP settings. Open *config/outgoing_mail.yml*:
 
+    sysadmin@appserver:cp config/outgoing_mail.yml.example config/outgoing_mail.yml
     sysadmin@appserver:/var/canvas$ nano config/outgoing_mail.yml
 
 Find the **production** section and configure it to match your SMTP provider's settings. Note that the *domain* and *outgoing_address* fields are not for SMTP, but are for Canvas. *domain* is required, and is the domain name that outgoing emails are expected to come from. *outgoing_address* is optional, and if provided, will show up as the address in the *From* field of emails Canvas sends.
