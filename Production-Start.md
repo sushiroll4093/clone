@@ -205,6 +205,7 @@ URL configuration
 
 In many notification emails, and other events that aren't triggered by a web request, Canvas needs to know the URL that it is visible from. For now, these are all constructed based off a domain name. Please edit the **production** section of *config/domain.yml* to be the appropriate domain name for your Canvas installation. For the *domain* field, this will be the part between `http://` and the next `/`. Instructure uses *canvas.instructure.com*.
 
+    sysadmin@appserver:cp config/domain.yml.example config/domain.yml
     sysadmin@appserver:/var/canvas$ nano config/domain.yml
 
 Note that the optional *files_domain* field is required if you plan to host user-uploaded files and wish to be secure. *files_domain* must be a different hostname from the browser's perspective, even though it can be the same Apache server, and even the same IP address.
