@@ -34,7 +34,7 @@ sysadmin@appserver:~$ sudo /etc/init.d/canvas_init status
 If you want more information about the specific kinds of jobs that may or may not be running in your system, you can visit
 
 ```
-https://<your-canvas-hostname>/delayed_jobs
+https://<your-canvas-hostname>/jobs
 ```
 
 ### Something else is broken.
