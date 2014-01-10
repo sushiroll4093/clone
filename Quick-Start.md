@@ -77,7 +77,7 @@ $ sudo apt-get install nodejs
 CoffeeScript installation:
 
 ```
-$ sudo npm install -g coffee-script
+$ sudo npm install -g coffee-script@1.6.2
 ```
 
 ### Mac OS X
