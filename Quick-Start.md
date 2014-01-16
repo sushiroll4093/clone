@@ -51,7 +51,7 @@ Wherever you check out the code to, we're going to call that your application ro
 Dependency Installation
 ==========
 
-Canvas requires Ruby 1.9.3. A minimum version of 1.9.3p286 is recommended. If you are using Debian/Ubuntu, note that apt refers to ruby 1.9.3 as ruby1.9.1 for compatibility reasons.
+Canvas requires Ruby 1.9.3. A minimum version of 1.9.3p484 is recommended. If you are using Debian/Ubuntu, note that apt refers to ruby 1.9.3 as ruby1.9.1 for compatibility reasons.
 
 External dependencies
 -----------
