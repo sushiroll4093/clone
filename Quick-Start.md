@@ -133,16 +133,15 @@ sudo apt-get install postgresql-server-dev-9.1
 sudo apt-get install g++
 ```
 
-Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler.  Since we are using PostgreSQL for this Quick Start and don't want to require you to bother with installing and configuring MySQL, we'll need to tell bundler to ignore it.
-
-If you're on OS X Mavericks, you might have to set the following bundler flag before running (see https://issues.apache.org/jira/browse/THRIFT-2219):
-
-```
-~$ bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
-```
+Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler. 
 
 ```
 ~$ cd canvas
+``` 
+
+Since we are using PostgreSQL for this Quick Start and don't want to require you to bother with installing and configuring MySQL, we'll need to tell bundler to ignore it.
+
+```
 ~/canvas$ $GEM_HOME/bin/bundle install --without mysql
 ```
 
@@ -150,6 +149,12 @@ If there is a warning about libcurl being missing (Seen on Ubuntu 11.04) run the
 
 ```
 apt-get install libcurl4-gnutls-dev
+```
+
+If you're on OS X Mavericks and hit an error with the thrift gem, you might have to set the following bundler flag and then run bundle install again (see https://issues.apache.org/jira/browse/THRIFT-2219):
+
+```
+~$ bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
 ```
 
 JavaScript Runtime
