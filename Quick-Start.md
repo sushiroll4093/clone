@@ -135,6 +135,12 @@ sudo apt-get install g++
 
 Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler.  Since we are using PostgreSQL for this Quick Start and don't want to require you to bother with installing and configuring MySQL, we'll need to tell bundler to ignore it.
 
+If you're on OS X Mavericks, you might have to set the following bundler flag before running (see https://issues.apache.org/jira/browse/THRIFT-2219):
+
+```
+~$ bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
+```
+
 ```
 ~$ cd canvas
 ~/canvas$ $GEM_HOME/bin/bundle install --without mysql
