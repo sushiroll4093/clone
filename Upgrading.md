@@ -1,6 +1,28 @@
 Upgrading
 ============
 
+Redis Version Requirement
+--------------
+
+For those who are running Canvas with Redis enabled, the 2013-10-05 release will have a new minimum version requirement for redis: you'll need to be on redis 2.6 or higher. We are utilizing the new redis scripting commands that were added in 2.6. (https://groups.google.com/forum/#!topic/canvas-lms-users/oYpCmlWNtKM)
+
+Steps to upgrade Redis:
+```
+#clear off the old one
+
+apt-get --purge remove redis-server
+apt-add-repository --remove ppa:instructure/backports
+
+#add new redis 2.6 tracking repository
+
+apt-add-repository ppa:chris-lea/redis-server
+apt-get update
+apt-get install redis-server
+```
+
+Canvas Upgrade
+--------------
+
 There are a number of things to keep in mind when upgrading the source code for Canvas.
 
 For the most part, it is easiest to upgrade Canvas if you have kept your Canvas source code in a Git repository. Then, you can simply run 
