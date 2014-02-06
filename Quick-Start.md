@@ -154,7 +154,7 @@ apt-get install libcurl4-gnutls-dev
 If you're on OS X Mavericks and hit an error with the thrift gem, you might have to set the following bundler flag and then run bundle install again (see https://issues.apache.org/jira/browse/THRIFT-2219):
 
 ```
-~/canvas$ bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
+~/canvas$ $GEM_HOME/bin/bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
 ```
 
 JavaScript Runtime
