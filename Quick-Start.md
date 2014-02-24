@@ -71,7 +71,7 @@ Node.js installation:
 ```
 $ sudo add-apt-repository ppa:chris-lea/node.js
 $ sudo apt-get update
-$ sudo apt-get install nodejs npm
+$ sudo apt-get install nodejs
 ```
 
 CoffeeScript installation:
