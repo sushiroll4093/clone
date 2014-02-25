@@ -249,7 +249,7 @@ RAILS_ENV=test bundle exec rake db:test:reset
 You can then run the tests:
 
 ```
-spec spec/
+bundle exec rake spec
 ```
 
 File Generation
