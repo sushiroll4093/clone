@@ -88,7 +88,7 @@ For OS X, you'll need to install the [Command Line Tools for Xcode](http://devel
 $ ruby -v
 ```
 
-You also need Postgres and the [xmlsec library](http://www.aleksey.com/xmlsec/) installed. The easiest way to get these is via [homebrew](http://mxcl.github.com/homebrew/). Once you have homebrew installed, just run:
+You also need Postgres and the [xmlsec library](http://www.aleksey.com/xmlsec/) installed. The easiest way to get these is via [homebrew](http://brew.sh/). Once you have homebrew installed, just run:
 
 ```
 $ brew install xmlsec1 postgresql
