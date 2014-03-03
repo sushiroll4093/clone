@@ -258,6 +258,7 @@ File Generation
 Canvas needs to build a number of assets before it will work correctly. You will need to run:
 
 ```
+~/canvas$ npm install
 ~/canvas$ $GEM_HOME/bin/bundle exec rake canvas:compile_assets
 ```
 
