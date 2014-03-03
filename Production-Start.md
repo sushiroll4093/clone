@@ -225,6 +225,7 @@ File Generation
 
 Canvas needs to build a number of assets before it will work correctly. You will need to run:
 
+    sysadmin@appserver:/var/canvas$ npm install --production
     sysadmin@appserver:/var/canvas$ bundle exec rake canvas:compile_assets
 
 Canvas ownership
