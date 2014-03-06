@@ -31,6 +31,11 @@ In order for us to continue to dual-license our Canvas product to best serve all
 
 To save yourself a considerable headache, please consider doing development against our master branch, instead of the default stable branch. Our stable branch is occasionally reforked from master, so your Git history may get very confused if you are attempting to contribute changesets against stable.
 
+Security
+-----------
+
+We take security very seriously. **Please do not submit issues or pull requests for security issues**. Instead, you can email security@instructure.com and we will respond as soon as possible. You can watch for security advisories to update your Canvas installation on our [Security Notices forum][security-notices].
+
 Installation Tutorials
 --------
 
@@ -66,3 +71,5 @@ You can also download a tarball or zipfile.
   
    * [Canvas Tarball](http://github.com/instructure/canvas-lms/tarball/stable)
    * [Canvas Zip](http://github.com/instructure/canvas-lms/zipball/stable)
+
+[security-notices]: https://help.instructure.com/forums/20382721-Security-Notices
