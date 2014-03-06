@@ -1,6 +1,8 @@
 Kaltura setup instructions
 ===================================
 
+**Users are encouraged to try the official [Kaltura Integration for Canvas](http://corp.kaltura.com/Products/Video-Applications/Canvas-Video-App)**
+
 *These instructions provided graciously by John Desha, with wiki formatting edits.*
 
 For installing Kaltura CE on Ubuntu LTS
