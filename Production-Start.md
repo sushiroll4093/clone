@@ -246,6 +246,12 @@ Canvas needs to build a number of assets before it will work correctly. You will
     sysadmin@appserver:/var/canvas$ npm install
     sysadmin@appserver:/var/canvas$ bundle exec rake canvas:compile_assets
 
+Note:  As of March 2014, installers are seeing the error:
+
+    Error: Cannot find module '/var/canvas/node_modules/rjs-old/r.js-1.0.8/dist/r.js'
+
+Some users have suggested running sudo npm install --unsafe-perm to install rjs-old as the fix.
+
 Canvas ownership
 =========
 
