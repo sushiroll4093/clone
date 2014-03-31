@@ -31,3 +31,4 @@ Because Canvas Cloud runs as a multi-tenant environment, any changes to the code
 To help with this we've built the notion of Plugins into Canvas. Plugins can be registered at runtime but only appear in the interface for enabled root accounts. There are some places in the code that have already been instrumented for plugins (such as web conferences and collaborations), but if you're looking to extend functionality somewhere else then the first step is going to be pluginifying that portion of the code, _then_ building a plugin for your specific implementation.
 
 The easiest way to get to know Canvas Plugins is lib/canvas/plugin.rb and lib/canvas/plugins/default_plugins.rb
+
