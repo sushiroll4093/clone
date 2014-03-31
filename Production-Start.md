@@ -127,7 +127,9 @@ Brightbox provides [updated versions of passenger and ruby](http://www.brightbox
     sudo apt-add-repository ppa:brightbox/ruby-ng
     sudo apt-get update
 
-We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there's a few packages you're going to need to install. We recommend that you run:
+We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there's a few packages you're going to need to install. 
+
+We recommend that you run: (If using Debian, you will need to compile nodejs from source.)
 
 
     sysadmin@appserver:~$ sudo apt-get install ruby1.9.3 \
