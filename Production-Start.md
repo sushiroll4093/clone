@@ -160,6 +160,14 @@ Canvas uses Bundler as an additional layer on top of Ruby Gems to manage version
     sysadmin@appserver:/var/canvas$ sudo gem install bundler
     sysadmin@appserver:/var/canvas$ bundle install --path vendor/bundle --without=sqlite
 
+**Note:**  
+
+As of Ubuntu 12.4.04, some items no longer install properly...
+
+* bundler is at version 1.6.0.  Canvas wants 1.5.1-1.5.3.  To fix the issue, uninstall the 1.6.0 version and install the older version via gem install bundler -v '1.5.3'.
+
+
+
 JavaScript Runtime
 ------------------
 
