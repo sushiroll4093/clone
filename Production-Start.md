@@ -132,10 +132,18 @@ We now need to install the Ruby libraries and packages that Canvas needs. On Deb
 We recommend that you run: (If using Debian, you will need to compile nodejs from source.)
 
 
-    sysadmin@appserver:~$ sudo apt-get install ruby1.9.3 npm \
+    sysadmin@appserver:~$ sudo apt-get install ruby1.9.3 \
       zlib1g-dev libxml2-dev libmysqlclient-dev libxslt1-dev \
-      imagemagick libpq-dev nodejs libxmlsec1-dev libcurl4-gnutls-dev \
+      imagemagick libpq-dev libxmlsec1-dev libcurl4-gnutls-dev \
       libxmlsec1 build-essential openjdk-7-jre unzip
+
+    sudo apt-get update
+    sudo apt-get install -y python-software-properties python g++ make
+    sudo add-apt-repository ppa:chris-lea/node.js
+    sudo apt-get update
+   sudo apt-get install nodejs
+
+NPM is automatically installed.
 
 ### Mac OS X
 
