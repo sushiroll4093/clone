@@ -168,14 +168,6 @@ Canvas uses Bundler as an additional layer on top of Ruby Gems to manage version
     sysadmin@appserver:/var/canvas$ sudo gem install bundler
     sysadmin@appserver:/var/canvas$ bundle install --path vendor/bundle --without=sqlite
 
-**Note:**  
-
-As of Ubuntu 12.4.04, some items no longer install properly...
-
-* bundler is at version 1.6.0.  Canvas wants 1.5.1-1.5.3.  To fix the issue, uninstall the 1.6.0 version and install the older version via gem install bundler -v '1.5.3'.
-
-
-
 JavaScript Runtime
 ------------------
 
@@ -246,11 +238,17 @@ Canvas needs to build a number of assets before it will work correctly. You will
     sysadmin@appserver:/var/canvas$ npm install
     sysadmin@appserver:/var/canvas$ bundle exec rake canvas:compile_assets
 
-Note:  As of March 2014, installers are seeing the error:
+**Notes: ** 
+
+1.  As of March 2014, installers are seeing the error:
 
     Error: Cannot find module '/var/canvas/node_modules/rjs-old/r.js-1.0.8/dist/r.js'
 
 Some users have suggested running sudo npm install --unsafe-perm to install rjs-old as the fix.
+
+2.  As of March 2014, installers are seeing an issue where the .js files are not created at compile time.
+
+[Fixing .js Creation Issues](https://groups.google.com/forum/#!searchin/canvas-lms-users/empty$20css$20files/canvas-lms-users/-miJsiuK1rA/q1GasvXzUDwJ)
 
 Canvas ownership
 =========
