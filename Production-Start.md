@@ -165,7 +165,7 @@ Bundler and Canvas dependencies
 
 Canvas uses Bundler as an additional layer on top of Ruby Gems to manage versioned dependencies. Bundler is great!
 
-    sysadmin@appserver:/var/canvas$ sudo gem install bundler
+    sysadmin@appserver:/var/canvas$ sudo gem install bundler --version 1.5.3
     sysadmin@appserver:/var/canvas$ bundle install --path vendor/bundle --without=sqlite
 
 JavaScript Runtime
