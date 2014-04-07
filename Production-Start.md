@@ -299,6 +299,12 @@ We'll be using mod_rewrite, so you'll want to enable that.
 
     sysadmin@appserver:/var/canvas$ sudo a2enmod rewrite
 
+On Mac OS X you can simple use:
+
+    sysadmin@appserver:/var/canvas$ brew install passenger
+
+and follow the instructions.
+
 Once you have Apache and Passenger installed, we're going to need to set up Apache, Passenger, and your Rails app to all know about each other. This will be a brief overview, and for more detail, you should check out the [Passenger documentation for setting up Apache](http://www.modrails.com/documentation/Users%20guide%20Apache.html).
 
 Configure Passenger with Apache
@@ -460,7 +466,7 @@ Then specify your redis instance information in `redis.yml`, by coping and editi
 ```yaml
 production:
   servers:
-  - localhost
+    - localhost
 ```
 
 In our example, redis is running on the same server as Canvas. That's not ideal in a production setup, since Rails and redis are both memory-hungry. Just change 'localhost' to the address of your redis instance server.
