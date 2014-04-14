@@ -141,7 +141,7 @@ We recommend that you run: (If using Debian, you will need to compile nodejs fro
     sudo apt-get install -y python-software-properties python g++ make
     sudo add-apt-repository ppa:chris-lea/node.js
     sudo apt-get update
-   sudo apt-get install nodejs
+    sudo apt-get install nodejs
 
 NPM is automatically installed.
 
