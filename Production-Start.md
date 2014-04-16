@@ -434,6 +434,10 @@ If you're using Homebrew on Mac OS X, you can install redis by running the comma
 
 For Ubuntu, you can use the redis-server package.  However, on precise, it's not new enough, so you'll want to use a backport PPA to provide it: https://launchpad.net/~chris-lea/+archive/redis-server.
 
+    sysadmin@appserver:/var/canvas$ sudo add-apt-repository ppa:chris-lea/redis-server
+    sysadmin@appserver:/var/canvas$ sudo apt-get update
+    sysadmin@appserver:/var/canvas$ sudo apt-get install redis-server
+
 After installing redis, start the server. There are multiple options for doing this. You can set it up so it runs automatically when the server boots, or you can run it manually.
 
 To run it manually from a Homebrew installation, run the command: `redis-server /usr/local/etc/redis.conf`.
