@@ -449,17 +449,15 @@ Now we need to go back to your canvas-lms directory and edit the configuration. 
     sysadmin@appserver:/var/canvas$ cp config/cache_store.yml.example config/cache_store.yml
     sysadmin@appserver:/var/canvas$ nano config/cache_store.yml
 
-The file starts with all caching methods commented out. Uncomment the `cache_store: redis_store` line of the config file. Add a `production:` line if your cache_store.yml file is missing it.
+The file may start with all caching methods commented out. Match your config file to the entries below:
 
 ```yaml
-# if this file doesn't exist, memcache will be used if there are any
-# servers configured in config/memcache.yml
+test:
+    cache_store: redis_store
+development:
+    cache_store: redis_store
 production:
-  cache_store: redis_store
-  # if no servers are specified, we'll look in config/redis.yml
-  # servers:
-  # - localhost
-  # database: 0
+    cache_store: redis_store
 ```
 
 Then specify your redis instance information in `redis.yml`, by coping and editing [redis.yml.example](https://github.com/instructure/canvas-lms/blob/stable/config/redis.yml.example):
