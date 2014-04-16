@@ -471,7 +471,7 @@ Then specify your redis instance information in `redis.yml`, by coping and editi
 ```yaml
 production:
   servers:
-    - localhost
+    - redis://localhost
 ```
 
 In our example, redis is running on the same server as Canvas. That's not ideal in a production setup, since Rails and redis are both memory-hungry. Just change 'localhost' to the address of your redis instance server.
