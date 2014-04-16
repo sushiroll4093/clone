@@ -449,7 +449,7 @@ Now we need to go back to your canvas-lms directory and edit the configuration. 
     sysadmin@appserver:/var/canvas$ cp config/cache_store.yml.example config/cache_store.yml
     sysadmin@appserver:/var/canvas$ nano config/cache_store.yml
 
-The file starts with all caching methods commented out. Uncomment the `cache_store: redis_store` line of the config file. 
+The file starts with all caching methods commented out. Uncomment the `cache_store: redis_store` line of the config file. Add a `production:` line if your cache_store.yml file is missing it.
 
 ```yaml
 # if this file doesn't exist, memcache will be used if there are any
