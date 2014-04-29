@@ -11,7 +11,8 @@ Prerequisites
 
 This tutorial is targeting POSIX-based systems (like Mac OS X and Linux). This tutorial was written and tested using Ubuntu's latest LTS 10.04.1, Mac OS X 10.6 (Snow Leopard), and Debian Squeeze 6.0. If you have a different system, consider setting up a server or virtual machine running the latest [Ubuntu LTS](http://www.ubuntu.com/). We'll assume you've either done so or are familiar with these working parts enough to do translations yourself.
 
-A note about Debian - you will have much more luck if you use Debian Squeeze (6.0) or newer.
+A note about Debian - you will have much more luck if you use Debian Squeeze (6.0) or newer.  You'll probably have better luck if you go ahead and create a 'canvas' user as sudoer.
+
 
 Getting the code
 ======
