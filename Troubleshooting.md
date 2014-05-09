@@ -19,8 +19,7 @@ The [[quick-start|Quick-Start]] setup may only require stopping and starting the
 There are a number of possible reasons why your outgoing mail configuration may not be working correctly. One of the easiest ways to figure out where your Canvas mail is going is to check the outgoing mail table's error column. You can see the last error that Canvas had (if any) after some scheduled job (such as email) by running:
 
 ```
-sysadmin@appserver:~$ echo "select last_error from delayed_jobs order by updated_at desc limit 1;" | \
-                      mysql -u root -p -D canvas_queue_production
+sysadmin@appserver:~$ psql canvas_queue_production -c "select last_error from delayed_jobs order by updated_at desc limit 1;"
 ```
 
 ### I'm not even sure automated jobs like email are getting picked up.
@@ -42,8 +41,7 @@ https://<your-canvas-hostname>/jobs
 Try checking the *error_reports* table in the database for any messages possibly pertaining to the problem:
 
 ```
-sysadmin@appserver:~$ echo "select message, backtrace from error_reports order by id desc limit 1;" | \
-                      mysql -u root -p -D canvas_production
+sysadmin@appserver:~$ psql canvas_production -c "select message, backtrace from error_reports order by id desc limit 1;"
 ```
 
 ### How do I access the Rails console?
