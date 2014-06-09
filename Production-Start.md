@@ -239,6 +239,15 @@ Once your database is configured, we need to actually fill the database with tab
 
     sysadmin@appserver:/var/canvas$ RAILS_ENV=production bundle exec rake db:initial_setup
 
+Note that this initial setup will interactively prompt you to create an administrator account, the name for the default account, and whether to submit usage data to Instructure. The prompts can be "pre-filled" by setting the following environment variables:
+
+| Environment Variable        | Value(s) supported                                         |
+| --------------------------- | ------------------                                         |
+| CANVAS_LMS_ADMIN_EMAIL      | E-mail address used for default administrator login        |
+| CANVAS_LMS_ADMIN_PASSWORD   | Password for default administrator login                   |
+| CANVAS_LMS_ACCOUNT_NAME     | Account name seen by users, usually your organization name |
+| CANVAS_LMS_STATS_COLLECTION | opt_in, opt_out, or anonymized                             |
+
 File Generation
 -----------
 
