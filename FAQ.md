@@ -28,7 +28,7 @@ Yes, there are some. Canvas cloud runs on the exact same code as we release to g
 * Chat Tool
 * Attendance Tool (Roll Call)
 
-### How to I get professional services and support?
+### How do I get professional services and support?
 
 You will need to buy a commercial license. See [our website](http://www.instructure.com/) for more information on pricing.
 
