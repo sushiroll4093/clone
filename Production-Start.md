@@ -122,7 +122,7 @@ External dependencies
 
 ### Debian/Ubuntu 
 
-Brightbox provides [updated versions of passenger and ruby](http://www.brightbox.co.uk/docs:ruby-ng) that you will want to get:
+Brightbox provides [updated versions of passenger and ruby](http://wiki.brightbox.co.uk/docs:ruby-ng) that you will want to get:
 
     sudo apt-get install python-software-properties
     sudo apt-add-repository ppa:brightbox/ruby-ng
