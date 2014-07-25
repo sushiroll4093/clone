@@ -173,7 +173,7 @@ Before we set up all the tables in your database, our Rails code depends on a sm
 
 ```
 ~/canvas$ for config in amazon_s3 delayed_jobs domain file_store outgoing_mail security scribd external_migration; \
-          do cp config/$config.yml.example config/$config.yml; done
+          do cp -v config/$config.yml.example config/$config.yml; done
 ```
 
 Database configuration
