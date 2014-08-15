@@ -58,11 +58,12 @@ For more detailed information about setting up Kaltura, please see our [[Kaltura
  * Browse to the LinkedIn plugin settings at `http://<your-canvas-domain>/plugins/linked_in`
  * Follow the instructions there.
 
-### Scribd
+### Box View
 
- * [Set up a developer account with Scribd](http://www.scribd.com/developers/signup_api) and [get your developer API key](http://www.scribd.com/account/edit#api).
- * Browse to the Scribd plugin settings at `http://<your-canvas-domain>/plugins/scribd`
- * Follow the instructions there.
+ * [Set up a developer account with Box](https://developers.box.com/view-api/). create a Box Application.  Note the API key at the bottom of the "edit" page for your Box application.
+ * Browse to the Canvadocs plugin settings at `http://<your-canvas-domain>/plugins/canvadocs`
+ * Enter your API key.
+ * The base URL should be set to  https://view-api.box.com/1
 
 ### TinyChat
 
