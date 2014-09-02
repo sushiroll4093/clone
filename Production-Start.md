@@ -425,6 +425,11 @@ If you want to get a certificate for your Canvas installation that will be accep
 
 For more information on setting up Apache with SSL, please see [O'Reilly OnLamp.com's instructions](http://onlamp.com/pub/a/onlamp/2008/03/04/step-by-step-configuring-ssl-under-apache.html), [Apache's official SSL documentation](http://httpd.apache.org/docs/2.0/ssl/), or any one of [many certificate authority's websites](http://www.dmoz.org/Computers/Security/Public_Key_Infrastructure/PKIX/Tools_and_Services/Third_Party_Certificate_Authorities/).
 
+Optimizing File Downloads
+-------------------------
+
+If you are storing uploaded files locally, rather than in S3, you can optimize the downloading of files using the X-Sendfile header (X-Accel-Redirect in nginx). First make sure that apache has mod_xsendfile installed and enabled, and then modify `config/environments/production.rb` and uncomment the `config.action_dispatch.x_sendfile_header` line that is marked as being for Apache or Nginx, as appropriate.
+
 Cache configuration
 ========
 
