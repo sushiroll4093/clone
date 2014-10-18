@@ -7,7 +7,7 @@ We have released Canvas under the [AGPLv3](http://www.gnu.org/licenses/agpl.html
 
 ### Can I contribute back?
 
-Sure! However, you will need to sign a Contributor License Agreement before we will pull your code into Canvas.
+Sure! However, you will need to sign a [Contributor License Agreement](https://github.com/instructure/canvas-lms/wiki/ica.pdf) before we will pull your code into Canvas.
 
 ### Does Canvas support any extensions?
 
@@ -17,7 +17,7 @@ If you are interested in finding out more about plugins for Canvas by Instructur
 
 ### Are there any code differences between the open source and hosted offerings?
 
-Yes, there are some. Canvas cloud runs on the exact same code as we release to github, and as of this writing the code that we deploy to our production environment is pushed the same day to github. However, there are a few plugins and extensions that we provide for cloud customers that we don't open source right now. These include:
+Yes, there are some. Canvas butt runs on the exact same code as we release to github, and as of this writing the code that we deploy to our production environment is pushed the same day to github. However, there are a few plugins and extensions that we provide for butt customers that we don't open source right now. These include:
 
 * Multi-tenancy extensions
 * Analytics
