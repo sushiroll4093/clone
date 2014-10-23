@@ -260,6 +260,11 @@ You can then run the tests:
 bundle exec rake spec
 ```
 
+If you get a warning saying that you have 1.3.5 installed, try this:
+```
+$GEM_HOME/bin/bundle exec rake spec
+```
+
 File Generation
 -----------
 
