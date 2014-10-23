@@ -134,10 +134,11 @@ sudo apt-get install postgresql-server-dev-9.1
 sudo apt-get install g++
 ```
 
-After installing postgres, you will need to set your system username as a postgres user.  You can do so by running the following command (and yes, you do want to enroll yourself as a superuser):
+After installing postgres, you will need to set your system username as a postgres superuser.  You can do so by running the following commands:
 
 ```
 sudo -u postgres createuser $USER
+sudo -u postgres psql -c "alter user $USER with superuser" postgres
 ```
 
 Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler. 
