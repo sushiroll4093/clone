@@ -175,7 +175,7 @@ If your on Mac OS X Mavericks, the thrift gem may fail to build due to a [bug co
 
     sysadmin@appserver:/var/canvas$ sudo gem install bundler --version 1.7.2
     sysadmin@appserver:/var/canvas$ bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
-    sysadmin@appserver:/var/canvas$ bundle install --path vendor/bundle --without=sqlite
+    sysadmin@appserver:/var/canvas$ bundle install --path vendor/bundle --without=sqlite --without=mysql
 
 JavaScript Runtime
 ------------------
