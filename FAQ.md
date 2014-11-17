@@ -20,7 +20,6 @@ If you are interested in finding out more about plugins for Canvas by Instructur
 Yes, there are some. Canvas runs on the exact same code as we release to github, and as of this writing the code that we deploy to our production environment is pushed the same day to github. However, there are a few plugins and extensions that we provide for customers that we don't open source right now. These include:
 
 * Multi-tenancy extensions
-* Analytics
 * Mobile integration
 * Proprietary SIS integrations
 * Migration tools for commercial LMSs
