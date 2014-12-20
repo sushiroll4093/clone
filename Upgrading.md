@@ -55,6 +55,14 @@ After upgrading the source make sure to also upgrade all required gems:
 $GEM_HOME/bin/bundle install
 ```
 
+Upgrade and Install Node Modules
+-------------
+You also may need to upgrade or install new node modules
+
+```
+npm install
+```
+
 Compiled Assets
 -------------
 
