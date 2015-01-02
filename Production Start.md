@@ -48,7 +48,7 @@ If you are running Postgres on a different server than the server that Canvas wi
 Configuring Postgres
 -----------------
 
-You'll want to set up a Canvas user inside of Postgres. e that in the below commands, you'll want to replace *localhost* with the hostname of the server Canvas is running on, if Canvas is running on a different server than Postgres.
+You'll want to set up a Canvas user inside of Postgres. Note that in the below commands, you'll want to replace *localhost* with the hostname of the server Canvas is running on, if Canvas is running on a different server than Postgres.
 
 Ubuntu 12.04 tips
 ----------------
