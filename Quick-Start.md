@@ -275,7 +275,7 @@ Canvas needs to build a number of assets before it will work correctly. You will
 ~/canvas$ $GEM_HOME/bin/bundle exec rake canvas:compile_assets
 ```
 
-Note that we've seen trouble with npm trying to hold too many files open at once.  If you see an error with `libuv` while running npm, try increasing your `ulimit`.  For example you could add `ulimit -n 4096` to your `~/.bash_profile` on OS X.
+Note that we've seen trouble with npm trying to hold too many files open at once.  If you see an error with `libuv` while running npm, try increasing your `ulimit`.  To do this in OS X add `ulimit -n 4096` to your `~/.bash_profile` or `~/.zsh_profile`.
 
 Performance Tweaks
 ======
