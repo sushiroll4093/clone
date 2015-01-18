@@ -130,7 +130,7 @@ If you are running Ubuntu LTS 12+ you will need to run the following commands:
 
 ```
 sudo apt-get install make
-sudo apt-get install postgresql-server-dev-9.1
+sudo apt-get install postgresql-server-dev-9.3
 sudo apt-get install g++
 ```
 
