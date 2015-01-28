@@ -6,6 +6,11 @@ for getting a production-ready system running; for that, please see [[Production
 
 If you need help installing Canvas or troubleshooting your installation, your best bet is to join the community mailing list or the IRC channel [(see the wiki)](https://github.com/instructure/canvas-lms/wiki) and ask specific questions there. It's likely that somebody else has already tackled the same problem.
 
+Automated Script
+----------------
+
+If you are running Mac OS X, Arch Linux, Fedora, or Ubuntu Linux, there is [an automated script that will set up your environment](https://github.com/FreedomBen/canvas-development-tools/blob/master/CODES.sh).  You may wish to go through the manual setup way at least once though to understand what is happening, but if you need a quick and (mostly) painless setup the script is there for you.
+
 Prerequisites
 -------------
 
