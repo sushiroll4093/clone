@@ -408,6 +408,16 @@ In the new file, or new spot, depending, you want to place the following snippet
 </VirtualHost>
 ```
 
+**Apache 2.4 users:** the allow/options configuration inside the `<Directory /var/canvas/public>` have changed in Apache 2.4. You'll likely want something like this:
+
+```
+  <Directory /var/canvas/public>
+    Options All
+    AllowOverride All
+    Require all granted
+  </Directory>
+```
+
 And finally, if you created this as its own file inside */etc/apache2/sites-available*, we'll need to make it an enabled site.
 
 ```
