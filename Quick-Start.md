@@ -129,7 +129,7 @@ Canvas uses Bundler as an additional layer on top of Ruby Gems to manage version
 Assuming your *GEM_HOME* is configured, you can install Bundler using Ruby Gems:
 
 ```
-$ gem install bundler -v 1.6.0
+$ gem install bundler -v 1.7.11
 ```
 
 Canvas Dependencies
