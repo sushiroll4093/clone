@@ -11,7 +11,7 @@ Automated Script
 
 If you are running Mac OS X, Arch Linux, Fedora, or Ubuntu Linux, there is [an automated script that will set up your environment](https://github.com/FreedomBen/canvas-development-tools/blob/master/CODES.sh).  You may wish to go through the manual setup way at least once though to understand what is happening, but if you need a quick and (mostly) painless setup the script is there for you.
 
-1.  Download the script:  `curl -O https://github.com/FreedomBen/canvas-development-tools/blob/master/CODES.sh`
+1.  Download the script:  `curl -O https://raw.githubusercontent.com/FreedomBen/canvas-development-tools/master/CODES.sh`
 2.  Make the script executable:  `chmod +x CODES.sh`
 3.  Run the script (no args will print a help message):  `./CODES.sh --full`
 
