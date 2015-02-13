@@ -5,7 +5,7 @@ Canvas is a new, open-source [LMS](http://en.wikipedia.org/wiki/Learning_managem
 
 Our [dev & friends](http://instructure.github.io/) site is a great resource for getting started in developing on canvas itself, using the canvas APIs, or creating well-integrated 3rd party tools.
 
-Are you looking for one of our commercial subscriptions, professional services, support, or our hosted solution? [Please visit our main website](http://www.instructure.com/).
+Are you looking for one of our commercial subscriptions, professional services, support, or our hosted solution? [Please visit our main website](http://www.canvaslms.com/).
 
 Trying Out Canvas
 -----------------
