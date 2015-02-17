@@ -35,7 +35,7 @@ You can run Postgres on the same server you're going to run Canvas on, or not. I
 
 If Postgres isn't already on the host you are planning on running your database on, if the host is Debian/Ubuntu, then this is as easy as 
 
-    sysadmin@dbserver:~$ sudo apt-get install postgresql-9.1
+    sysadmin@dbserver:~$ sudo apt-get install postgresql-9.3
 
 N.B., if you're running MacOS X and using the excellent [Homebrew](https://github.com/mxcl/homebrew) tool, then you can just run `brew install postgresql`. Note that you need [Xcode](http://developer.apple.com/tools/xcode/) though.
 
