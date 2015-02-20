@@ -83,8 +83,8 @@ Using a Tarball or a Zip
 
 You can also download a tarball or zipfile.
   
-   * [Canvas Tarball](http://www.instructure.com/code/canvas-stable.tar.gz)
-   * [Canvas Zip](http://www.instructure.com/code/canvas-stable.zip)
+   * [Canvas Tarball](https://github.com/instructure/canvas-lms/archive/stable.tar.gz)
+   * [Canvas Zip](https://github.com/instructure/canvas-lms/archive/stable.zip)
 
 Code installation
 ======
