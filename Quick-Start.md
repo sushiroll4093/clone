@@ -42,7 +42,6 @@ Once you have a copy of Git installed on your system, getting the latest source 
 ```
 ~$ git clone https://github.com/instructure/canvas-lms.git canvas
 ~$ cd canvas
-~/canvas$ git checkout --track -b stable origin/stable
 ```
 
 Using a Tarball or a Zip
