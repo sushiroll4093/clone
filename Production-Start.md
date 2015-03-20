@@ -76,7 +76,7 @@ Once you have a copy of Git installed on your system, getting the latest source 
     sysadmin@appserver:~$ git init
     sysadmin@appserver:~$ git clone https://github.com/instructure/canvas-lms.git canvas
     sysadmin@appserver:~$ cd canvas
-    sysadmin@appserver:~/canvas$ git branch --set-upstream stable origin/stable
+    sysadmin@appserver:~/canvas$ git branch --set-upstream-to origin/stable
 
 Using a Tarball or a Zip
 -----------------
