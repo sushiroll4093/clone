@@ -262,15 +262,15 @@ psql -c 'GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO canvas' -d ca
 RAILS_ENV=test bundle exec rake db:test:reset
 ```
 
-You can then run the tests:
+Make sure you can run a spec file (the full suite takes too long to run locally):
 
 ```
-bundle exec rake spec
+bundle exec rspec spec/models/assignment_spec.rb
 ```
 
 If you get a warning saying that you have the wrong version of Bundle installed, try this:
 ```
-$GEM_HOME/bin/bundle exec rake spec
+$GEM_HOME/bin/bundle exec rspec spec/models/assignment_spec.rb
 ```
 
 File Generation
