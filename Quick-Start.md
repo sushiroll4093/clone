@@ -178,6 +178,15 @@ JavaScript Runtime
 
 You'll also need a JavaScript runtime to translate our CoffeeScript code to JavaScript and a few other things.   We use Node.js for this. Mac OS X users can download the installer from [node.js](http://nodejs.org). Linux users should already have it from the `apt-get install` step above.
 
+If you're using Homebrew, you can also install node.js via the following command:
+```
+$ brew install node
+```
+CoffeeScript can be installed the same way as on other platforms, through `npm` (which is included with the nodeJS installation):
+```
+$ sudo npm install -g coffee-script@1.6.2
+```
+
 Data setup
 ========
 
