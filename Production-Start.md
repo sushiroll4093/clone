@@ -471,6 +471,8 @@ Now we need to go back to your canvas-lms directory and edit the configuration. 
     sysadmin@appserver:/var/canvas$ sudo apt-get install redis-server
     sysadmin@appserver:/var/canvas$ cd /var/canvas/
     sysadmin@appserver:/var/canvas$ cp config/cache_store.yml.example config/cache_store.yml
+    sysadmin@appserver:/var/canvas$ sudo chown canvasuser config/cache_store.yml
+    sysadmin@appserver:/var/canvas$ sudo chmod 400 config/cache_store.yml
     sysadmin@appserver:/var/canvas$ nano config/cache_store.yml
 
 The file may start with all caching methods commented out. Match your config file to the entries below:
@@ -489,6 +491,8 @@ Then specify your redis instance information in `redis.yml`, by coping and editi
     sysadmin@appserver:/var/canvas$ cd /var/canvas/
     sysadmin@appserver:/var/canvas$ cp config/redis.yml.example config/redis.yml
     sysadmin@appserver:/var/canvas$ nano config/redis.yml
+    sysadmin@appserver:/var/canvas$ sudo chown canvasuser config/redis.yml
+    sysadmin@appserver:/var/canvas$ sudo chmod 400 config/redis.yml
 
 ```yaml
 production:
