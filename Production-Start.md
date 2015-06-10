@@ -248,6 +248,22 @@ Note that this initial setup will interactively prompt you to create an administ
 | CANVAS_LMS_ACCOUNT_NAME     | Account name seen by users, usually your organization name |
 | CANVAS_LMS_STATS_COLLECTION | opt_in, opt_out, or anonymized                             |
 
+Canvas ownership
+=========
+
+### Making sure Canvas can't write to more things than it should.
+
+Set up or choose a user you want the Canvas Rails application to run as. This can be the same user as your webserver (*www-data* on Debian/Ubuntu), your personal user account, or something else. Once you've chosen or created a new user, you need to change the ownership of key files in your application root to that user, like so
+
+    sysadmin@appserver:~$ cd /var/canvas
+    sysadmin@appserver:/var/canvas$ sudo adduser --disabled-password --gecos canvas canvasuser
+    sysadmin@appserver:/var/canvas$ sudo mkdir -p log tmp/pids public/assets public/stylesheets/compiled
+    sysadmin@appserver:/var/canvas$ sudo touch Gemfile.lock
+    sysadmin@appserver:/var/canvas$ sudo chown -R canvasuser config/environment.rb log tmp public/assets \
+                                      public/stylesheets/compiled Gemfile.lock config.ru
+
+Passenger will choose the user to run the application on based on the ownership settings of *config/environment.rb*. Note that it is probably wise to ensure that the ownership settings of all other files besides the ones with permissions set just above are restrictive, and only allow your *canvasuser* user account to read the rest of the files.
+
 File Generation
 -----------
 
@@ -267,22 +283,6 @@ Some users have suggested running sudo npm install --unsafe-perm to install rjs-
 2.  As of March 2014, installers are seeing an issue where the .js files are not created at compile time.
 
 [Fixing .js Creation Issues](https://groups.google.com/forum/#!searchin/canvas-lms-users/empty$20css$20files/canvas-lms-users/-miJsiuK1rA/q1GasvXzUDwJ)
-
-Canvas ownership
-=========
-
-### Making sure Canvas can't write to more things than it should.
-
-Set up or choose a user you want the Canvas Rails application to run as. This can be the same user as your webserver (*www-data* on Debian/Ubuntu), your personal user account, or something else. Once you've chosen or created a new user, you need to change the ownership of key files in your application root to that user, like so
-
-    sysadmin@appserver:~$ cd /var/canvas
-    sysadmin@appserver:/var/canvas$ sudo adduser --disabled-password --gecos canvas canvasuser
-    sysadmin@appserver:/var/canvas$ sudo mkdir -p log tmp/pids public/assets public/stylesheets/compiled
-    sysadmin@appserver:/var/canvas$ sudo touch Gemfile.lock
-    sysadmin@appserver:/var/canvas$ sudo chown -R canvasuser config/environment.rb log tmp public/assets \
-                                      public/stylesheets/compiled Gemfile.lock config.ru
-
-Passenger will choose the user to run the application on based on the ownership settings of *config/environment.rb*. Note that it is probably wise to ensure that the ownership settings of all other files besides the ones with permissions set just above are restrictive, and only allow your *canvasuser* user account to read the rest of the files.
 
 ### Making sure other users can't read private Canvas files
 
