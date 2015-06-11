@@ -41,6 +41,18 @@ NOTE: Canvas still uses Google’s OAuth 1.0 for Google Docs authentication, but
  * Browse to the Google Docs plugin settings at `http://<your-canvas-domain>/plugins/google_docs`
  * Follow the instructions there.
 
+### Google Drive
+
+The Google Drive plugin supports the new OAuth 2.0.  To integrate Google Drive, do the following.
+
+ * [Register your instance of Canvas with Google](https://console.developers.google.com).
+ * Create a new project or use an existing project
+ * Under APIs and auth, modify Redirect URIs as follows:  `https://<your-canvas-domain>/oauth_success?service=google_drive`
+ * Make sure Google Drive API is enabled under APIs.
+ * Access the google drive plugin and enable:  `https://<your-canvas-domain/plugins/google_drive`
+ * Download the JSON from developer console and paste in the box.
+ * You may need to also enable Google Docs plugin to enable Google Drive.  You can find your oauth consumer key and secret in the Google Admin Console under Security --> Advanced settings --> Manage Oauth domain key
+
 ### Kaltura
 You will need an account either at [Kaltura.com](http://www.kaltura.com) or with a self-hosted instance of Kaltura.  
 
