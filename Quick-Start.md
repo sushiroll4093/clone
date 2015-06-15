@@ -18,10 +18,7 @@ If you are running Mac OS X, Arch Linux, Fedora, or Ubuntu Linux, there is [an a
 Prerequisites
 -------------
 
-This tutorial is targeting POSIX-based systems (like Mac OS X and Linux). This tutorial was written and tested using Ubuntu's latest LTS 10.04.1, Mac OS X 10.6 (Snow Leopard), and Debian Squeeze 6.0. If you have a different system, consider setting up a server or virtual machine running the latest [Ubuntu LTS](http://www.ubuntu.com/). We'll assume you've either done so or are familiar with these working parts enough to do translations yourself.
-
-A note about Debian - you will have much more luck if you use Debian Squeeze (6.0) or newer.  You'll probably have better luck if you go ahead and create a 'canvas' user as sudoer.
-
+This tutorial is targeting POSIX-based systems (like Mac OS X and Linux). This tutorial was written and tested using Ubuntu's latest LTS 14.04.2, Mac OS X 10.10 (Yosemite), and Debian Jessie 8.1. If you have a different system, consider setting up a server or virtual machine running the latest [Ubuntu LTS](http://www.ubuntu.com/). We'll assume you've either done so or are familiar with these working parts enough to do translations yourself.
 
 Getting the code
 ======
@@ -34,7 +31,7 @@ Using Git
 If you don't already have [Git](http://git-scm.com/), you can install it on Debian/Ubuntu by running
 
 ```
-$ sudo apt-get install git-core
+$ sudo apt-get install git
 ```
 
 Once you have a copy of Git installed on your system, getting the latest source for Canvas is as simple as checking out code from the repo, like so:
@@ -60,38 +57,44 @@ Wherever you check out the code to, we're going to call that your application ro
 Dependency Installation
 ==========
 
-Canvas requires Ruby 1.9.3. A minimum version of 1.9.3p484 is recommended. If you are using Debian/Ubuntu, note that apt refers to ruby 1.9.3 as ruby1.9.1 for compatibility reasons.
+Canvas requires Ruby 2.1. A minimum version of 2.1.6 is recommended.
 
 External dependencies
 -----------
 
 ### Debian/Ubuntu 
 
-We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install. We recommend that you run:
+We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install. If you're running Ubuntu 14.04 Trusty, you'll need to add a PPA in order to get Ruby 2.1:
 
 ```
-$ sudo apt-get install ruby1.9.1 ruby1.9.1-dev zlib1g-dev rubygems1.9.1 libxml2-dev libxslt1-dev \
-                       libsqlite3-dev libhttpclient-ruby imagemagick irb1.9.1 \
-                       libxmlsec1-dev postgresql python-software-properties
+$ sudo apt-get install software-properties-common
+$ sudo apt-add-repository ppa:brightbox/ruby-ng
+$ sudo apt-get update
+```
+
+```
+$ sudo apt-get install ruby2.1 ruby2.1-dev zlib1g-dev libxml2-dev \
+                       libsqlite3-dev postgresql libpq-dev \
+                       libxmlsec1-dev curl make g++
 ```
 
 Node.js installation:
 
 ```
-$ sudo add-apt-repository ppa:chris-lea/node.js
-$ sudo apt-get update
+$ curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
 $ sudo apt-get install nodejs
 ```
 
-CoffeeScript installation:
+After installing Postgres, you will need to set your system username as a postgres superuser.  You can do so by running the following commands:
 
 ```
-$ sudo npm install -g coffee-script@1.6.2
+sudo -u postgres createuser $USER
+sudo -u postgres psql -c "alter user $USER with superuser" postgres
 ```
 
 ### Mac OS X
 
-For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 1.9.3. You can find out what version of Ruby your Mac came with by running:
+For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 2.1. You can find out what version of Ruby your Mac came with by running:
 
 ```
 $ ruby -v
@@ -100,7 +103,7 @@ $ ruby -v
 You also need Postgres and the [xmlsec library](http://www.aleksey.com/xmlsec/) installed. The easiest way to get these is via [homebrew](http://brew.sh/). Once you have homebrew installed, just run:
 
 ```
-$ brew install xmlsec1 postgresql
+$ brew install postgresql nodejs xmlsec1
 ```
 
 Ruby Gems
@@ -114,8 +117,8 @@ Installing Gems to a user folder
 We want to configure where Ruby Gems will install packages to. You can do this by setting the *GEM_HOME* environment variable prior to running either Ruby Gems, Bundler (described below), or Canvas.
 
 ```
-$ mkdir ~/gems
-$ export GEM_HOME=~/gems
+$ mkdir ~/.gems
+$ export GEM_HOME=~/.gems
 ```
 
 Of course, your *GEM_HOME* environment variable, used this way, will only last the duration of your shell session. If you'd like this environment variable to last between shell sessions, you can add `export GEM_HOME=~/gems` to the bottom of your `~/.bashrc` file on Debian/Ubuntu, or your `~/.bash_login` file on Mac OS X.
@@ -128,26 +131,13 @@ Canvas uses Bundler as an additional layer on top of Ruby Gems to manage version
 Assuming your *GEM_HOME* is configured, you can install Bundler using Ruby Gems:
 
 ```
-$ gem install bundler -v 1.7.11
+$ gem install bundler -v 1.9.6
 ```
+
+On Debian Jessie, you'll need to substitute `gem` with `gem2.1`.
 
 Canvas Dependencies
 ---------
-
-If you are running Ubuntu LTS 12+ you will need to run the following commands:
-
-```
-sudo apt-get install make
-sudo apt-get install postgresql-server-dev-9.1
-sudo apt-get install g++
-```
-
-After installing postgres, you will need to set your system username as a postgres superuser.  You can do so by running the following commands:
-
-```
-sudo -u postgres createuser $USER
-sudo -u postgres psql -c "alter user $USER with superuser" postgres
-```
 
 Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler. 
 
@@ -159,15 +149,10 @@ Since we are using PostgreSQL for this Quick Start and don't want to require you
 
 ```
 ~/canvas$ $GEM_HOME/bin/bundle install --without mysql
+~/canvas$ npm install
 ```
 
-If there is a warning about libcurl being missing (Seen on Ubuntu 11.04) run the following, then the above command again.
-
-```
-apt-get install libcurl4-gnutls-dev
-```
-
-If you're on OS X Mavericks and hit an error with the thrift gem, you might have to set the following bundler flag and then run bundle install again (see https://issues.apache.org/jira/browse/THRIFT-2219):
+If you're on OS X Mavericks or Yosemite and hit an error with the thrift gem, you might have to set the following bundler flag and then run bundle install again (see https://issues.apache.org/jira/browse/THRIFT-2219):
 
 ```
 ~/canvas$ $GEM_HOME/bin/bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
@@ -176,12 +161,8 @@ If you're on OS X Mavericks and hit an error with the thrift gem, you might have
 JavaScript Runtime
 ------------------
 
-You'll also need a JavaScript runtime to translate our CoffeeScript code to JavaScript and a few other things.   We use Node.js for this. Mac OS X users can download the installer from [node.js](http://nodejs.org). Linux users should already have it from the `apt-get install` step above.
+You'll also need a JavaScript runtime to translate our CoffeeScript code to JavaScript and a few other things.  We use Node.js for this. Mac OS X users can download the installer from [node.js](http://nodejs.org). Linux users should already have it from the `apt-get install` step above.
 
-If you're using Homebrew, you can also install node.js via the following command:
-```
-$ brew install node
-```
 CoffeeScript can be installed the same way as on other platforms, through `npm` (which is included with the nodeJS installation):
 ```
 $ sudo npm install -g coffee-script@1.6.2
@@ -288,7 +269,6 @@ File Generation
 Canvas needs to build a number of assets before it will work correctly. You will need to run:
 
 ```
-~/canvas$ npm install
 ~/canvas$ $GEM_HOME/bin/bundle exec rake canvas:compile_assets
 ```
 
