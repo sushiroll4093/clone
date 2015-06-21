@@ -444,6 +444,10 @@ Optimizing File Downloads
 
 If you are storing uploaded files locally, rather than in S3, you can optimize the downloading of files using the X-Sendfile header (X-Accel-Redirect in nginx). First make sure that apache has mod_xsendfile installed and enabled. In `config/environments/production.rb` you'll find the necessary `config.action_dispatch.x_sendfile_header` line, but commented out. We recommend that you create a `config/environments/production-local.rb` file and add the uncommented line to that file, to avoid future merge conflicts.
 
+In your canvas virtual host at /etc/apache2/sites-available/canvas, add the following two directives:
+    XSendFile On
+    XSendFilePath /var/canvas
+
 Cache configuration
 ========
 
