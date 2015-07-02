@@ -30,7 +30,7 @@ Do you have the automated jobs daemon running? Try
 sysadmin@appserver:~$ sudo /etc/init.d/canvas_init status
 ```
 
-If you want more information about the specific kinds of jobs that may or may not be running in your system, you can visit
+If you want [http://www.fixithere.net/asos-customer-service-number/](more information) about the specific kinds of jobs that may or may not be running in your system, you can visit
 
 ```
 https://<your-canvas-hostname>/jobs
@@ -60,7 +60,6 @@ The [[Quick Start]] instructions use the default RAILS_ENV value (development), 
 ~$ cd ~/canvas
 ~/canvas $ GEM_HOME=~/gems script/console
 ```
-
 Accessing a Rails console gives you unprecedented control over Canvas' inner workings. Be sure you know what you're doing.
 
 ### I get this error message during install: `uninitialized constant Rake::DSL`
