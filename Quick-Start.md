@@ -184,7 +184,7 @@ Before we set up all the tables in your database, our Rails code depends on a sm
 Database configuration
 ---------
 
-Now we need to set up your database configuration. We have provided a sample file for quickstarts, so you just need to copy it in. You'll also want to create two databases. Depending on your OS (i.e. on Linux), you may need to use a postgres user to create the database, and configure database.yml to use a specific username to connect. See the [[Production Start]] tutorial for details on doing that. On OS X, your local user will have permissions create databases already, so no special configuration is necessary.
+Now we need to set up your database configuration. We have provided a sample file for quickstarts, so you just need to copy it in. You'll also want to create two databases. Depending on your OS (i.e. on Linux), you may need to use a postgres user to create the database, and configure database.yml to use a specific username to connect. See the [[Production Start]] tutorial for details on doing that. On OS X, your local user will have permissions to create databases already, so no special configuration is necessary.
 
 ```
 ~/canvas$ cp config/database.yml.example config/database.yml
