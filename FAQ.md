@@ -48,7 +48,7 @@ Rest assured, if we accept a pull request from you, your code will remain licens
 
 ### Where do I send the contributor agreement to?
 
-Send it to evizitei@instructure.com.
+Send it to opensource@instructure.com.
 
 ### I have some other question.
 
