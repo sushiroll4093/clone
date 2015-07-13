@@ -33,14 +33,6 @@ You can read more about cross-domain policy files [here](http://www.adobe.com/de
  * Browse to the Facebook plugin settings at `http://<your-canvas-domain>/plugins/facebook`
  * Follow the instructions there.
 
-### Google Docs
-
-NOTE: Canvas still uses Google’s OAuth 1.0 for Google Docs authentication, but Google is no longer issuing new OAuth 1.0 tokens. This means that new installations of canvas will not be able to use the Google Docs functionality until Canvas has been updated to use the current Google authentication scheme.
-
- * [Register your instance of Canvas with Google](https://www.google.com/accounts/ManageDomains).
- * Browse to the Google Docs plugin settings at `http://<your-canvas-domain>/plugins/google_docs`
- * Follow the instructions there.
-
 ### Google Drive
 
 The Google Drive plugin supports the new OAuth 2.0.  To integrate Google Drive, do the following.
