@@ -115,46 +115,54 @@ As an example:
 Dependency Installation
 ==========
 
-Canvas requires Ruby 1.9.3. A minimum version of 1.9.3p286 is recommended.
+Canvas requires Ruby 2.1. A minimum version of 2.1.6 is recommended.
 
 External dependencies
 -----------
 
 ### Debian/Ubuntu 
 
-Brightbox provides [updated versions of passenger and ruby](http://wiki.brightbox.co.uk/docs:ruby-ng) that you will want to get:
+We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install. If you're running Ubuntu 14.04 Trusty, you'll need to add a PPA in order to get Ruby 2.1:
 
-    sudo apt-get install python-software-properties
-    sudo apt-add-repository ppa:brightbox/ruby-ng
-    sudo apt-get update
+```
+$ sudo apt-get install software-properties-common
+$ sudo apt-add-repository ppa:brightbox/ruby-ng
+$ sudo apt-get update
+```
 
-We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there's a few packages you're going to need to install. 
+```
+$ sudo apt-get install ruby2.1 ruby2.1-dev zlib1g-dev libxml2-dev \
+                       libsqlite3-dev postgresql libpq-dev \
+                       libxmlsec1-dev curl make g++
+```
 
-We recommend that you run: (If using Debian, you will need to compile nodejs from source.)
+Node.js installation:
 
+```
+$ curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+$ sudo apt-get install nodejs
+```
 
-    sysadmin@appserver:~$ sudo apt-get install ruby1.9.3 \
-      zlib1g-dev libxml2-dev libmysqlclient-dev libxslt1-dev \
-      imagemagick libpq-dev libxmlsec1-dev libcurl4-gnutls-dev \
-      libxmlsec1 build-essential openjdk-7-jre unzip
+After installing Postgres, you will need to set your system username as a postgres superuser.  You can do so by running the following commands:
 
-    sudo apt-get update
-    sudo apt-get install -y python-software-properties python g++ make
-    sudo add-apt-repository ppa:chris-lea/node.js
-    sudo apt-get update
-    sudo apt-get install nodejs
-
-NPM is automatically installed.
+```
+sudo -u postgres createuser $USER
+sudo -u postgres psql -c "alter user $USER with superuser" postgres
+```
 
 ### Mac OS X
 
-For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 1.9.3. You can find out what version of Ruby your Mac came with by running:
+For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 2.1. You can find out what version of Ruby your Mac came with by running:
 
-    $ ruby -v
+```
+$ ruby -v
+```
 
-You also need the [xmlsec library](http://www.aleksey.com/xmlsec/) installed. The easiest way to get that is via [homebrew](http://mxcl.github.com/homebrew/). Once you have homebrew installed, just run:
+You also need Postgres and the [xmlsec library](http://www.aleksey.com/xmlsec/) installed. The easiest way to get these is via [homebrew](http://brew.sh/). Once you have homebrew installed, just run:
 
-    $ brew install xmlsec1
+```
+$ brew install postgresql nodejs xmlsec1
+```
 
 Ruby Gems
 ------------
