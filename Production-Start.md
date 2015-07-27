@@ -185,11 +185,6 @@ If your on Mac OS X Mavericks, the thrift gem may fail to build due to a [bug co
     sysadmin@appserver:/var/canvas$ bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
     sysadmin@appserver:/var/canvas$ bundle install --path vendor/bundle --without=sqlite mysql
 
-JavaScript Runtime
-------------------
-
-You'll also need a JavaScript runtime to translate our CoffeeScript code to JavaScript and a few other things.  Mac OS X users already have _JavaScript Core_ and don't need to do anything.  Linux users will probably want NodeJS, which should have been installed in the `apt-get install` step above. Other options can be found at the [execjs homepage](https://github.com/sstephenson/execjs).
-
 Canvas default configuration
 ------
 
