@@ -73,7 +73,6 @@ You can install [Git](http://git-scm.com/) on Debian/Ubuntu by running
 
 Once you have a copy of Git installed on your system, getting the latest source for Canvas is as simple as checking out code from the repo, like so:
 
-    sysadmin@appserver:~$ git init
     sysadmin@appserver:~$ git clone https://github.com/instructure/canvas-lms.git canvas
     sysadmin@appserver:~$ cd canvas
     sysadmin@appserver:~/canvas$ git branch --set-upstream-to origin/stable
