@@ -292,7 +292,7 @@ Note that once you change these settings, to modify the configuration files henc
 
 ### Making sure to use the "most restrictive" permissions
 
-Passenger will choose the user to run the application on based on the ownership settings of config/environment.rb. Note that it is probably wise to ensure that the ownership settings of all other files besides the ones with permissions set just above are restrictive, and only allow your canvasuser user account to read the rest of the files.
+Passenger will choose the user to run the application based on the ownership settings of config/environment.rb (you can view the ownership settings via the `ls -l` command). Note that it is probably wise to ensure that the ownership settings of all other files besides the ones with permissions set just above are restrictive, and only allow your canvasuser user account to read the rest of the files.
 
 Apache configuration
 =========
