@@ -280,9 +280,9 @@ Passenger will choose the user to run the application on based on the ownership 
 
 1.  As of March 2014, installers are seeing the error: `Error: Cannot find module '/var/canvas/node_modules/rjs-old/r.js-1.0.8/dist/r.js'` Some users have suggested running `sudo npm install --unsafe-perm` to install rjs-old as the fix.
 
-2.  As of March 2014, installers are seeing an issue where the .js files are not created at compile time.
+2.  As of March 2014, installers are seeing an issue where the .js files are not created at compile time. 
 
-[Fixing .js Creation Issues](https://groups.google.com/forum/#!searchin/canvas-lms-users/empty$20css$20files/canvas-lms-users/-miJsiuK1rA/q1GasvXzUDwJ)
+See [Fixing .js Creation Issues](https://groups.google.com/forum/#!searchin/canvas-lms-users/empty$20css$20files/canvas-lms-users/-miJsiuK1rA/q1GasvXzUDwJ) for with JS issues.
 
 ### Making sure other users can't read private Canvas files
 
