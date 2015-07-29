@@ -261,10 +261,6 @@ Set up or choose a user you want the Canvas Rails application to run as. This ca
     sysadmin@appserver:/var/canvas$ sudo adduser --disabled-password --gecos canvas canvasuser
     sysadmin@appserver:/var/canvas$ mkdir -p log tmp/pids public/assets public/stylesheets/compiled
     sysadmin@appserver:/var/canvas$ touch Gemfile.lock
-    
-Passenger will choose the user to run the application on based on the ownership settings of *config/environment.rb*. Note that it is probably wise to ensure that the ownership settings of all other files besides the ones with permissions set just above are restrictive, and only allow your *canvasuser* user account to read the rest of the files.
-
-> Note: One user felt confused about the "permissions set just above," because he could find the place just above where we set permissions. Just above, it looks like we're making and touching directories but not that we're changing permissions.
 
 File Generation
 -----------
@@ -279,8 +275,9 @@ When done, finish setting the ownership for the canvasuser.
     sysadmin@appserver:/var/canvas$ sudo chown -R canvasuser config/environment.rb log tmp public/assets \
                                       public/stylesheets/compiled Gemfile.lock config.ru
 
+Passenger will choose the user to run the application on based on the ownership settings of *config/environment.rb*. Note that it is probably wise to ensure that the ownership settings of all other files besides the ones with permissions set just above are restrictive, and only allow your *canvasuser* user account to read the rest of the files.
 
-**Notes: ** 
+**Notes:** 
 
 1.  As of March 2014, installers are seeing the error:
 
