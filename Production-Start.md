@@ -262,7 +262,7 @@ Set up or choose a user you want the Canvas Rails application to run as. This ca
     sysadmin@appserver:/var/canvas$ mkdir -p log tmp/pids public/assets public/stylesheets/compiled
     sysadmin@appserver:/var/canvas$ touch Gemfile.lock
     
-Passenger will choose the user to run the application on based on the ownership settings of *config/environment.rb*. Note that it is probably wise to ensure that the ownership settings of all other files besides the ones with permissions set just above are restrictive, and only allow your *canvasuser* user account to read the rest of the files.
+Passenger will choose the user to run the application on based on the ownership settings of *config/environment.rb*. Note that it is probably wise to ensure that the ownership settings of all other files besides the ones with permissions set just above are restrictive, and only allow your *canvasuser* user account to read the rest of the files. [One user expressed confusion about this paragraph, because it refers to "permissions set just above," and he could find the place "just above" where we set permissions.]
 
 File Generation
 -----------
