@@ -269,20 +269,14 @@ Canvas needs to build a number of assets before it will work correctly. You will
     sysadmin@appserver:/var/canvas$ npm install
     sysadmin@appserver:/var/canvas$ bundle exec rake canvas:compile_assets
 
-When done, finish setting the ownership for the canvasuser.
-
-    sysadmin@appserver:/var/canvas$ sudo chown -R canvasuser config/environment.rb log tmp public/assets \
-                                      public/stylesheets/compiled Gemfile.lock config.ru
-
-Passenger will choose the user to run the application on based on the ownership settings of *config/environment.rb*. Note that it is probably wise to ensure that the ownership settings of all other files besides the ones with permissions set just above are restrictive, and only allow your *canvasuser* user account to read the rest of the files.
-
-### Notes
+### JS Creation Notes
 
 1.  As of March 2014, installers are seeing the error: `Error: Cannot find module '/var/canvas/node_modules/rjs-old/r.js-1.0.8/dist/r.js'` Some users have suggested running `sudo npm install --unsafe-perm` to install rjs-old as the fix.
 
 2.  As of March 2014, installers are seeing an issue where the .js files are not created at compile time. 
 
 See [Fixing .js Creation Issues](https://groups.google.com/forum/#!searchin/canvas-lms-users/empty$20css$20files/canvas-lms-users/-miJsiuK1rA/q1GasvXzUDwJ) for help with JS issues.
+
 
 ### Making sure other users can't read private Canvas files
 
