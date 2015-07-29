@@ -264,7 +264,7 @@ Set up or choose a user you want the Canvas Rails application to run as. This ca
     
 Passenger will choose the user to run the application on based on the ownership settings of *config/environment.rb*. Note that it is probably wise to ensure that the ownership settings of all other files besides the ones with permissions set just above are restrictive, and only allow your *canvasuser* user account to read the rest of the files.
 
-> Note: One user felt confused about the "permissions set just above," because he could find the place "just above" where we set permissions. It looks like we're making and touching directories just above but not that we're changing permissions.
+> Note: One user felt confused about the "permissions set just above," because he could find the place just above where we set permissions. Just above, it looks like we're making and touching directories but not that we're changing permissions.
 
 File Generation
 -----------
