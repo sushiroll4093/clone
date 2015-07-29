@@ -304,9 +304,14 @@ You're now going to need to set up the webserver. We're going to use [Apache](ht
 
     sysadmin@appserver:/var/canvas$ sudo apt-get install passenger-common1.9.1 libapache2-mod-passenger apache2
 
+
+***
+
 **Note:** Some users have found that they first need to [add the Phusion Passenger APT repository](https://www.phusionpassenger.com/documentation/Users%20guide%20Apache.html#install_add_apt_repo), which contains the `passenger-common1.9.1` package, and then to install `passenger` which replaces `passenger-common1.9.1`, which looks like this:
 
     sysadmin@appserver:/var/canvas$ sudo apt-get install passenger libapache2-mod-passenger apache2
+
+***
 
 We'll be using mod_rewrite, so you'll want to enable that.
 
