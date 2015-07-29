@@ -262,8 +262,7 @@ Set up or choose a user you want the Canvas Rails application to run as. This ca
     sysadmin@appserver:/var/canvas$ mkdir -p log tmp/pids public/assets public/stylesheets/compiled
     sysadmin@appserver:/var/canvas$ touch Gemfile.lock
 
-File Generation
------------
+#### File Generation
 
 Canvas needs to build a number of assets before it will work correctly. You will need to run:
 
