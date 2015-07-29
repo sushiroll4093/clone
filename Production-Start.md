@@ -282,7 +282,7 @@ Passenger will choose the user to run the application on based on the ownership 
 
 2.  As of March 2014, installers are seeing an issue where the .js files are not created at compile time. 
 
-See [Fixing .js Creation Issues](https://groups.google.com/forum/#!searchin/canvas-lms-users/empty$20css$20files/canvas-lms-users/-miJsiuK1rA/q1GasvXzUDwJ) for with JS issues.
+See [Fixing .js Creation Issues](https://groups.google.com/forum/#!searchin/canvas-lms-users/empty$20css$20files/canvas-lms-users/-miJsiuK1rA/q1GasvXzUDwJ) for help with JS issues.
 
 ### Making sure other users can't read private Canvas files
 
