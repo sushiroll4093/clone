@@ -300,9 +300,11 @@ Apache configuration
 Installation
 ----------
 
-You're now going to need to set up the webserver. We're going to use [Apache](http://httpd.apache.org/) and [Passenger](http://www.modrails.com/) to serve the Canvas content. If you are on Debian/Ubuntu, you can quickly do this by typing
+You're now going to need to set up the webserver. We're going to use [Apache](http://httpd.apache.org/) and [Passenger](http://www.modrails.com/) to serve the Canvas content. If you are on Debian/Ubuntu, you can quickly do this by typing:
 
     sysadmin@appserver:/var/canvas$ sudo apt-get install passenger-common1.9.1 libapache2-mod-passenger apache2
+
+**Note:** Some users have found that they first need to [add the Phusion Passenger APT repository](https://www.phusionpassenger.com/documentation/Users%20guide%20Apache.html#install_add_apt_repo), which contains the `passenger-common1.9.1` package and then to run ` sudo apt-get install passenger libapache2-mod-passenger apache2` instead of the above command.
 
 We'll be using mod_rewrite, so you'll want to enable that.
 
