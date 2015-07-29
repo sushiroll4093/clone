@@ -288,7 +288,7 @@ sysadmin@appserver:/var/canvas$ sudo chown canvasuser config/*.yml
 sysadmin@appserver:/var/canvas$ sudo chmod 400 config/*.yml
 ```
 
-Note that once you change these settings, to modify the configuration files henceforth, you will have to use *sudo*.
+Note that once you change these settings, to modify the configuration files henceforth, you will have to use `sudo`.
 
 ### Making sure to use the "most restrictive" permissions
 
