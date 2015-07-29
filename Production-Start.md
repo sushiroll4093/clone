@@ -253,32 +253,33 @@ Note that this initial setup will interactively prompt you to create an administ
 Canvas ownership
 =========
 
-### Making sure Canvas can't write to more things than it should.
+## Making sure Canvas can't write to more things than it should.
 
-Set up or choose a user you want the Canvas Rails application to run as. This can be the same user as your webserver (*www-data* on Debian/Ubuntu), your personal user account, or something else. Once you've chosen or created a new user, you need to change the ownership of key files in your application root to that user, like so
+Set up or choose a user you want the Canvas Rails application to run as. This can be the same user as your webserver (*www-data* on Debian/Ubuntu), your personal user account, or something else. Once you've chosen or created a new user, you need to change the ownership of key files in your application root to that user.
+
+    sysadmin@appserver:/var/canvas$ sudo adduser --disabled-password --gecos canvas canvasuser
+
+## File Generation
+
+Canvas needs to build a number of assets before it will work correctly. First, create the directories that will store the generated files.
 
     sysadmin@appserver:~$ cd /var/canvas
-    sysadmin@appserver:/var/canvas$ sudo adduser --disabled-password --gecos canvas canvasuser
     sysadmin@appserver:/var/canvas$ mkdir -p log tmp/pids public/assets public/stylesheets/compiled
     sysadmin@appserver:/var/canvas$ touch Gemfile.lock
 
-#### File Generation
-
-Canvas needs to build a number of assets before it will work correctly. You will need to run:
+Then will need to run:
 
     sysadmin@appserver:/var/canvas$ npm install
     sysadmin@appserver:/var/canvas$ bundle exec rake canvas:compile_assets
 
-### JS Creation Notes
+**File Generation Notes:**
 
-1.  As of March 2014, installers are seeing the error: `Error: Cannot find module '/var/canvas/node_modules/rjs-old/r.js-1.0.8/dist/r.js'` Some users have suggested running `sudo npm install --unsafe-perm` to install rjs-old as the fix.
-
-2.  As of March 2014, installers are seeing an issue where the .js files are not created at compile time. 
+1. As of March 2014, installers are seeing the error: `Error: Cannot find module '/var/canvas/node_modules/rjs-old/r.js-1.0.8/dist/r.js'` Some users have suggested running `sudo npm install --unsafe-perm` to install rjs-old as the fix.
+1. As of March 2014, installers are seeing an issue where the .js files are not created at compile time. 
 
 See [Fixing .js Creation Issues](https://groups.google.com/forum/#!searchin/canvas-lms-users/empty$20css$20files/canvas-lms-users/-miJsiuK1rA/q1GasvXzUDwJ) for help with JS issues.
 
-
-### Making sure other users can't read private Canvas files
+## Making sure other users can't read private Canvas files
 
 There are a number of files in your configuration directory (`/var/canvas/config`) that contain passwords, encryption keys, and other private data that would compromise the security of your Canvas installation if it became public. These are the *.yml* files inside the *config* directory, and we want to make them readable only by the *canvasuser* user.
 
@@ -288,6 +289,8 @@ sysadmin@appserver:/var/canvas$ sudo chmod 400 config/*.yml
 ```
 
 Note that once you change these settings, to modify the configuration files henceforth, you will have to use *sudo*.
+
+Passenger will choose the user to run the application on based on the ownership settings of config/environment.rb. Note that it is probably wise to ensure that the ownership settings of all other files besides the ones with permissions set just above are restrictive, and only allow your canvasuser user account to read the rest of the files.
 
 Apache configuration
 =========
