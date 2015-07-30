@@ -367,11 +367,11 @@ Configure Canvas with Apache
 
 Now we need to tell Passenger about your particular Rails application. First, disable any Apache VirtualHosts you don't want running. On Debian/Ubuntu, you can simply unlink any of the symlinks in the */etc/apache2/sites-enabled* subdirectory you aren't interested in. In other set-ups, you can remove or comment out VirtualHosts you don't want. 
 
-    sysadmin@appserver:/var/canvas$ sudo unlink /etc/apache2/sites-enabled/000-default
+    sysadmin@appserver:/var/canvas$ sudo unlink /etc/apache2/sites-enabled/000-default.conf
 
 Now, we need to make a VirtualHost for your app. On Debian/Ubuntu, we are going to need to make a new file called */etc/apache2/sites-available/canvas*. On other setups, find where you put VirtualHosts definitions. You can open this file like so:
 
-    sysadmin@appserver:/etc/apache2/sites-enabled$ sudo nano /etc/apache2/sites-available/canvas
+    sysadmin@appserver:/etc/apache2/sites-enabled$ sudo nano /etc/apache2/sites-available/canvas.conf
 
 In the new file, or new spot, depending, you want to place the following snippet. **You will want to modify** the lines designated *ServerName*(2), *ServerAdmin*(2), *DocumentRoot*(2), *SetEnv*(2), *Directory*(2), and probably *SSLCertificateFile*(1) and *SSLCertificateKeyFile*(1), discussed below in the "Note about SSL Certificates".
 
