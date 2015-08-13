@@ -270,7 +270,7 @@ Canvas needs to build a number of assets before it will work correctly. First, c
 Then will need to run:
 
     sysadmin@appserver:/var/canvas$ npm install
-    sysadmin@appserver:/var/canvas$ bundle exec rake canvas:compile_assets
+    sysadmin@appserver:/var/canvas$ RAILS_ENV=production bundle exec rake canvas:compile_assets
 
 **File Generation Notes:**
 
