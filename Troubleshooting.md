@@ -30,7 +30,7 @@ Do you have the automated jobs daemon running? Try
 sysadmin@appserver:~$ sudo /etc/init.d/canvas_init status
 ```
 
-If you want [more information](http://www.fixithere.net/asos-customer-service-number/) about the specific kinds of jobs that may or may not be running in your system, you can visit
+If you want more information about the specific kinds of jobs that may or may not be running in your system, you can visit
 
 ```
 https://<your-canvas-hostname>/jobs
