@@ -266,6 +266,8 @@ Canvas needs to build a number of assets before it will work correctly. First, c
     sysadmin@appserver:~$ cd /var/canvas
     sysadmin@appserver:/var/canvas$ mkdir -p log tmp/pids public/assets public/stylesheets/compiled
     sysadmin@appserver:/var/canvas$ touch Gemfile.lock
+    sysadmin@appserver:/var/canvas$ sudo chown -R canvasuser config/environment.rb log tmp public/assets \
+                                  public/stylesheets/compiled Gemfile.lock config.ru
 
 Then will need to run:
 
