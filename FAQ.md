@@ -44,8 +44,6 @@ Canvas, unlike many projects hosted by GitHub, is commercially dual-licensed. We
 
 If you want to contribute, as soon as we have a copy of [[contributor agreement|ica.pdf]] on file for you, we will be happy to accept your pull requests.
 
-Rest assured, if we accept a pull request from you, your code will remain licensed via the AGPLv3.
-
 ### Where do I send the contributor agreement to?
 
 Send it to opensource@instructure.com.
