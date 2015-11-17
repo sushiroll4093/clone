@@ -208,7 +208,7 @@ Outgoing mail configuration
 
 For Canvas to work properly, you need an outgoing SMTP mail server. All you need to do is get valid outgoing SMTP settings. Open *config/outgoing_mail.yml*:
 
-    sysadmin@appserver:cp config/outgoing_mail.yml.example config/outgoing_mail.yml
+    sysadmin@appserver:/var/canvas$ cp config/outgoing_mail.yml.example config/outgoing_mail.yml
     sysadmin@appserver:/var/canvas$ nano config/outgoing_mail.yml
 
 Find the **production** section and configure it to match your SMTP provider's settings. Note that the *domain* and *outgoing_address* fields are not for SMTP, but are for Canvas. *domain* is required, and is the domain name that outgoing emails are expected to come from. *outgoing_address* is optional, and if provided, will show up as the address in the *From* field of emails Canvas sends.
