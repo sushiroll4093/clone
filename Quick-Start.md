@@ -189,7 +189,6 @@ Now we need to set up your database configuration. We have provided a sample fil
 ```
 ~/canvas$ cp config/database.yml.example config/database.yml
 ~/canvas$ createdb canvas_development
-~/canvas$ createdb canvas_queue_development
 ```
 
 Note: When installing postgres with brew, you may have trouble connecting to the database and you may get an error like:
