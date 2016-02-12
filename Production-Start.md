@@ -57,7 +57,6 @@ Ubuntu 12.04 tips
     sysadmin@dbserver:~$ sudo -u postgres createuser canvas --no-createdb \
        --no-superuser --no-createrole --pwprompt
     sysadmin@dbserver:~$ sudo -u postgres createdb canvas_production --owner=canvas
-    sysadmin@dbserver:~$ sudo -u postgres createdb canvas_queue_production --owner=canvas
 
 Getting the code
 ======
