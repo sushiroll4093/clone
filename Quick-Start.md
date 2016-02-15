@@ -121,7 +121,7 @@ $ mkdir ~/.gems
 $ export GEM_HOME=~/.gems
 ```
 
-Of course, your *GEM_HOME* environment variable, used this way, will only last the duration of your shell session. If you'd like this environment variable to last between shell sessions, you can add `export GEM_HOME=~/gems` to the bottom of your `~/.bashrc` file on Debian/Ubuntu, or your `~/.bash_login` file on Mac OS X.
+Of course, your *GEM_HOME* environment variable, used this way, will only last the duration of your shell session. If you'd like this environment variable to last between shell sessions, you can add `export GEM_HOME=~/.gems` to the bottom of your `~/.bashrc` file on Debian/Ubuntu, or your `~/.bash_login` file on Mac OS X.
 
 Bundler
 ----------
