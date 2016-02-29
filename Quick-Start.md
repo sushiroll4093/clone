@@ -161,7 +161,7 @@ If you're on OS X Mavericks or Yosemite and hit an error with the thrift gem, yo
 If you hit an error with the eventmachine gem, you might have to set the following bundler flag and then run bundle install again:
 
 ```
-bundle config build.eventmachine --with-cppflags=-I/usr/local/opt/openssl/include
+~/canvas$ $GEM_HOME/bin/bundle config build.eventmachine --with-cppflags=-I/usr/local/opt/openssl/include
 ```
 
 JavaScript Runtime
