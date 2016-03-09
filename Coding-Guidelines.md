@@ -16,6 +16,7 @@ Other factors that should be considered:
 * Must remain performant under heavy load.
 * Must work in a multi-tenant environment. More on that in a minute, but basically enhancements should be built using the Plugin architecture of Canvas.
 * Must be accessible to screen readers and other assistive technology devices
+* Should follow our [coding style](#coding-style)
 
 ## Places to Start
 If you're new to Canvas development, there are guides in this wiki for getting your dev environment set up (including getting specs running). Make sure you've given us a signed [[code contributor agreement|ica.pdf]], then *start with something small*. Get to know the commit process with something small like a bug fix or a UI tweak. If you're not sure where to start post a message on the mailing list.
@@ -31,4 +32,26 @@ Because Canvas Cloud runs as a multi-tenant environment, any changes to the code
 To help with this we've built the notion of Plugins into Canvas. Plugins can be registered at runtime but only appear in the interface for enabled root accounts. There are some places in the code that have already been instrumented for plugins (such as web conferences and collaborations), but if you're looking to extend functionality somewhere else then the first step is going to be pluginifying that portion of the code, _then_ building a plugin for your specific implementation.
 
 The easiest way to get to know Canvas Plugins is lib/canvas/plugin.rb and lib/canvas/plugins/default_plugins.rb
+
+## Coding Style
+
+
+* follow the style around you unless you think it is super crazy, in which case check here or ask
+* leave code better than you found it
+
+### Ruby
+
+see https://github.com/styleguide/ruby with the following exceptions:
+
+* we're not strict about using TomDoc, although it's a nice format. (their Documentation section)
+* we don't care about double quotes vs single quotes for regular strings (second bullet point in their "Strings" section)
+* we don't care about hash rocket syntax vs JSON style syntax for hashes (their Hashes section)
+
+### CSS
+
+* Use soft-tabs with a two space indent.
+* Prefer scss for new files.
+* Document it for our styleguide.
+  * see app/stylesheets/utilities/_pill.scss for an example
+  * see /styleguide locally (or [canvas.instructure.com/styleguide](https://canvas.instructure.com/styleguide)) for the generated result.
 
