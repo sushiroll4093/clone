@@ -18,7 +18,7 @@ Getting Help
 -----------
 
  * You can post a message or participate in [our user group mailing list](http://groups.google.com/group/canvas-lms-users).
- * You can join #canvas-lms on [Freenode](http://freenode.net/using_the_network.shtml) and talk to the community.
+ * You can join #canvas-lms on [Freenode](http://webchat.freenode.net/?channels=canvas-lms&uio=d4) and talk to the community.
  * You can read one of our tutorials (below).
  * You can read our [[FAQ]].
  * You can visit our [general Canvas usage support portal](http://support.instructure.com/).
