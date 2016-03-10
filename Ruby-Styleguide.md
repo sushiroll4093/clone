@@ -15,11 +15,7 @@ It is acceptable to have a comma after the last item of an `Array` or `Hash` lit
 Stabby lambdas (`->`) are preferred for both single line and multi-line blocks. They solve a syntactic ambiguity with pipes being used in defaults for arguments.
 
 ## Line Length
-The longest line in the Ruby ./app/ codebase is 350-characters long. Never write a line of code that is longer than this.
-
-The median longest line of code in any given Ruby file is 118 characters. Avoid writing a line that is longer than this.
-
-About 93% of the Ruby codebase is composed of lines of fewer than 80 characters. Aspire to write all your code in this 93%. 96.5% of our Ruby lines are 100-characters or less in length. It is acceptable to write code that is 100-characters or less long.
+Limit lines to 120 characters.
 
 ## Perl-ish Variables
 Ruby allows several [special variables](http://ruby.wikia.com/wiki/Special_variable) which it primarily inherited from Perl. These are a $ followed by one other character. Avoid their use, except for the following, as they are better known than any alternative:
