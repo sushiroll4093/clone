@@ -158,6 +158,19 @@ If you're on OS X Mavericks or Yosemite and hit an error with the thrift gem, yo
 ~/canvas$ $GEM_HOME/bin/bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
 ```
 
+If you are on El Capitan and encounter an error with the thrift gem that has something like the following in the text.
+```
+compact_protocol.c:431:41: error: shifting a negative signed value is undefined [-Werror,-Wshift-negative-value]
+```
+
+Use the following command to install the gem and then continue with another bundle install.
+
+```
+gem install thrift -v 0.8.0 -- --with-cppflags=\"-D_FORTIFY_SOURCE=0 -Wno-shift-negative-value\"
+```
+
+The problem is the clang got updated in El Capitan and some of the flags cause problems now on install for the old version of thrift.
+
 If you hit an error with the eventmachine gem, you might have to set the following bundler flag and then run bundle install again:
 
 ```
