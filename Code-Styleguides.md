@@ -4,6 +4,7 @@ Always leave code better than you found it
 
 - [Ruby Styleguide](ruby-styleguide)
 - [JS Styleguide](js-styleguide)
+- [ActiveRecord & SQL Query Style Guide](activerecord-sql-styleguide)
 - [CSS](#CSS)
 
 ## CSS
