@@ -1,4 +1,5 @@
-# Code Styleguidess
+# Code Styleguides
+
 Always leave code better than you found it
 
 - [Ruby Styleguide](ruby-styleguide)
