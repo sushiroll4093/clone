@@ -309,7 +309,7 @@ You can merge associations to easily find a many-to-many record:
 
 ## Raw SQL
 
-When using raw SQL, _always_ quote the table name. This includes in joins. This allows us to use multiple shards in the same database, without switching users or schema search paths:
+When using raw SQL, quote the table name whenever used in FROM clauses (including all JOINs), and the target of UPDATEs and DELETEs. It is not necessary for the conditions of WHERE or HAVING clauses, or on ORDER BY clauses. This allows us to use multiple shards in the same database, without switching users or schema search paths:
 
   ```ruby
   # GOOD
