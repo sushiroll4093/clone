@@ -163,6 +163,7 @@ Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please
 
 ```
 ~$ cd canvas
+~/canvas$ bundle install
 ~/canvas$ npm install
 ```
 
