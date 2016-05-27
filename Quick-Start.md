@@ -163,12 +163,6 @@ Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please
 
 ```
 ~$ cd canvas
-```
-
-Since we are using PostgreSQL for this Quick Start and don't want to require you to bother with installing and configuring MySQL, we'll need to tell bundler to ignore it.
-
-```
-~/canvas$ $GEM_HOME/bin/bundle install --without mysql
 ~/canvas$ npm install
 ```
 
