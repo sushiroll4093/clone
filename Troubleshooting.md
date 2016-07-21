@@ -19,7 +19,7 @@ The [[quick-start|Quick-Start]] setup may only require stopping and starting the
 There are a number of possible reasons why your outgoing mail configuration may not be working correctly. One of the easiest ways to figure out where your Canvas mail is going is to check the outgoing mail table's error column. You can see the last error that Canvas had (if any) after some scheduled job (such as email) by running:
 
 ```
-sysadmin@appserver:~$ psql canvas_queue_production -c "select last_error from delayed_jobs order by updated_at desc limit 1;"
+sysadmin@appserver:~$ psql canvas_production -c "select last_error from delayed_jobs order by updated_at desc limit 1;"
 ```
 
 ### I'm not even sure automated jobs like email are getting picked up.
