@@ -32,7 +32,7 @@ In order for us to continue to dual-license our Canvas product to best serve all
 
 To save yourself a considerable headache, please consider doing development against our master branch, instead of the default stable branch. Our stable branch is occasionally reforked from master, so your Git history may get very confused if you are attempting to contribute changesets against stable.
 
-If you would like to contribute a translation change, please submit it through our translation service [[Transifex|https://www.transifex.com/projects/p/canvas-lms/resource/canvas-lms/]].
+If you would like to contribute a translation change, please submit it through our translation service [[Transifex|https://www.transifex.com/instructure/canvas-lms/]].
 
 Security
 -----------
