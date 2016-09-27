@@ -137,7 +137,7 @@ $ sudo apt-get install ruby2.1 ruby2.1-dev zlib1g-dev libxml2-dev \
 Node.js installation:
 
 ```
-$ curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+$ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 $ sudo apt-get install nodejs
 ```
 
