@@ -10,7 +10,7 @@ Prerequisites
 
 We assume you are minimally familiar with website configuration and administration - specifically, [Apache](http://httpd.apache.org/) and/or generic [Ruby on Rails](http://rubyonrails.org/) setups. It also doesn't hurt to have a small working knowledge of [Git](http://git-scm.com/), [Postgres](http://www.postgresql.org/), and [Passenger](http://www.modrails.com/). We'll point out in this tutorial places where you may need to go learn about these components.
 
-Secondly, this tutorial is targeting POSIX-based systems (like Mac OS X and Linux). This tutorial was written and tested using Ubuntu's latest LTS 12.04. If you have a different system, consider setting up a server or virtual machine running the latest [Ubuntu LTS](http://www.ubuntu.com/). We'll assume you've either done so or are familiar with these working parts enough to do translations yourself.
+Secondly, this tutorial is targeting POSIX-based systems (like Mac OS X and Linux). This tutorial was written and tested using Ubuntu 14.04 LTS. If you have a different system, consider setting up a server or virtual machine running the latest [Ubuntu LTS](http://www.ubuntu.com/). We'll assume you've either done so or are familiar with these working parts enough to do translations yourself.
 
 Finally, Canvas likes RAM. While it will run on smaller configurations, we recommend a server with at least 2GB RAM, especially if everything is being run on one server.
 
@@ -301,18 +301,10 @@ Apache configuration
 Installation
 ----------
 
-You're now going to need to set up the webserver. We're going to use [Apache](http://httpd.apache.org/) and [Passenger](http://www.modrails.com/) to serve the Canvas content. If you are on Debian/Ubuntu, you can quickly do this by typing:
-
-    sysadmin@appserver:/var/canvas$ sudo apt-get install passenger-common1.9.1 libapache2-mod-passenger apache2
-
-
-***
-
-**Note:** Some users have found that, to setup the web server, they need to [add the Phusion Passenger APT repository](https://www.phusionpassenger.com/documentation/Users%20guide%20Apache.html#install_add_apt_repo), which contains the `passenger-common1.9.1` package, and then to install `passenger`, which replaces `passenger-common1.9.1`. After adding the new APT repository, the install command looks like this:
+You're now going to need to set up the webserver. We're going to use [Apache](http://httpd.apache.org/) and [Passenger](https://www.phusionpassenger.com/) to serve the Canvas content. Before proceeding, you'll need to [add the Phusion Passenger APT repository](https://www.phusionpassenger.com/library/install/apache/install/), which contains the `passenger` package. After you've installed the repository, you'll need to install the apache and passenger packages. If you are on Debian/Ubuntu, you can do this quickly by typing:
 
     sysadmin@appserver:/var/canvas$ sudo apt-get install passenger libapache2-mod-passenger apache2
 
-***
 
 We'll be using mod_rewrite, so you'll want to enable that.
 
@@ -471,7 +463,7 @@ Required version: redis 2.6.x or above.
 
 If you're using Homebrew on Mac OS X, you can install redis by running the command: `brew install redis`.
 
-For Ubuntu, you can use the redis-server package.  However, on precise, it's not new enough, so you'll want to use a backport PPA to provide it: https://launchpad.net/~chris-lea/+archive/redis-server.
+For Ubuntu, you can use the redis-server package.  However, on trusty, it's not new enough, so you'll want to use a backport PPA to provide it: https://launchpad.net/~chris-lea/+archive/redis-server.
 
     sysadmin@appserver:/var/canvas$ sudo add-apt-repository ppa:chris-lea/redis-server
     sysadmin@appserver:/var/canvas$ sudo apt-get update
