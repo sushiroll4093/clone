@@ -110,27 +110,32 @@ As an example:
 Dependency Installation
 ==========
 
-Canvas requires Ruby 2.1. A minimum version of 2.1.6 is recommended. Ruby 2.3 is not currently supported.
+Canvas requires Ruby 2.1 or 2.2, with Ruby 2.2 recommended. Recommended Ruby versions are 2.1.6 and never for 2.1, and 2.2.2 and newer for 2.2. Ruby 2.3 is not currently supported.
 
 External dependencies
 -----------
 
 ### Debian/Ubuntu 
 
-We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install. If you're running Ubuntu 14.04 Trusty, you'll need to add a PPA in order to get Ruby 2.1:
+We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install. If you're running Ubuntu 14.04 Trusty, you'll need to add a PPA in order to get Ruby 2.1/2.2:
 
 ```
 $ sudo apt-get install software-properties-common
 $ sudo apt-add-repository ppa:brightbox/ruby-ng
 $ sudo apt-get update
 ```
-
+For Ruby 2.2:
+```
+$ sudo apt-get install ruby2.2 ruby2.2-dev zlib1g-dev libxml2-dev \
+                       libsqlite3-dev postgresql libpq-dev \
+                       libxmlsec1-dev curl make g++
+```
+For Ruby 2.1:
 ```
 $ sudo apt-get install ruby2.1 ruby2.1-dev zlib1g-dev libxml2-dev \
                        libsqlite3-dev postgresql libpq-dev \
                        libxmlsec1-dev curl make g++
 ```
-
 Node.js installation:
 
 ```
