@@ -50,9 +50,6 @@ Configuring Postgres
 
 You'll want to set up a Canvas user inside of Postgres. Note that in the below commands, you'll want to replace *localhost* with the hostname of the server Canvas is running on, if Canvas is running on a different server than Postgres.
 
-Ubuntu 12.04 tips
-----------------
-
     # createuser will prompt you for a password for database user
     sysadmin@dbserver:~$ sudo -u postgres createuser canvas --no-createdb \
        --no-superuser --no-createrole --pwprompt
