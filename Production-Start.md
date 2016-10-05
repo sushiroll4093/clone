@@ -110,7 +110,7 @@ As an example:
 Dependency Installation
 ==========
 
-Canvas requires Ruby 2.1 or 2.2, with Ruby 2.2 recommended. Recommended Ruby versions are 2.1.6 and never for 2.1, and 2.2.2 and newer for 2.2. Ruby 2.3 is not currently supported.
+Canvas requires Ruby 2.1 or 2.2, with Ruby 2.2 recommended. Recommended Ruby versions are 2.1.6 and newer for 2.1, and 2.2.2 and newer for 2.2. Ruby 2.3 is not currently supported.
 
 External dependencies
 -----------
