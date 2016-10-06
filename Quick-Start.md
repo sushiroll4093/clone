@@ -18,7 +18,7 @@ If you are running Mac OS X, Arch Linux, Fedora, or Ubuntu Linux, there is [an a
 **Note**: when using Ubuntu 14 LTS server, the `CODES.sh` script doesn't seem to do the same thing that the instructions below indicate for installing nodejs.  In addition, installing ruby2.1 through the script fails, whereas it succeeds with the steps below.  Taking care of installing these dependencies first, then running the script, seems to work.  So the complete process for the quick start on Ubuntu 14 LTS server (tested in May 2016 on a VirtualBox instance as well as Amazon EC2) is as follows:
 
     # do this FIRST, before running CODES.sh; the script does something else entirely
-    curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
+    curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
     sudo apt-get install nodejs
     
     # next, add the ppa:brightbox/ruby-ng and install Ruby 2.1
