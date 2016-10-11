@@ -101,8 +101,8 @@ $ sudo apt-get install ruby2.1 ruby2.1-dev zlib1g-dev libxml2-dev \
 Node.js installation:
 
 ```
-$ curl -sL https://deb.nodesource.com/setup_0.12 | sudo bash -
-$ sudo apt-get install nodejs
+$ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+$ sudo apt-get install -y nodejs build-essential
 ```
 
 After installing Postgres, you will need to set your system username as a postgres superuser.  You can do so by running the following commands:
