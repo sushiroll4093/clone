@@ -94,7 +94,7 @@ $ sudo apt-get update
 
 ```
 $ sudo apt-get install ruby2.1 ruby2.1-dev zlib1g-dev libxml2-dev \
-                       libsqlite3-dev postgresql libpq-dev \
+                       libsqlite3-dev postgresql-9.3 libpq-dev \
                        libxmlsec1-dev curl make g++
 ```
 
