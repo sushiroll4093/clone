@@ -137,7 +137,7 @@ Describe: use describe when you are testing a feature or certain part of a featu
 
 ## Selenium Spec File Standards (Common Example)
 ```ruby
-require File.expand_path(File.dirname(__FILE__) + '/common) #helper methods
+require File.expand_path(File.dirname(__FILE__) + '/common') #helper methods
 
 describe "name of the feature you are testing" do
   it_should_behave_like "in-process server selenium tests"
