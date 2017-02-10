@@ -274,10 +274,11 @@ Then will need to run:
 
 1. As of March 2014, installers are seeing the error: `Error: Cannot find module '/var/canvas/node_modules/rjs-old/r.js-1.0.8/dist/r.js'` Some users have suggested running `sudo npm install --unsafe-perm` to install rjs-old as the fix.
 1. As of March 2014, installers are seeing an issue where the .js files are not created at compile time. 
+1. Port 9418/tcp needs to be open in your firewall! Otherwise git may fail with timeout errors when compiling assets.
 
 See [Fixing.js Creation Issues](https://groups.google.com/forum/#!searchin/canvas-lms-users/empty$20css$20files/canvas-lms-users/-miJsiuK1rA/q1GasvXzUDwJ) for help with JS issues.
 
-1. Port 9418/tcp needs to be open in your firewall! Otherwise git may fail with timeout errors when compiling assets.
+
 
 ### Making sure other users can't read private Canvas files
 
