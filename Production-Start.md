@@ -277,7 +277,7 @@ Then will need to run:
 
 See [Fixing.js Creation Issues](https://groups.google.com/forum/#!searchin/canvas-lms-users/empty$20css$20files/canvas-lms-users/-miJsiuK1rA/q1GasvXzUDwJ) for help with JS issues.
 
-2. Port 9418/tcp needs to be open in your firewall! Otherwise git fails with timeout errors.
+1. Port 9418/tcp needs to be open in your firewall! Otherwise git may fail with timeout errors when compiling assets.
 
 ### Making sure other users can't read private Canvas files
 
