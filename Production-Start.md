@@ -277,6 +277,8 @@ Then will need to run:
 
 See [Fixing.js Creation Issues](https://groups.google.com/forum/#!searchin/canvas-lms-users/empty$20css$20files/canvas-lms-users/-miJsiuK1rA/q1GasvXzUDwJ) for help with JS issues.
 
+2. Port 9418/tcp needs to be open in your firewall! Otherwise git fails with timeout errors.
+
 ### Making sure other users can't read private Canvas files
 
 There are a number of files in your configuration directory (`/var/canvas/config`) that contain passwords, encryption keys, and other private data that would compromise the security of your Canvas installation if it became public. These are the *.yml* files inside the *config* directory, and we want to make them readable only by the *canvasuser* user.
