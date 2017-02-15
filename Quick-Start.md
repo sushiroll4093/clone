@@ -1,10 +1,14 @@
 Quick Start
 ============
 
-This page will explain how to get a working version of Canvas LMS running as quickly as possible. Note that you probably don't want to use these instructions
-for getting a production-ready system running; for that, please see [[Production Start]].
+READ ME FIRST
+----------------
 
-If you need help installing Canvas or troubleshooting your installation, your best bet is to join the community mailing list or the IRC channel [(see the wiki)](https://github.com/instructure/canvas-lms/wiki) and ask specific questions there. It's likely that somebody else has already tackled the same problem.
+This guide is intended for those who want to get a version of Canvas LMS running as quickly as possible (e.g. for a development environment). The environment produced by this guide is lacking in several features (e.g. [emails are not sent out](#a-note-about-emails), [delayed jobs are not daemonized](#a-note-about-long-running-jobs), [there is no proper application server provided](#ready-set-go)) **and is not suitable for production use**. 
+
+**See the [[Production Start]] guide for instructions on standing up a production-ready system.**
+
+If you need help installing Canvas or troubleshooting your installation, your best bet is to join the community mailing list or the IRC channel [(see the wiki)](https://github.com/instructure/canvas-lms/wiki) and ask specific questions there. It's likely that somebody else has already tackled the same problem. Note that a common category of questions are those that stem from following this guide instead of the [[Production Start]] guide. If you are **sure** that you want to continue with the Quick Start guide, read on; otherwise, you may want to consider jumping into the [[Production Start]] guide instead.
 
 Automated Script
 ----------------
