@@ -29,7 +29,7 @@ Database installation and configuration
 Installing Postgres
 ---------
 
-Rails, the library Canvas uses, supports many database adapters, but we primarily use - Postgres and SQLite (for testing). Since this tutorial is for setting up a production environment, we recommend Postgres.
+Rails, the library Canvas uses, supports many database adapters, but we primarily use Postgres and SQLite (for testing). Since this tutorial is for setting up a production environment, we recommend Postgres.
 
 You can run Postgres on the same server you're going to run Canvas on, or not. It really doesn't matter. Just make sure the server you're running Canvas on can talk to the Postgres database.
 
