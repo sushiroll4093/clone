@@ -3,14 +3,14 @@ Canvas by Instructure!
 
 Canvas is a new, open-source [LMS](http://en.wikipedia.org/wiki/Learning_management_system) by [Instructure Inc](http://www.canvaslms.com/). It is released under the [AGPLv3](http://www.gnu.org/licenses/agpl.html) license for use by anyone interested in learning more about or using learning management systems.
 
-Our [dev & friends](http://instructure.github.io/) site is a great resource for getting started in developing on canvas itself, using the canvas APIs, or creating well-integrated 3rd party tools.
+Our [dev & friends](http://instructure.github.io/) site is a great resource for getting started in developing on Canvas itself, using the Canvas APIs, or creating well-integrated 3rd party tools.
 
 Are you looking for one of our commercial subscriptions, professional services, support, or our hosted solution? [Please visit our main website](http://www.canvaslms.com/).
 
 Trying Out Canvas
 -----------------
 
-If you'd like to use Canvas in your own course, or you just want try Canvas out, there is no need to do all the work of installing it yourself. Canvas Cloud is Free for Teachers to use, [just sign up](https://canvas.instructure.com/register) to get started.
+If you'd like to use Canvas in your own course, or you just want try Canvas out, there is no need to do all the work of installing it yourself. Canvas Cloud is free for teachers to use, [just sign up](https://canvas.instructure.com/register) to get started.
 
 If at a later time you do want to migrate from your own install to Canvas Cloud, or vice versa, you can use the course export and import features to migrate all your content.
 
