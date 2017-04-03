@@ -281,8 +281,9 @@ Test database configuration
 If you want to test your installation, you'll also need to create a test database:
 
 ```
-createdb canvas_test
-psql -c 'CREATE USER canvas' -d canvas_test
+psql -c 'CREATE USER canvas' -d postgres
+psql -c 'ALTER USER canvas CREATEDB' -d postgres
+createdb -U canvas canvas_test
 psql -c 'GRANT ALL PRIVILEGES ON DATABASE canvas_test TO canvas' -d canvas_test
 psql -c 'GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO canvas' -d canvas_test
 psql -c 'GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO canvas' -d canvas_test
