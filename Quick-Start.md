@@ -29,7 +29,12 @@ If you are running Mac OS X, Arch Linux, Fedora, or Ubuntu Linux, there is [an a
     sudo apt-get install software-properties-common
     sudo add-apt-repository ppa:brightbox/ruby-ng
     sudo apt-get update
-    sudo apt-get install ruby2.1 ruby2.1-dev
+    sudo apt-get install ruby2.4 ruby2.4-dev
+    
+    # Canvas using Yarn, install it with :
+    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    sudo apt-get update && sudo apt-get install yarn
     
     # NOW, run CODES.sh
     ./CODES.sh --full
