@@ -124,9 +124,9 @@ $ sudo apt-get install software-properties-common
 $ sudo apt-add-repository ppa:brightbox/ruby-ng
 $ sudo apt-get update
 ```
-Now, We install Ruby 2.3 via the following command:
+Now, We install Ruby 2.4 via the following command:
 ```
-$ sudo apt-get install ruby2.3 ruby2.3-dev zlib1g-dev libxml2-dev \
+$ sudo apt-get install ruby2.4 ruby2.4-dev zlib1g-dev libxml2-dev \
                        libsqlite3-dev postgresql libpq-dev \
                        libxmlsec1-dev curl make g++
 ```
