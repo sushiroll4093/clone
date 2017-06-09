@@ -19,17 +19,17 @@ If you are running Mac OS X, Arch Linux, Fedora, or Ubuntu Linux, there is [an a
 2.  Make the script executable:  `chmod +x CODES.sh`
 3.  Run the script (no args will print a help message):  `./CODES.sh --full`
 
-**Note**: when using Ubuntu 14 LTS server, the `CODES.sh` script doesn't seem to do the same thing that the instructions below indicate for installing nodejs.  In addition, installing ruby2.1 through the script fails, whereas it succeeds with the steps below.  Taking care of installing these dependencies first, then running the script, seems to work.  So the complete process for the quick start on Ubuntu 14 LTS server (tested in May 2016 on a VirtualBox instance as well as Amazon EC2) is as follows:
+**Note**: when using Ubuntu 14 LTS server, the `CODES.sh` script doesn't seem to do the same thing that the instructions below indicate for installing nodejs.  In addition, installing ruby2.4.1 through the script fails, whereas it succeeds with the steps below.  Taking care of installing these dependencies first, then running the script, seems to work.  So the complete process for the quick start on Ubuntu 14 LTS server (tested in May 2016 on a VirtualBox instance as well as Amazon EC2) is as follows:
 
     # do this FIRST, before running CODES.sh; the script does something else entirely
     curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
     sudo apt-get install nodejs
     
-    # next, add the ppa:brightbox/ruby-ng and install Ruby 2.1
+    # next, add the ppa:brightbox/ruby-ng and install Ruby 2.4.1
     sudo apt-get install software-properties-common
     sudo add-apt-repository ppa:brightbox/ruby-ng
     sudo apt-get update
-    sudo apt-get install ruby2.4 ruby2.4-dev
+    sudo apt-get install ruby2.4.1 ruby2.4-dev
     
     # Canvas using Yarn, install it with :
     curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -123,7 +123,7 @@ sudo -u postgres psql -c "alter user $USER with superuser" postgres
 
 ### Mac OS X
 
-For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 2.1. You can find out what version of Ruby your Mac came with by running:
+For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 2.4.1. You can find out what version of Ruby your Mac came with by running:
 
 ```
 $ ruby -v
@@ -132,7 +132,7 @@ $ ruby -v
 You also need Postgres and the [xmlsec library](http://www.aleksey.com/xmlsec/) installed. The easiest way to get these is via [homebrew](http://brew.sh/). Once you have homebrew installed, just run:
 
 ```
-$ brew install postgresql-9.3 nodejs xmlsec1
+$ brew install postgresql-9.5 nodejs xmlsec1
 ```
 
 Ruby Gems
@@ -160,7 +160,7 @@ Canvas uses Bundler as an additional layer on top of Ruby Gems to manage version
 Assuming your *GEM_HOME* is configured, you can install Bundler using Ruby Gems:
 
 ```
-$ gem install bundler -v 1.14.3
+$ gem install bundler
 ```
 
 On Debian Jessie, you'll need to substitute `gem` with `gem2.1`.
