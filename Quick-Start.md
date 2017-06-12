@@ -106,9 +106,9 @@ $ sudo apt-get install ruby2.1 ruby2.1-dev zlib1g-dev libxml2-dev \
                        libsqlite3-dev postgresql-9.3 libpq-dev \
                        libxmlsec1-dev curl make g++
 ```
+> Note: In Ubuntu, in case you encounter any error such as E: Package 'postgresql-9.3' has no installation candidate, it may be because postgresql-9.3 is not available in that Ubuntu version. The following can be helpful : http://technobytz.com/install-postgresql-9-3-ubuntu.html , https://www.postgresql.org/download/linux/ubuntu/
 
 Node.js installation:
-
 ```
 $ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
 $ sudo apt-get install -y nodejs build-essential
