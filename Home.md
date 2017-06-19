@@ -1,7 +1,7 @@
 Canvas by Instructure!
 ===================
 
-Canvas is a new, open-source [LMS](http://en.wikipedia.org/wiki/Learning_management_system) by [Instructure Inc](http://www.canvaslms.com/). It is released under the [AGPLv3](http://www.gnu.org/licenses/agpl.html) license for use by anyone interested in learning more about or using learning management systems.
+Canvas is a well-established (circa 2010, used in many colleges, universities, and K-12 schools), open-source [LMS](http://en.wikipedia.org/wiki/Learning_management_system) by [Instructure Inc](http://www.canvaslms.com/). It is released under the [AGPLv3](http://www.gnu.org/licenses/agpl.html) license for use by anyone interested in learning more about or using learning management systems.
 
 Our [dev & friends](http://instructure.github.io/) site is a great resource for getting started in developing on Canvas itself, using the Canvas APIs, or creating well-integrated 3rd party tools.
 
