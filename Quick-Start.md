@@ -14,10 +14,11 @@ Automated Script
 ----------------
 
 If you are running Mac OS X, Arch Linux, Fedora, or Ubuntu Linux, there is [an automated script that will set up your environment](https://github.com/FreedomBen/canvas-development-tools/blob/master/CODES.sh).  You may wish to go through the manual setup way at least once though to understand what is happening, but if you need a quick and (mostly) painless setup the script is there for you.
-0.  Install the Prerequisites (see below, read the guide, installing the correct version of ruby and other tools may be challenging)
-1.  Download the script:  `curl -O https://raw.githubusercontent.com/FreedomBen/canvas-development-tools/master/CODES.sh`
-2.  Make the script executable:  `chmod +x CODES.sh`
-3.  Run the script (no args will print a help message):  `./CODES.sh --full`
+
+1.  Install the Prerequisites (see below, read the guide, installing the correct version of ruby and other tools may be challenging, you'll need curl and the ones noted below.)
+2.  Download the script:  `curl -O https://raw.githubusercontent.com/FreedomBen/canvas-development-tools/master/CODES.sh`
+3.  Make the script executable:  `chmod +x CODES.sh`
+4.  Run the script (no args will print a help message):  `./CODES.sh --full`
 
 **Note**: when using Ubuntu 14 LTS server, the `CODES.sh` script doesn't seem to do the same thing that the instructions below indicate for installing nodejs.  In addition, installing ruby2.4.1 through the script fails, whereas it succeeds with the steps below.  Taking care of installing these dependencies first, then running the script, seems to work.  So the complete process for the quick start on Ubuntu 14 LTS server (tested in May 2016 on a VirtualBox instance as well as Amazon EC2) is as follows:
 
