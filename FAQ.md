@@ -28,6 +28,7 @@ Yes, there are some. Canvas runs on the exact same code as we release to github,
 * Attendance tool (Roll Call)
 * SCORM import tool
 * Catalog
+* Canvas DocViewer
 
 ### How do I get professional services and support?
 
