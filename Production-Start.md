@@ -110,7 +110,7 @@ As an example:
 Dependency Installation
 ==========
 
-Canvas now requires Ruby 2.4.1, as of the 2017-04-22 release. 
+Canvas now requires Ruby 2.4.0, as of the 2017-04-22 release. 
 
 External dependencies
 -----------
