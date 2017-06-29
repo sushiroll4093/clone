@@ -180,6 +180,19 @@ If your on Mac OS X Mavericks, the thrift gem may fail to build due to a [bug co
     sysadmin@appserver:/var/canvas$ bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
     sysadmin@appserver:/var/canvas$ bundle install --path vendor/bundle
 
+Yarn Installation
+------
+
+Canvas now prefers yarn instead of npm.
+
+    sysadmin@appserver:/var/canvas$ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+    sysadmin@appserver:/var/canvas$ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    sysadmin@appserver:/var/canvas$ sudo apt-get update && sudo apt-get install yarn
+
+Also, make sure python is installed (needed for contextify package)
+
+    sysadmin@appserver:/var/canvas$ sudo apt-get install python
+
 Canvas default configuration
 ------
 
@@ -267,7 +280,7 @@ Canvas needs to build a number of assets before it will work correctly. First, c
 
 Then will need to run:
 
-    sysadmin@appserver:/var/canvas$ npm install
+    sysadmin@appserver:/var/canvas$ yarn install
     sysadmin@appserver:/var/canvas$ RAILS_ENV=production bundle exec rake canvas:compile_assets
 
 ### Making sure other users can't read private Canvas files
