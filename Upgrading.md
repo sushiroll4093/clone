@@ -60,7 +60,7 @@ Upgrade and Install Node Modules
 You also may need to upgrade or install new node modules
 
 ```
-npm install
+yarn install
 ```
 
 Compiled Assets
