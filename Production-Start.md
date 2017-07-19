@@ -202,6 +202,14 @@ Before we set up all the tables in your database, our Rails code depends on a sm
       delayed_jobs domain file_store outgoing_mail security external_migration; \
       do cp config/$config.yml.example config/$config.yml; done
 
+Dynamic settings configuration
+------
+
+This config file is useful if you don't want to run a consul cluster with canvas. Just provide the config data you would like for the DynamicSettings class to find, and it will use it whenever a call for consul data is issued. Data should be shaped like the example below, one key for the related set of data, and a hash of key/value pairs (no nesting)
+
+    sysadmin@appserver:/var/canvas$ cp config/dynamic_settings.yml.example config/dynamic_settings.yml
+    sysadmin@appserver:/var/canvas$ nano config/dynamic_settings.yml
+
 Database configuration
 -------------
 
