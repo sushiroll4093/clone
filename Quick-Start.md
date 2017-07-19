@@ -345,7 +345,7 @@ On Linux ( Ubuntu ), use the following:
 ```
 sudo apt-get update
 sudo apt-get install redis-server
-redis-server /usr/local/etc/redis.conf
+redis-server
 echo -e "development:\n  cache_store: redis_store" > config/cache_store.yml
 echo -e "development:\n  servers:\n  - redis://localhost" > config/redis.yml
 ```
