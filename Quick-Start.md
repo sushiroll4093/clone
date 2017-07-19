@@ -340,6 +340,16 @@ echo -e "development:\n  cache_store: redis_store" > config/cache_store.yml
 echo -e "development:\n  servers:\n  - redis://localhost" > config/redis.yml
 ```
 
+On Linux ( Ubuntu ), use the following:
+
+```
+sudo apt-get update
+sudo apt-get install redis-server
+redis-server /usr/local/etc/redis.conf
+echo -e "development:\n  cache_store: redis_store" > config/cache_store.yml
+echo -e "development:\n  servers:\n  - redis://localhost" > config/redis.yml
+```
+
 If you're just looking to try out Canvas, there's some minor configuration tweaks you can make to give yourself a real performance boost. All you need to do is add three lines to a file in your configuration directory. (If you plan on doing Canvas development, you may want to skip this step or only enable class caching, as these settings will require you to restart your server each time you change Ruby or ERB files.)
 
 ```
