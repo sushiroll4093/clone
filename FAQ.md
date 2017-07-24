@@ -7,7 +7,7 @@ We have released Canvas under the [AGPLv3](http://www.gnu.org/licenses/agpl.html
 
 ### Can I contribute back?
 
-Sure! However, you will need to sign a Contributor License Agreement] before we will pull your code into Canvas.  You'll be prompted to do this when you submit a pull request.
+Sure! However, you will need to sign a Contributor License Agreement before we will pull your code into Canvas.  You'll be prompted to do this when you submit a pull request.
 
 ### Does Canvas support any extensions?
 
