@@ -292,6 +292,7 @@ Then will need to run:
 
     sysadmin@appserver:/var/canvas$ yarn install
     sysadmin@appserver:/var/canvas$ RAILS_ENV=production bundle exec rake canvas:compile_assets
+    sysadmin@appserver:/var/canvas$ RAILS_ENV=production bundle exec rake brand_configs:generate_and_upload_all
     sysadmin@appserver:/var/canvas$ sudo chown -R canvasuser public/dist/brandable_css
 
 ### Making sure other users can't read private Canvas files
