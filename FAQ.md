@@ -25,7 +25,6 @@ Yes, there are some. Canvas runs on the exact same code as we release to github,
 * Migration tools for commercial LMSs
 * Other minor customizations that only apply to our hosted environment
 * Chat tool
-* Attendance tool (Roll Call)
 * SCORM import tool
 * Catalog
 * Canvas DocViewer
