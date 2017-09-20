@@ -69,3 +69,14 @@ If you get this error while following the quick start guides, you may need to us
 ### I get `Could not find table` errors when running `rake spec`
 
 Reset the test database using `RAILS_ENV=test rake db:test:reset` then the specs should run.
+
+### Multiple failing specs due to ForeignKeyViolation but work in isolation
+
+Errors of this sort:
+```
+ActiveRecord::InvalidForeignKey:
+        PG::ForeignKeyViolation: ERROR:  insert or update on table "enrollment_terms" violates foreign key constraint "fk_rails_e182f18b93"
+        DETAIL:  Key (root_account_id)=(1) is not present in table "accounts"
+```
+
+Delete the `test` `cache_store` keys from `config/cache_store.yml`. It is no longer needed.
