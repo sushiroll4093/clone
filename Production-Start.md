@@ -187,7 +187,15 @@ Canvas now prefers yarn instead of npm.
 
     sysadmin@appserver:/var/canvas$ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
     sysadmin@appserver:/var/canvas$ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+    
+If using Ubuntu 14, use the following:
+
+    sysadmin@appserver:/var/canvas$ sudo apt-get update && sudo apt-get install yarn=0.27.5-1
+
+If using Ubuntu 16, use the following:
+
     sysadmin@appserver:/var/canvas$ sudo apt-get update && sudo apt-get install --allow-downgrades yarn=0.27.5-1
+
 
 Also, make sure python is installed (needed for contextify package)
 
