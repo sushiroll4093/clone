@@ -285,10 +285,10 @@ $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 Database population
 -----------
 
-Once your database is configured, we need to actually fill the database with tables and initial data. You can do this by running our *rake* migration and initialization tasks from your application's root:
+Once your database is configured, we need to actually fill the database with tables and initial data. You can do this by running our migration and initialization tasks from your application's root:
 
 ```
-~/canvas$ $GEM_HOME/bin/bundle exec rake db:initial_setup
+~/canvas$ $GEM_HOME/bin/bundle exec rails db:initial_setup
 ```
 
 Test database configuration
@@ -303,7 +303,7 @@ createdb -U canvas canvas_test
 psql -c 'GRANT ALL PRIVILEGES ON DATABASE canvas_test TO canvas' -d canvas_test
 psql -c 'GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO canvas' -d canvas_test
 psql -c 'GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO canvas' -d canvas_test
-RAILS_ENV=test $GEM_HOME/bin/bundle exec rake db:test:reset
+RAILS_ENV=test $GEM_HOME/bin/bundle exec rails db:test:reset
 ```
 
 Make sure you can run a spec file (the full suite takes too long to run locally):
@@ -323,7 +323,7 @@ File Generation
 Canvas needs to build a number of assets before it will work correctly. You will need to run:
 
 ```
-~/canvas$ $GEM_HOME/bin/bundle exec rake canvas:compile_assets
+~/canvas$ $GEM_HOME/bin/bundle exec rails canvas:compile_assets
 ```
 
 Note that we've seen trouble with npm trying to hold too many files open at once.  If you see an error with `libuv` while running npm, try increasing your `ulimit`.  To do this in OS X add `ulimit -n 4096` to your `~/.bash_profile` or `~/.zsh_profile`.
@@ -380,7 +380,7 @@ Open up a browser on the same computer as the one running the server and navigat
 Logging in For the First Time
 ===========
 
-Your username and password will be whatever you set it up to be during the `rake db:initial_setup` step above. (You should have seen a prompt on the command line that asked for your email and password.)
+Your username and password will be whatever you set it up to be during the `rails db:initial_setup` step above. (You should have seen a prompt on the command line that asked for your email and password.)
 
 A note about long-running jobs
 ========
