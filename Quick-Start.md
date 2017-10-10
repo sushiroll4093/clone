@@ -143,24 +143,13 @@ Ruby Gems
 
 Most of Canvas' dependencies are Ruby Gems. Ruby Gems are a Ruby-specific package management system that operates orthogonally to operating-system package management systems.
 
-Installing Gems to a user folder
-------
-
-We want to configure where Ruby Gems will install packages to. You can do this by setting the *GEM_HOME* environment variable prior to running either Ruby Gems, Bundler (described below), or Canvas.
-
-```
-$ mkdir ~/.gems
-$ export GEM_HOME=~/.gems
-```
-
-Of course, your *GEM_HOME* environment variable, used this way, will only last the duration of your shell session. If you'd like this environment variable to last between shell sessions, you can add `export GEM_HOME=~/.gems` to the bottom of your `~/.bashrc` file on Debian/Ubuntu, or your `~/.bash_login` file on Mac OS X.
 
 Bundler
 ----------
 
 Canvas uses Bundler as an additional layer on top of Ruby Gems to manage versioned dependencies. Bundler is great!
 
-Assuming your *GEM_HOME* is configured, you can install Bundler using Ruby Gems:
+You can install Bundler using Ruby Gems:
 
 ```
 $ gem install bundler
@@ -171,7 +160,7 @@ On Debian Jessie, you'll need to substitute `gem` with `gem2.1`.
 Canvas Dependencies
 ---------
 
-Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler. 
+Once you have installed Bundler, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler. 
 
 ```
 ~$ cd canvas
@@ -182,7 +171,7 @@ Once you have installed Bundler, Ruby Gems, configured your *GEM_HOME*, **please
 If you're on OS X Mavericks or Yosemite and hit an error with the thrift gem, you might have to set the following bundler flag and then run bundle install again (see https://issues.apache.org/jira/browse/THRIFT-2219):
 
 ```
-~/canvas$ $GEM_HOME/bin/bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
+~/canvas$ bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
 ```
 
 If you are on El Capitan and encounter an error with the thrift gem that has something like the following in the text.
@@ -201,7 +190,7 @@ The problem is the clang got updated in El Capitan and some of the flags cause p
 If you hit an error with the eventmachine gem, you might have to set the following bundler flag and then run bundle install again:
 
 ```
-~/canvas$ $GEM_HOME/bin/bundle config build.eventmachine --with-cppflags=-I/usr/local/opt/openssl/include
+~/canvas$ bundle config build.eventmachine --with-cppflags=-I/usr/local/opt/openssl/include
 ```
 
 JavaScript Runtime
@@ -288,7 +277,7 @@ Database population
 Once your database is configured, we need to actually fill the database with tables and initial data. You can do this by running our migration and initialization tasks from your application's root:
 
 ```
-~/canvas$ $GEM_HOME/bin/bundle exec rails db:initial_setup
+~/canvas$ bundle exec rails db:initial_setup
 ```
 
 Test database configuration
@@ -303,7 +292,7 @@ createdb -U canvas canvas_test
 psql -c 'GRANT ALL PRIVILEGES ON DATABASE canvas_test TO canvas' -d canvas_test
 psql -c 'GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO canvas' -d canvas_test
 psql -c 'GRANT ALL PRIVILEGES ON ALL SEQUENCES IN SCHEMA public TO canvas' -d canvas_test
-RAILS_ENV=test $GEM_HOME/bin/bundle exec rails db:test:reset
+RAILS_ENV=test bundle exec rails db:test:reset
 ```
 
 Make sure you can run a spec file (the full suite takes too long to run locally):
@@ -314,7 +303,7 @@ bundle exec rspec spec/models/assignment_spec.rb
 
 If you get a warning saying that you have the wrong version of Bundle installed, try this:
 ```
-$GEM_HOME/bin/bundle exec rspec spec/models/assignment_spec.rb
+bundle exec rspec spec/models/assignment_spec.rb
 ```
 
 File Generation
@@ -323,7 +312,7 @@ File Generation
 Canvas needs to build a number of assets before it will work correctly. You will need to run:
 
 ```
-~/canvas$ $GEM_HOME/bin/bundle exec rails canvas:compile_assets
+~/canvas$ bundle exec rails canvas:compile_assets
 ```
 
 Note that we've seen trouble with npm trying to hold too many files open at once.  If you see an error with `libuv` while running npm, try increasing your `ulimit`.  To do this in OS X add `ulimit -n 4096` to your `~/.bash_profile` or `~/.zsh_profile`.
@@ -372,7 +361,7 @@ Ready, Set, Go!
 Now you just need to start the Canvas server! You will need to run the *rails server* daemon:
 
 ```
-~/canvas$ $GEM_HOME/bin/bundle exec rails server
+~/canvas$ bundle exec rails server
 ```
 
 Open up a browser on the same computer as the one running the server and navigate to [[http://localhost:3000/]] and log in with the user credentials you set up during database configuration. If you don't have a browser running on the same computer, just use the hostname of the computer, and go to http://&lt;hostname&gt;:3000/.
@@ -388,7 +377,7 @@ A note about long-running jobs
 Canvas relies heavily on background job processors to perform tasks that take too long to do in-line during a web request. The [[Production Start]] instructions have details of how to set up dedicated job processors for production environments. To start a background job processor, run the following command:
 
 ```
-~/canvas$ $GEM_HOME/bin/bundle exec script/delayed_job run
+~/canvas$ bundle exec script/delayed_job run
 ```
 
 Troubleshooting
