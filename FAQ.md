@@ -47,7 +47,7 @@ If you want to contribute, as soon as we have a copy of [contributor agreement](
 
 ### Where do I send the contributor agreement to?
 
-After submitting a pull request, clahub will show up as a [status check](https://github.com/instructure/canvas-lms/issues/1030)). Follow the directions to digitally sign the contributor agreement.
+After submitting a pull request, clahub will show up as a [status check](https://github.com/instructure/canvas-lms/issues/1030). Follow the directions to digitally sign the contributor agreement.
 
 ### I have some other question.
 
