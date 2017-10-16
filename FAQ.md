@@ -41,13 +41,13 @@ Before we accept your pull request, we will need to have a signed [[contributor 
 
 ### What? A contributor agreement? Why?
 
-Canvas, unlike many projects hosted by GitHub, is commercially dual-licensed. We license Canvas via the AGPLv3 to the open source community, but we also offer Canvas via a subscription to many of our clients. For this to work, Instructure needs to retain copyright over the Canvas project. The [[contributor agreement|ica.pdf]] is the legal step we must go through so we are able to continue to dual-license and serve our clients without fracturing the codebase.
+Canvas, unlike many projects hosted by GitHub, is commercially dual-licensed. We license Canvas via the AGPLv3 to the open source community, but we also offer Canvas via a subscription to many of our clients. For this to work, Instructure needs to retain copyright over the Canvas project. The [contributor agreement](https://github.com/instructure/canvas-lms/issues/1030) is the legal step we must go through so we are able to continue to dual-license and serve our clients without fracturing the codebase.
 
-If you want to contribute, as soon as we have a copy of [[contributor agreement|ica.pdf]] on file for you, we will be happy to accept your pull requests.
+If you want to contribute, as soon as we have a copy of [contributor agreement](https://github.com/instructure/canvas-lms/issues/1030) on file for you, we will be happy to accept your pull requests.
 
 ### Where do I send the contributor agreement to?
 
-Send it to opensource@instructure.com.
+After submitting a pull request, clahub will show up as a [status check](https://github.com/instructure/canvas-lms/issues/1030)). Follow the directions to digitally sign the contributor agreement.
 
 ### I have some other question.
 
