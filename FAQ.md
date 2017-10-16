@@ -37,7 +37,7 @@ You will need to buy a commercial license. See [our website](http://www.instruct
 
 Great! Please fork the Canvas project on Github, create your changes against our `master` branch, and then [send a pull request](http://help.github.com/pull-requests/). 
 
-Before we accept your pull request, we will need to have a signed [[contributor agreement|ica.pdf]] on file for you.
+Before we accept your pull request, we will need to have a signed [contributor agreement](https://github.com/instructure/canvas-lms/issues/1030) on file for you.
 
 ### What? A contributor agreement? Why?
 
