@@ -15,8 +15,8 @@ Other factors that should be considered:
 
 * Must remain performant under heavy load.
 * Must work in a multi-tenant environment. More on that in a minute, but basically enhancements should be built using the Plugin architecture of Canvas.
-* Must be accessible to screen readers and other assistive technology devices
-* Should follow our [coding style](code-styleguides)
+* Must be accessible to screen readers and other assistive technology devices.
+* Should follow our [coding style](code-styleguides).
 
 ## Places to Start
 If you're new to Canvas development, there are guides in this wiki for getting your dev environment set up (including getting specs running). Make sure you've given us a signed [[code contributor agreement|ica.pdf]], then *start with something small*. Get to know the commit process with something small like a bug fix or a UI tweak. If you're not sure where to start post a message on the mailing list.
