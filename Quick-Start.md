@@ -13,7 +13,18 @@ If you need help installing Canvas or troubleshooting your installation, your be
 Automated Script
 ----------------
 
-If you are running Mac OS X, Arch Linux, Fedora, or Ubuntu Linux, there is [an automated script that will set up your environment](https://github.com/FreedomBen/canvas-development-tools/blob/master/CODES.sh).  You may wish to go through the manual setup way at least once though to understand what is happening, but if you need a quick and (mostly) painless setup the script is there for you.
+If you are running MacOS or Ubuntu, you can clone the repository and run the [docker_dev_setup.sh](https://github.com/instructure/canvas-lms/blob/master/script/docker_dev_setup.sh) script:
+
+```
+./script/docker_dev_setup.sh
+```
+
+The script will walk you through the process of setting up a dockerized Canvas development environment. If you would prefer to install Canvas locally without docker, read on.
+
+Local install
+-------------
+
+If you are running MacOS, Arch Linux, Fedora, or Ubuntu Linux, there is [an automated script that will set up your environment](https://github.com/FreedomBen/canvas-development-tools/blob/master/CODES.sh).  You may wish to go through the manual setup way at least once though to understand what is happening, but if you need a quick and (mostly) painless setup the script is there for you.
 
 1.  Install the Prerequisites (see below, read the whole guide, installing the correct version of ruby and other tools may be challenging, you'll need curl, postgresql, ruby2.4 and the ones noted below.
 *as of 2017.06.18 ruby gems >=2.6.9 and bundler between 1.13.3 and 1.14.6... which isn't available on ubuntu 16.04)
