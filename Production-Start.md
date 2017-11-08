@@ -538,7 +538,7 @@ Save the file and restart Canvas.
 QTIMigrationTool
 ================
 
-The QTIMigrationTool needs to be installed for copying content from one Canvas course to another to succeed. Instructions are at https://github.com/instructure/QTIMigrationTool/wiki. When Canvas is installed activate the plugin in Site Admin -> Plugins -> QTI Converter.
+The QTIMigrationTool needs to be installed to enable copying or importing quiz content. Instructions are at https://github.com/instructure/QTIMigrationTool/wiki. After installation, activate the plugin in Site Admin -> Plugins -> QTI Converter.
 
 Automated jobs
 ========
