@@ -282,10 +282,7 @@ Then will need to run:
     sysadmin@appserver:/var/canvas$ RAILS_ENV=production bundle exec rake canvas:compile_assets
     sysadmin@appserver:/var/canvas$ sudo chown -R canvasuser public/dist/brandable_css
 
-Subsequent Updates
-----
-
-NOTE: NOT NEEDED FOR INITIAL DEPLOY
+**Subsequent Updates** (NOT NEEDED FOR INITIAL DEPLOY)
 
 If you are updating code, and you run canvas:compile_assets in a place that does not have a database connection, then you'll also want to run the following once code is in place and an active DB connection exists, in order to full update existing themes:
 
