@@ -201,6 +201,10 @@ Also, make sure python is installed (needed for contextify package)
 
     sysadmin@appserver:/var/canvas$ sudo apt-get install python
 
+Then install the node modules:
+
+    sysadmin@appserver:/var/canvas$ yarn install
+
 Canvas default configuration
 ------
 
@@ -258,6 +262,22 @@ You must insert randomized strings of at least 20 characters in this file:
      sysadmin@appserver:/var/canvas$ cp config/security.yml.example config/security.yml
 
      sysadmin@appserver:/var/canvas$ nano config/security.yml
+  
+Database population
+-----------
+
+Once your database is configured, we need to actually fill the database with tables and initial data. You can do this by running our *rake* migration and initialization tasks from your application's root:
+
+    sysadmin@appserver:/var/canvas$ RAILS_ENV=production bundle exec rake db:initial_setup
+
+Note that this initial setup will interactively prompt you to create an administrator account, the name for the default account, and whether to submit usage data to Instructure. The prompts can be "pre-filled" by setting the following environment variables:
+
+| Environment Variable        | Value(s) supported                                         |
+| --------------------------- | ------------------                                         |
+| CANVAS_LMS_ADMIN_EMAIL      | E-mail address used for default administrator login        |
+| CANVAS_LMS_ADMIN_PASSWORD   | Password for default administrator login                   |
+| CANVAS_LMS_ACCOUNT_NAME     | Account name seen by users, usually your organization name |
+| CANVAS_LMS_STATS_COLLECTION | opt_in, opt_out, or anonymized                             |
 
 Canvas ownership
 =========
@@ -301,22 +321,6 @@ Note that once you change these settings, to modify the configuration files henc
 ### Making sure to use the "most restrictive" permissions
 
 Passenger will choose the user to run the application based on the ownership settings of config/environment.rb (you can view the ownership settings via the `ls -l` command). Note that it is probably wise to ensure that the ownership settings of all other files besides the ones with permissions set just above are restrictive, and only allow your canvasuser user account to read the rest of the files.
-  
-Database population
------------
-
-Once your database is configured, we need to actually fill the database with tables and initial data. You can do this by running our *rake* migration and initialization tasks from your application's root:
-
-    sysadmin@appserver:/var/canvas$ RAILS_ENV=production bundle exec rake db:initial_setup
-
-Note that this initial setup will interactively prompt you to create an administrator account, the name for the default account, and whether to submit usage data to Instructure. The prompts can be "pre-filled" by setting the following environment variables:
-
-| Environment Variable        | Value(s) supported                                         |
-| --------------------------- | ------------------                                         |
-| CANVAS_LMS_ADMIN_EMAIL      | E-mail address used for default administrator login        |
-| CANVAS_LMS_ADMIN_PASSWORD   | Password for default administrator login                   |
-| CANVAS_LMS_ACCOUNT_NAME     | Account name seen by users, usually your organization name |
-| CANVAS_LMS_STATS_COLLECTION | opt_in, opt_out, or anonymized                             |
 
 Apache configuration
 =========
