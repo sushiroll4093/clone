@@ -313,8 +313,6 @@ Set up or choose a user you want the Canvas Rails application to run as. This ca
 
     sysadmin@appserver:/var/canvas$ sudo adduser --disabled-password --gecos canvas canvasuser
 
-### File Generation
-
 ### Making sure other users can't read private Canvas files
 
 There are a number of files in your configuration directory (`/var/canvas/config`) that contain passwords, encryption keys, and other private data that would compromise the security of your Canvas installation if it became public. These are the *.yml* files inside the *config* directory, and we want to make them readable only by the *canvasuser* user.
