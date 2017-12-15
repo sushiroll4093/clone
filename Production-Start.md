@@ -121,7 +121,7 @@ We now need to install the Ruby libraries and packages that Canvas needs. On Deb
 
 ```
 $ sudo apt-get install software-properties-common
-$ sudo apt-add-repository ppa:brightbox/ruby-ng
+$ sudo add-apt-repository ppa:brightbox/ruby-ng
 $ sudo apt-get update
 ```
 Now, We install Ruby 2.4 via the following command:
