@@ -146,7 +146,7 @@ $ ruby -v
 You also need Postgres and the [xmlsec library](http://www.aleksey.com/xmlsec/) installed. The easiest way to get these is via [homebrew](http://brew.sh/). Once you have homebrew installed, just run:
 
 ```
-$ brew install postgresql-9.5 nodejs xmlsec1
+$ brew install postgresql@9.5 nodejs xmlsec1
 ```
 
 Ruby Gems
