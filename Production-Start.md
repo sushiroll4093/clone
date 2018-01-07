@@ -258,7 +258,7 @@ You must insert randomized strings of at least 20 characters in this file:
 Generate Assets
 ========
 
-Canvas needs to build a number of assets before it will work correctly. First, create the directories that will store the generated files.
+Canvas needs to build a number of assets before it will work correctly. First, create the directories that will store the generated files. See the Canvas ownership section below in case you want to plan to assign ownership to canvasuser and the user does not exist yet.
 
     sysadmin@appserver:~$ cd /var/canvas
     sysadmin@appserver:/var/canvas$ mkdir -p log tmp/pids public/assets app/stylesheets/brandable_css_brands
