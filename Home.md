@@ -28,11 +28,13 @@ Getting Help
 Contributing
 -----------
 
-In order for us to continue to dual-license our Canvas product to best serve all of our customers, we need you to sign before we can accept a pull request from you. After submitting a pull request, you'll see a status check that indicates if a signature is required or not. If the CLAHub check fails, click on Details and then complete the web form. Once finished, the CLA check on the pull request will pass successfully. Please read our [[FAQ]] for more information, and be sure to review the [[Coding Guidelines]].
+In order for us to continue to dual-license our Canvas product to best serve all of our customers, we need you to sign before we can accept a pull request from you. After submitting a pull request, you'll see a status check that indicates if a signature is required or not. If the CLA check fails, click on Details and then complete the web form. Once finished, the CLA check on the pull request will pass successfully. Please read our [[FAQ]] for more information, and be sure to review the [[Coding Guidelines]].
 
 To save yourself a considerable headache, please consider doing development against our master branch, instead of the default stable branch. Our stable branch is occasionally reforked from master, so your Git history may get very confused if you are attempting to contribute changesets against stable.
 
 If you would like to contribute a translation change, please submit it through our translation service [[Transifex|https://www.transifex.com/instructure/canvas-lms/]].
+
+See [CONTRIBUTING.md](https://github.com/instructure/canvas-lms/blob/stable/CONTRIBUTING.md) for additional details on contributing.
 
 Security
 -----------
