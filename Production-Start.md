@@ -100,7 +100,7 @@ As an example:
     sysadmin@appserver:~/canvas$ ls
     app     db   Gemfile  log     Rakefile  spec  tmp
     config  doc  lib      public  script    test  vendor
-    sysadmin@appserver:~/canvas$ sudo cp -av . /var/canvas
+    sysadmin@appserver:~/canvas$ cp -av . /var/canvas
     sysadmin@appserver:~/canvas$ cd /var/canvas
     sysadmin@appserver:/var/canvas$ ls
     app     db   Gemfile  log     Rakefile  spec  tmp
