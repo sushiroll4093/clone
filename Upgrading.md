@@ -71,6 +71,13 @@ Regardless of how upgrade your Canvas installation, once you are done, you will 
 ```
 $GEM_HOME/bin/bundle exec rake canvas:compile_assets
 ```
+And if you are in a production environment, you will need to specify that:
+
+```
+RAILS_ENV=production $GEM_HOME/bin/bundle exec rake canvas:compile_assets
+```
+
+Please note that compile_assets may take very long to run, and that at least 8 GB or RAM is recommended for running compile_assets in production.
 
 Database migrations
 -------------
