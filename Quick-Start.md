@@ -81,6 +81,7 @@ Once you have a copy of Git installed on your system, getting the latest source 
 
 ```
 ~$ git clone https://github.com/instructure/canvas-lms.git canvas
+~$ git checkout stable
 ~$ cd canvas
 ```
 
