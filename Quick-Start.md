@@ -21,43 +21,6 @@ If you are running MacOS or Ubuntu, you can clone the repository and run the [do
 
 The script will walk you through the process of setting up a dockerized Canvas development environment. If you would prefer to install Canvas locally without docker, read on.
 
-Local install
--------------
-
-If you are running MacOS, Arch Linux, Fedora, or Ubuntu Linux, there is [an automated script that will set up your environment](https://github.com/FreedomBen/canvas-development-tools/blob/master/CODES.sh).  You may wish to go through the manual setup way at least once though to understand what is happening, but if you need a quick and (mostly) painless setup the script is there for you.
-
-1.  Install the Prerequisites (see below, read the whole guide, installing the correct version of ruby and other tools may be challenging, you'll need curl, postgresql, ruby2.4 and the ones noted below.
-*as of 2017.06.18 ruby gems >=2.6.9 and bundler between 1.13.3 and 1.14.6... which isn't available on ubuntu 16.04)
-* Postgresql, Ruby2.4, bundler <=1.14.6 (and greater than 1.13.?) and some -dev packages such as libxmlsec1-dev to compile nokogiri-xmlsec-me-harder
-2.  Download the script:  `curl -O https://raw.githubusercontent.com/FreedomBen/canvas-development-tools/master/CODES.sh`
-3.  Make the script executable:  `chmod +x CODES.sh`
-4.  Run the script (no args will print a help message):  `./CODES.sh --full`
-
-**Note**: when using Ubuntu 14 LTS server, the `CODES.sh` script doesn't seem to do the same thing that the instructions below indicate for installing nodejs.  In addition, installing ruby2.4.1 through the script fails, whereas it succeeds with the steps below.  Taking care of installing these dependencies first, then running the script, seems to work.  So the complete process for the quick start on Ubuntu 14 LTS server (tested in May 2016 on a VirtualBox instance as well as Amazon EC2) is as follows:
-
-    # do this FIRST, before running CODES.sh; the script does something else entirely
-    curl -sL https://deb.nodesource.com/setup_6.x | sudo bash -
-    sudo apt-get install nodejs postgresql
-    
-    # next, add the ppa:brightbox/ruby-ng and install Ruby 2.4.1
-    sudo apt-get install software-properties-common
-    sudo add-apt-repository ppa:brightbox/ruby-ng
-    sudo apt-get update
-    sudo apt-get install ruby2.4.1 ruby2.4-dev libxmlsec1-dev
-    
-    # Canvas using Yarn, install it with :
-    curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-    echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-    sudo apt-get update && sudo apt-get install yarn
-    
-    # NOW, run CODES.sh
-    ./CODES.sh --full
-    
-    # after the setup completes, cd to the canvas root directory, and point your browser to (server):3000
-    cd ~/canvas-lms
-    bundle exec rails server
-    
-
 Prerequisites
 -------------
 
