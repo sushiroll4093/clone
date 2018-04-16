@@ -64,14 +64,14 @@ Wherever you check out the code to, we're going to call that your application ro
 Dependency Installation
 ==========
 
-Canvas requires Ruby 2.1. A minimum version of 2.1.6 is recommended.
+Canvas requires Ruby 2.4. A minimum version of 2.4.3 is recommended.
 
 External dependencies
 -----------
 
 ### Debian/Ubuntu 
 
-We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install. If you're running Ubuntu 14.04 Trusty, you'll need to add a PPA in order to get Ruby 2.1:
+We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install. If you're running Ubuntu 14.04 Trusty, you'll need to add a PPA in order to get Ruby 2.4:
 
 ```
 $ sudo apt-get install software-properties-common
@@ -80,7 +80,7 @@ $ sudo apt-get update
 ```
 
 ```
-$ sudo apt-get install ruby2.1 ruby2.1-dev zlib1g-dev libxml2-dev \
+$ sudo apt-get install ruby2.4 ruby2.4-dev zlib1g-dev libxml2-dev \
                        libsqlite3-dev postgresql-9.3 libpq-dev \
                        libxmlsec1-dev curl make g++
 ```
@@ -101,7 +101,7 @@ sudo -u postgres psql -c "alter user $USER with superuser" postgres
 
 ### Mac OS X
 
-For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 2.4.1. You can find out what version of Ruby your Mac came with by running:
+For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 2.4. You can find out what version of Ruby your Mac came with by running:
 
 ```
 $ ruby -v
@@ -130,7 +130,7 @@ You can install Bundler using Ruby Gems:
 $ gem install bundler
 ```
 
-On Debian Jessie, you'll need to substitute `gem` with `gem2.1`.
+On Debian Jessie, you'll need to substitute `gem` with `gem2.4`.
 
 Canvas Dependencies
 ---------
