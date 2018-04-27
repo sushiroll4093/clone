@@ -88,7 +88,7 @@ $ sudo apt-get install ruby2.4 ruby2.4-dev zlib1g-dev libxml2-dev \
 
 Node.js installation:
 ```
-$ curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+$ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
 $ sudo apt-get install -y nodejs build-essential
 ```
 
