@@ -566,6 +566,11 @@ sysadmin@appserver:/var/canvas$ sudo update-rc.d canvas_init defaults
 sysadmin@appserver:/var/canvas$ sudo /etc/init.d/canvas_init start
 ```
 
+Rich Content Editor
+===================
+
+Canvas includes a new rich content editor component to support a consistent editor experience across multiple applications in the Canvas ecosystem. To make use of this component you need to run a supporting API server. See the [Canvas RCE API Documentation](https://github.com/instructure/canvas-rce-api/blob/master/README.md) for information on running the service and configuring Canvas to make use of it. Starting July 14, 2018, the `stable` branch of `canvas-lms` will require this service to be running and configured for full rich content editing functionality.
+
 Ready, set, go!
 ========
 
