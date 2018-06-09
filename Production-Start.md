@@ -12,7 +12,7 @@ We assume you are minimally familiar with website configuration and administrati
 
 Secondly, this tutorial is targeting POSIX-based systems (like Mac OS X and Linux). This tutorial was written and tested using Ubuntu 14.04 and 16.04 LTS. If you have a different system, consider setting up a server or virtual machine running the latest [Ubuntu LTS](http://www.ubuntu.com/). We'll assume you've either done so or are familiar with these working parts enough to do translations yourself.
 
-Finally, Canvas likes RAM. While it will run on smaller configurations, we recommend a server with at least 4GB RAM, especially if everything is being run on one server.
+Finally, Canvas likes RAM. While it will run on smaller configurations, we recommend a server with at least 8GB RAM, especially if everything is being run on one server.
 
 Choose your server configuration
 =====
