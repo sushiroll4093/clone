@@ -397,7 +397,7 @@ In the new file, or new spot, depending, you want to place the following snippet
 ```
 <VirtualHost *:80>
   ServerName canvas.example.com
-  ServerAlias files.canvas.example.com
+  ServerAlias canvasfiles.example.com
   ServerAdmin youremail@example.com
   DocumentRoot /var/canvas/public
   RewriteEngine On
@@ -415,7 +415,7 @@ In the new file, or new spot, depending, you want to place the following snippet
 </VirtualHost>
 <VirtualHost *:443>
   ServerName canvas.example.com
-  ServerAlias files.canvas.example.com
+  ServerAlias canvasfiles.example.com
   ServerAdmin youremail@example.com
   DocumentRoot /var/canvas/public
   ErrorLog /var/log/apache2/canvas_errors.log
