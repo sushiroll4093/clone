@@ -81,10 +81,10 @@ $ sudo apt-get update
 
 ```
 $ sudo apt-get install ruby2.4 ruby2.4-dev zlib1g-dev libxml2-dev \
-                       libsqlite3-dev postgresql-9.3 libpq-dev \
+                       libsqlite3-dev postgresql-9.5 libpq-dev \
                        libxmlsec1-dev curl make g++
 ```
-> Note: In Ubuntu, in case you encounter any error such as E: Package 'postgresql-9.3' has no installation candidate, it may be because postgresql-9.3 is not available in that Ubuntu version. The following can be helpful : http://technobytz.com/install-postgresql-9-3-ubuntu.html , https://www.postgresql.org/download/linux/ubuntu/
+> Note: In Ubuntu, in case you encounter any error such as E: Package 'postgresql-9.5' has no installation candidate, it may be because postgresql-9.5 is not available in that Ubuntu version. See  https://www.postgresql.org/download/linux/ubuntu/
 
 Node.js installation:
 ```
@@ -94,7 +94,7 @@ $ sudo apt-get install -y nodejs build-essential
 
 [Yarn installation](https://github.com/instructure/canvas-lms/blob/stable/package.json#L7):
 ```
-$ npm install -g yarn@1.6.0
+$ npm install -g yarn@1.7.0
 ```
 
 After installing Postgres, you will need to set your system username as a postgres superuser.  You can do so by running the following commands:
