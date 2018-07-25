@@ -145,7 +145,9 @@ Once you have installed Bundler, **please navigate to the Canvas application roo
 ```
 ~$ cd canvas
 ~/canvas$ bundle install
-~/canvas$ npm install
+~/canvas$ yarn install --pure-lockfile
+# Sometimes you have to run this command twice if there is an error 
+~/canvas$ yarn install --pure-lockfile
 ```
 
 If you're on OS X Mavericks or Yosemite and hit an error with the thrift gem, you might have to set the following bundler flag and then run bundle install again (see https://issues.apache.org/jira/browse/THRIFT-2219):
