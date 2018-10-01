@@ -424,7 +424,6 @@ In the new file, or new spot, depending, you want to place the following snippet
   LogLevel warn
   CustomLog /var/log/apache2/canvas_ssl_access.log combined
   SSLEngine on
-  BrowserMatch "MSIE [2-6]" nokeepalive ssl-unclean-shutdown downgrade-1.0 force-response-1.0
   BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
   # the following ssl certificate files are generated for you from the ssl-cert package.
   SSLCertificateFile /etc/ssl/certs/ssl-cert-snakeoil.pem
