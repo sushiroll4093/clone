@@ -460,7 +460,7 @@ You'll notice in the above Canvas configuration file that we provided directives
 
 Browsers, by default, are configured not to accept self-signed certificates without complaining. The reason for this is because otherwise a server using a self-signed certificate can risk what's called a man-in-the-middle attack.
 
-If you want to get a certificate for your Canvas installation that will be accepted automatically by your user's browsers, you will need to contact a *certificate authority* and generate one. For the sake of example, Verisign is a commonly used certificate authority.
+If you want to get a certificate for your Canvas installation that will be accepted automatically by your user's browsers, you will need to contact a *certificate authority* and generate one. For the sake of example, Digicert (for pay) and Let's Encrypt (free) Verisign are commonly used certificate authorities.
 
 For more information on setting up Apache with SSL, please see [O'Reilly OnLamp.com's instructions](http://onlamp.com/pub/a/onlamp/2008/03/04/step-by-step-configuring-ssl-under-apache.html), [Apache's official SSL documentation](http://httpd.apache.org/docs/2.0/ssl/), or any one of [many certificate authority's websites](http://www.dmoz.org/Computers/Security/Public_Key_Infrastructure/PKIX/Tools_and_Services/Third_Party_Certificate_Authorities/).
 
