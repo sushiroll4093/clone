@@ -83,4 +83,4 @@ You can also download a tarball or zip file.
    * [Canvas Tarball](http://github.com/instructure/canvas-lms/tarball/stable)
    * [Canvas Zip](http://github.com/instructure/canvas-lms/zipball/stable)
 
-[security-notices]: https://help.instructure.com/forums/20382721-Security-Notices
+[security-notices]: https://community.canvaslms.com/community/answers/security
