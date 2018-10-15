@@ -1,6 +1,6 @@
-* [Home](/instructure/canvas-lms/wiki)
-* [Quick Start](/instructure/canvas-lms/wiki/Quick-Start)
-* [Production Start](/instructure/canvas-lms/wiki/Production-Start)
-* [Upgrading](/instructure/canvas-lms/wiki/Upgrading)
-* [Troubleshooting your Canvas installation](/instructure/canvas-lms/wiki/Troubleshooting)
-* [Integrating Canvas with other systems](/instructure/canvas-lms/wiki/Canvas-Integration)
+* [[Home]]
+* [[Quick Start]]
+* [[Production Start]]
+* [[Upgrading]]
+* [[Troubleshooting your Canvas installation|Troubleshooting]]
+* [[Integrating Canvas with other systems|Canvas Integration]]
