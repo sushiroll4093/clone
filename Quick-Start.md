@@ -12,8 +12,6 @@ If you are running macOS or Ubuntu, you can clone the repository and run the [do
 ./script/docker_dev_setup.sh
 ```
 
-The script will walk you through the process of setting up a Canvas development environment in . If you would prefer to install Canvas locally without docker, read on.
-
 ## Manual Setup
 
 This tutorial is targeting POSIX-based systems like macOS and Linux. This tutorial was written and tested using Ubuntu's latest LTS 18.04.1, macOS 10.14 Mojave, and Debian 9.5 Stretch. If you have a different system, consider setting up a server or virtual machine running the latest [Ubuntu LTS](http://www.ubuntu.com/). We'll assume you've either done so or are familiar with these working parts enough to do translations yourself.
