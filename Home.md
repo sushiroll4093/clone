@@ -17,13 +17,13 @@ If at a later time you do want to migrate from your own install to Canvas Cloud,
 Getting Help
 -----------
 
- * You can post a message or participate in our user group [mailing list](http://groups.google.com/group/canvas-lms-users).
- * You can join #canvas-lms on [Freenode](http://webchat.freenode.net/?channels=canvas-lms&uio=d4) and talk to the community.
- * You can read one of our [tutorials](#installation-tutorials).
- * You can read our [[FAQ]].
- * You can visit our [general Canvas usage support portal](http://support.instructure.com/).
- * You can visit our [Vimeo Channel](https://vimeo.com/canvaslms).
- * You can read our [API docs](http://api.instructure.com).
+ * Read the [[FAQ]].
+ * Read the [tutorials](#installation-tutorials).
+ * Read our [API docs](http://api.instructure.com).
+ * Participate in our user group [mailing list](http://groups.google.com/group/canvas-lms-users).
+ * Join #canvas-lms on [Freenode](http://webchat.freenode.net/?channels=canvas-lms&uio=d4) and talk to the community.
+ * Visit the [general Canvas usage support portal](http://support.instructure.com/).
+ * Watch videos on the [Canvas Vimeo Channel](https://vimeo.com/canvaslms).
 
 Contributing
 -----------
