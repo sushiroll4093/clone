@@ -1,8 +1,8 @@
 Quick Start
-============
+===========
 
 READ ME FIRST
-----------------
+-------------
 
 This guide is intended for those who want to get a version of Canvas LMS running as quickly as possible (e.g. for a development environment). The environment produced by this guide is lacking in several features (e.g. [emails are not sent out](#a-note-about-emails), [delayed jobs are not daemonized](#a-note-about-long-running-jobs), [there is no proper application server provided](#ready-set-go)) **and is not suitable for production use**. 
 
@@ -10,29 +10,29 @@ This guide is intended for those who want to get a version of Canvas LMS running
 
 If you need help installing Canvas or troubleshooting your installation, your best bet is to join the community mailing list or the IRC channel [(see the wiki)](https://github.com/instructure/canvas-lms/wiki) and ask specific questions there. It's likely that somebody else has already tackled the same problem. Note that a common category of questions are those that stem from following this guide instead of the [[Production Start]] guide. If you are **sure** that you want to continue with the Quick Start guide, read on; otherwise, you may want to consider jumping into the [[Production Start]] guide instead.
 
-Automated Script
+Automated Setup
 ----------------
 
-If you are running MacOS or Ubuntu, you can clone the repository and run the [docker_dev_setup.sh](https://github.com/instructure/canvas-lms/blob/master/script/docker_dev_setup.sh) script:
+If you are running macOS or Ubuntu, you can clone the repository and run the [docker_dev_setup.sh](https://github.com/instructure/canvas-lms/blob/master/script/docker_dev_setup.sh) script:
 
 ```
 ./script/docker_dev_setup.sh
 ```
 
-The script will walk you through the process of setting up a dockerized Canvas development environment. If you would prefer to install Canvas locally without docker, read on.
+The script will walk you through the process of setting up a Canvas development environment in [Docker](https://www.docker.com/). If you would prefer to install Canvas locally without docker, read on.
 
 Prerequisites
 -------------
 
-This tutorial is targeting POSIX-based systems (like Mac OS X and Linux). This tutorial was written and tested using Ubuntu's latest LTS 14.04.2, Mac OS X 10.10 (Yosemite), and Debian Jessie 8.1. If you have a different system, consider setting up a server or virtual machine running the latest [Ubuntu LTS](http://www.ubuntu.com/). We'll assume you've either done so or are familiar with these working parts enough to do translations yourself.
+This tutorial is targeting POSIX-based systems like macOS and Linux. This tutorial was written and tested using Ubuntu's latest LTS 18.04.1, macOS 10.14 Mojave, and Debian 9.5 Stretch. If you have a different system, consider setting up a server or virtual machine running the latest [Ubuntu LTS](http://www.ubuntu.com/). We'll assume you've either done so or are familiar with these working parts enough to do translations yourself.
 
 Getting the code
-======
+================
 
-There are two primary ways to get a copy of Canvas
+There are two primary ways to get a copy of Canvas: git or zip/tar download.
 
 Using Git
------------
+---------
 
 If you don't already have [Git](http://git-scm.com/), you can install it on Debian/Ubuntu by running
 
@@ -48,10 +48,10 @@ Once you have a copy of Git installed on your system, getting the latest source 
 ~$ git checkout stable
 ```
 
-Using a Tarball or a Zip
+Using a Tarball or a Zip Download
 -----------------
 
-You can also download a tarball or zipfile.
+You can also download a tarball or zip file.
   
    * [Canvas Tarball](http://github.com/instructure/canvas-lms/tarball/stable)
    * [Canvas Zip](http://github.com/instructure/canvas-lms/zipball/stable)
@@ -104,9 +104,9 @@ sudo -u postgres createuser $USER
 sudo -u postgres psql -c "alter user $USER with superuser" postgres
 ```
 
-### Mac OS X
+### macOS
 
-For OS X, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 2.4. You can find out what version of Ruby your Mac came with by running:
+For macOS, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 2.4. You can find out what version of Ruby your Mac came with by running:
 
 ```
 $ ruby -v
@@ -135,7 +135,7 @@ You can install Bundler using Ruby Gems:
 $ gem install bundler
 ```
 
-On Debian Jessie, you'll need to substitute `gem` with `gem2.4`.
+On Debian 8 Jessie, you'll need to substitute `gem` with `gem2.4`.
 
 Canvas Dependencies
 ---------
@@ -150,7 +150,7 @@ Once you have installed Bundler, **please navigate to the Canvas application roo
 ~/canvas$ yarn install --pure-lockfile
 ```
 
-If you're on OS X Mavericks or Yosemite and hit an error with the thrift gem, you might have to set the following bundler flag and then run bundle install again (see https://issues.apache.org/jira/browse/THRIFT-2219):
+If you're on macOS Mavericks or macOS Yosemite and hit an error with the thrift gem, you might have to set the following bundler flag and then run bundle install again (see https://issues.apache.org/jira/browse/THRIFT-2219):
 
 ```
 ~/canvas$ bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
@@ -178,7 +178,7 @@ If you hit an error with the eventmachine gem, you might have to set the followi
 JavaScript Runtime
 ------------------
 
-You'll also need a JavaScript runtime to translate our CoffeeScript code to JavaScript and a few other things.  We use Node.js for this. Mac OS X users can download the installer from [node.js](http://nodejs.org). Linux users should already have it from the `apt-get install` step above.
+You'll also need a JavaScript runtime to translate our CoffeeScript code to JavaScript and a few other things.  We use Node.js for this. macOS users can download the installer from [node.js](http://nodejs.org). Linux users should already have it from the `apt-get install` step above.
 
 CoffeeScript can be installed the same way as on other platforms, through `npm` (which is included with the nodeJS installation):
 ```
@@ -209,7 +209,7 @@ This config file is useful if you don't want to run a consul cluster with canvas
 Database configuration
 ---------
 
-Now we need to set up your database configuration. We have provided a sample file for quickstarts, so you just need to copy it in. You'll also want to create two databases. Depending on your OS (i.e. on Linux), you may need to use a postgres user to create the database, and configure database.yml to use a specific username to connect. See the [[Production Start]] tutorial for details on doing that. On OS X, your local user will have permissions to create databases already, so no special configuration is necessary.
+Now we need to set up your database configuration. We have provided a sample file for quickstarts, so you just need to copy it in. You'll also want to create two databases. Depending on your OS (i.e. on Linux), you may need to use a postgres user to create the database, and configure database.yml to use a specific username to connect. See the [[Production Start]] tutorial for details on doing that. On macOS your local user will have permissions to create databases already, so no special configuration is necessary.
 
 ```
 ~/canvas$ cp config/database.yml.example config/database.yml
@@ -297,12 +297,12 @@ Canvas needs to build a number of assets before it will work correctly. You will
 ~/canvas$ bundle exec rails canvas:compile_assets
 ```
 
-Note that we've seen trouble with npm trying to hold too many files open at once.  If you see an error with `libuv` while running npm, try increasing your `ulimit`.  To do this in OS X add `ulimit -n 4096` to your `~/.bash_profile` or `~/.zsh_profile`.
+Note that we've seen trouble with npm trying to hold too many files open at once.  If you see an error with `libuv` while running npm, try increasing your `ulimit`.  To do this in macOS add `ulimit -n 4096` to your `~/.bash_profile` or `~/.zsh_profile`.
 
 Performance Tweaks
 ======
 
-Installing redis will significantly improve your Canvas performance. For detailed instructions, see [[Production Start#redis]]. On OS X, use the following:
+Installing redis will significantly improve your Canvas performance. For detailed instructions, see [[Production Start#redis]]. On macOS, use the following:
 
 ```
 brew install redis
@@ -311,7 +311,7 @@ echo -e "development:\n  cache_store: redis_store" > config/cache_store.yml
 echo -e "development:\n  servers:\n  - redis://localhost" > config/redis.yml
 ```
 
-On Linux ( Ubuntu ), use the following:
+On Ubuntu, use the following:
 
 ```
 sudo apt-get update
