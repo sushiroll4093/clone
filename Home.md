@@ -52,9 +52,10 @@ Installation Tutorials
 
 Getting Code
 -----------
-There are two primary ways to get a copy of Canvas LMS
 
-### Using Git
+There are two primary ways to get a copy of Canvas LMS: git and zip/tarball download.
+
+## Using Git
 
 You can install [Git](http://git-scm.com/) on Debian/Ubuntu by running
 
@@ -62,17 +63,22 @@ You can install [Git](http://git-scm.com/) on Debian/Ubuntu by running
 $ sudo apt-get install git-core
 ```
 
-Once you have a copy of Git installed on your system, getting the latest source for Canvas is as simple as checking out code from the repo, like so:
+Next, clone this repo: 
 
 ```
 ~$ git clone https://github.com/instructure/canvas-lms.git canvas
 ~$ cd canvas
+```
+
+To use develop against production code, checkout the `origin/stable` branch:
+
+```
 ~/canvas$ git checkout --track -b stable origin/stable
 ```
 
 ### Using a Tarball or a Zip
 
-You can also download a tarball or zipfile.
+You can also download a tarball or zip file.
   
    * [Canvas Tarball](http://github.com/instructure/canvas-lms/tarball/stable)
    * [Canvas Zip](http://github.com/instructure/canvas-lms/zipball/stable)
