@@ -3,23 +3,23 @@ Canvas by Instructure!
 
 Canvas is a well-established (circa 2010, used in many colleges, universities, and K-12 schools), open-source [LMS](http://en.wikipedia.org/wiki/Learning_management_system) by [Instructure Inc](http://www.canvaslms.com/). It is released under the [AGPLv3](http://www.gnu.org/licenses/agpl.html) license for use by anyone interested in learning more about or using learning management systems.
 
-Our [dev & friends](http://instructure.github.io/) site is a great resource for getting started in developing on Canvas itself, using the Canvas APIs, or creating well-integrated 3rd party tools.
+Our [Canvas Dev & Friends](https://instructure.github.io/) site is a great resource for getting started in developing on Canvas itself, using the Canvas APIs, or creating well-integrated 3rd party tools.
 
-Are you looking for one of our commercial subscriptions, professional services, support, or our hosted solution? [Please visit our main website](http://www.canvaslms.com/).
+Are you looking for one of our commercial subscriptions, professional services, support, or our hosted solution? Check out [canvaslms.com](https://www.canvaslms.com/).
 
 Trying Out Canvas
 -----------------
 
-If you'd like to use Canvas in your own course, or you just want try Canvas out, there is no need to do all the work of installing it yourself. Canvas Cloud is free for teachers to use, [just sign up](https://canvas.instructure.com/register) to get started.
+If you'd like to use Canvas in your own course, or you just want try Canvas out, there is no need to do all the work of installing it yourself. Canvas Cloud is free for teachers to use, [sign up](https://canvas.instructure.com/register) to get started.
 
 If at a later time you do want to migrate from your own install to Canvas Cloud, or vice versa, you can use the course export and import features to migrate all your content.
 
 Getting Help
 -----------
 
- * You can post a message or participate in [our user group mailing list](http://groups.google.com/group/canvas-lms-users).
+ * You can post a message or participate in our user group [mailing list](http://groups.google.com/group/canvas-lms-users).
  * You can join #canvas-lms on [Freenode](http://webchat.freenode.net/?channels=canvas-lms&uio=d4) and talk to the community.
- * You can read one of our tutorials (below).
+ * You can read one of our [[tutorials|installation-tutorials]].
  * You can read our [[FAQ]].
  * You can visit our [general Canvas usage support portal](http://support.instructure.com/).
  * You can visit our [Vimeo Channel](https://vimeo.com/canvaslms).
