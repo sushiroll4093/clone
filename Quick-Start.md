@@ -1,35 +1,28 @@
-READ ME FIRST
--------------
+This guide is intended for those who want to get a version of Canvas LMS running as quickly as possible (e.g. for a development environment). The environment produced by this guide is lacking in several features (e.g. [emails are not sent out](#a-note-about-emails), [delayed jobs are not daemonized](#a-note-about-long-running-jobs), [there is no proper application server provided](#ready-set-go)) and **is not suitable for production use**. 
 
-This guide is intended for those who want to get a version of Canvas LMS running as quickly as possible (e.g. for a development environment). The environment produced by this guide is lacking in several features (e.g. [emails are not sent out](#a-note-about-emails), [delayed jobs are not daemonized](#a-note-about-long-running-jobs), [there is no proper application server provided](#ready-set-go)) **and is not suitable for production use**. 
+See the [[Production Start]] guide for instructions on standing up a production-ready system.
 
-**See the [[Production Start]] guide for instructions on standing up a production-ready system.**
+If you need help installing Canvas or troubleshooting your installation, your best bet is to join the community mailing list or the IRC channel (see the [[Home]] page) and ask specific questions there. It's likely that somebody else has already tackled the same problem. Note that a common category of questions are those that stem from following this guide instead of the [[Production Start]] guide. If you are **sure** that you want to continue with the Quick Start guide, read on.
 
-If you need help installing Canvas or troubleshooting your installation, your best bet is to join the community mailing list or the IRC channel [(see the wiki)](https://github.com/instructure/canvas-lms/wiki) and ask specific questions there. It's likely that somebody else has already tackled the same problem. Note that a common category of questions are those that stem from following this guide instead of the [[Production Start]] guide. If you are **sure** that you want to continue with the Quick Start guide, read on; otherwise, you may want to consider jumping into the [[Production Start]] guide instead.
+## Automated Setup
 
-Automated Setup
-----------------
-
-If you are running macOS or Ubuntu, you can clone the repository and run the [docker_dev_setup.sh](https://github.com/instructure/canvas-lms/blob/master/script/docker_dev_setup.sh) script:
+If you are running macOS or Ubuntu, you can clone the repository and run the [docker_dev_setup.sh](https://github.com/instructure/canvas-lms/blob/master/script/docker_dev_setup.sh) script to automatically setup a development environment with [Docker](https://www.docker.com/).
 
 ```
 ./script/docker_dev_setup.sh
 ```
 
-The script will walk you through the process of setting up a Canvas development environment in [Docker](https://www.docker.com/). If you would prefer to install Canvas locally without docker, read on.
+The script will walk you through the process of setting up a Canvas development environment in . If you would prefer to install Canvas locally without docker, read on.
 
-Prerequisites
--------------
+## Manual Setup
 
 This tutorial is targeting POSIX-based systems like macOS and Linux. This tutorial was written and tested using Ubuntu's latest LTS 18.04.1, macOS 10.14 Mojave, and Debian 9.5 Stretch. If you have a different system, consider setting up a server or virtual machine running the latest [Ubuntu LTS](http://www.ubuntu.com/). We'll assume you've either done so or are familiar with these working parts enough to do translations yourself.
 
-Getting the code
-================
+### Getting the code
 
 There are two primary ways to get a copy of Canvas: git or zip/tar download.
 
-Using Git
----------
+### Using Git
 
 If you don't already have [Git](http://git-scm.com/), you can install it on Debian/Ubuntu by running
 
@@ -45,26 +38,23 @@ Once you have a copy of Git installed on your system, getting the latest source 
 ~$ git checkout stable
 ```
 
-Using a Tarball or a Zip Download
------------------
+### Using a Tarball or a Zip Download
 
 You can also download a tarball or zip file.
   
    * [Canvas Tarball](http://github.com/instructure/canvas-lms/tarball/stable)
    * [Canvas Zip](http://github.com/instructure/canvas-lms/zipball/stable)
 
-Application root
---------------
+### Application root
 
 Wherever you check out the code to, we're going to call that your application root. The application root is the folder that has folders such as *app*, *config*, and *script*. For the purposes of this tutorial, we'll assume your application root is */home/user/canvas*.
 
-Dependency Installation
-==========
+## Dependency Installation
 
 Canvas requires Ruby 2.4. A minimum version of 2.4.3 is recommended.
 
-External dependencies
------------
+### External Dependencies
+
 
 ### Debian/Ubuntu 
 
@@ -115,14 +105,12 @@ You also need Postgres and the [xmlsec library](http://www.aleksey.com/xmlsec/) 
 $ brew install postgresql@9.5 nodejs xmlsec1
 ```
 
-Ruby Gems
-------------
+### Ruby Gems
 
 Most of Canvas' dependencies are Ruby Gems. Ruby Gems are a Ruby-specific package management system that operates orthogonally to operating-system package management systems.
 
 
-Bundler
-----------
+### Bundler
 
 Canvas uses Bundler as an additional layer on top of Ruby Gems to manage versioned dependencies. Bundler is great!
 
@@ -134,8 +122,7 @@ $ gem install bundler
 
 On Debian 8 Jessie, you'll need to substitute `gem` with `gem2.4`.
 
-Canvas Dependencies
----------
+## Canvas Dependencies
 
 Once you have installed Bundler, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler. 
 
@@ -172,8 +159,7 @@ If you hit an error with the eventmachine gem, you might have to set the followi
 ~/canvas$ bundle config build.eventmachine --with-cppflags=-I/usr/local/opt/openssl/include
 ```
 
-JavaScript Runtime
-------------------
+### JavaScript Runtime
 
 You'll also need a JavaScript runtime to translate our CoffeeScript code to JavaScript and a few other things.  We use Node.js for this. macOS users can download the installer from [node.js](http://nodejs.org). Linux users should already have it from the `apt-get install` step above.
 
@@ -182,11 +168,9 @@ CoffeeScript can be installed the same way as on other platforms, through `npm` 
 $ sudo npm install -g coffee-script@1.6.2
 ```
 
-Data setup
-========
+## Data setup
 
-Canvas default configuration
-------
+### Canvas default configuration
 
 Before we set up all the tables in your database, our Rails code depends on a small few configuration files, which ship with good example settings, so, we'll want to set those up quickly. We'll be examining them more shortly. From the root of your Canvas tree, you can pull in the default configuration values like so:
 
@@ -195,16 +179,14 @@ Before we set up all the tables in your database, our Rails code depends on a sm
           do cp -v config/$config.yml.example config/$config.yml; done
 ```
 
-Dynamic settings configuration
-------
+### Dynamic settings configuration
 
 This config file is useful if you don't want to run a consul cluster with canvas. Just provide the config data you would like for the DynamicSettings class to find, and it will use it whenever a call for consul data is issued. Data should be shaped like the example below, one key for the related set of data, and a hash of key/value pairs (no nesting)
 ```
 ~/canvas$ cp config/dynamic_settings.yml.example config/dynamic_settings.yml
 ```
 
-Database configuration
----------
+### Database configuration
 
 Now we need to set up your database configuration. We have provided a sample file for quickstarts, so you just need to copy it in. You'll also want to create two databases. Depending on your OS (i.e. on Linux), you may need to use a postgres user to create the database, and configure database.yml to use a specific username to connect. See the [[Production Start]] tutorial for details on doing that. On macOS your local user will have permissions to create databases already, so no special configuration is necessary.
 
@@ -250,8 +232,7 @@ $ initdb /usr/local/var/postgres -E utf8
 $ pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start
 ```
 
-Database population
------------
+### Database population
 
 Once your database is configured, we need to actually fill the database with tables and initial data. You can do this by running our migration and initialization tasks from your application's root:
 
@@ -259,8 +240,7 @@ Once your database is configured, we need to actually fill the database with tab
 ~/canvas$ bundle exec rails db:initial_setup
 ```
 
-Test database configuration
------------
+### Test database configuration
 
 If you want to test your installation, you'll also need to create a test database:
 
@@ -285,8 +265,7 @@ If you get a warning saying that you have the wrong version of Bundle installed,
 bundle exec rspec spec/models/assignment_spec.rb
 ```
 
-File Generation
------------
+### File Generation
 
 Canvas needs to build a number of assets before it will work correctly. You will need to run:
 
@@ -296,8 +275,7 @@ Canvas needs to build a number of assets before it will work correctly. You will
 
 Note that we've seen trouble with npm trying to hold too many files open at once.  If you see an error with `libuv` while running npm, try increasing your `ulimit`.  To do this in macOS add `ulimit -n 4096` to your `~/.bash_profile` or `~/.zsh_profile`.
 
-Performance Tweaks
-======
+## Performance Tweaks
 
 Installing redis will significantly improve your Canvas performance. For detailed instructions, see [[Production Start#redis]]. On macOS, use the following:
 
@@ -329,13 +307,11 @@ config.action_view.cache_template_loading = true
 
 Please be aware that the instructions described in the [[Production Start]] tutorial will give you a *much* faster Canvas installation.
 
-A note about emails
-=======
+## A note about emails
 
 Canvas will often attempt to send email. With the Quick Start instructions, email will go straight to the console that `rails server` is running on. If you want to set up email that actually goes to email addresses, please follow the [[Production Start]] instructions.
 
-Ready, Set, Go!
-=============
+## Ready, Set, Go!
 
 Now you just need to start the Canvas server! You will need to run the *rails server* daemon:
 
@@ -345,13 +321,11 @@ Now you just need to start the Canvas server! You will need to run the *rails se
 
 Open up a browser on the same computer as the one running the server and navigate to [[http://localhost:3000/]] and log in with the user credentials you set up during database configuration. If you don't have a browser running on the same computer, just use the hostname of the computer, and go to http://&lt;hostname&gt;:3000/.
 
-Logging in For the First Time
-===========
+## Logging in For the First Time
 
 Your username and password will be whatever you set it up to be during the `rails db:initial_setup` step above. (You should have seen a prompt on the command line that asked for your email and password.)
 
-A note about long-running jobs
-========
+## A note about long-running jobs
 
 Canvas relies heavily on background job processors to perform tasks that take too long to do in-line during a web request. The [[Production Start]] instructions have details of how to set up dedicated job processors for production environments. To start a background job processor, run the following command:
 
@@ -359,12 +333,10 @@ Canvas relies heavily on background job processors to perform tasks that take to
 ~/canvas$ bundle exec script/delayed_job run
 ```
 
-Troubleshooting
-==========
+## Troubleshooting
 
 We have a full page of frequently asked questions about troubleshooting your Canvas installation. See our [[Troubleshooting]] page.
 
-Production ready configuration
-=============
+## Production ready configuration
 
 These instructions were meant to give you a taste of Canvas. If you want to actually set up a production ready Canvas instance, please read the [[Production Start]] page.
