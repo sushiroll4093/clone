@@ -51,7 +51,7 @@ Wherever you check out the code to, we're going to call that your application ro
 
 ## Dependency Installation
 
-Canvas requires Ruby 2.4. A minimum version of 2.4.3 is recommended.
+Canvas requires Ruby 2.4 or greater. A minimum version of 2.4.4 is recommended.
 
 ### External Dependencies
 
