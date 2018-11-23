@@ -170,7 +170,7 @@ Bundler and Canvas dependencies
 Canvas uses Bundler as an additional layer on top of Ruby Gems to manage versioned dependencies. Bundler is great!
 
     sysadmin@appserver:/var/canvas$ sudo gem install bundler --version 1.13.6
-    sysadmin@appserver:/var/canvas$ bundle install --path vendor/bundle
+    sysadmin@appserver:/var/canvas$ bundle _1.13.6_ install --path vendor/bundle
 
 ### Note on Mac OS X Mavericks
 
@@ -178,7 +178,7 @@ If your on Mac OS X Mavericks, the thrift gem may fail to build due to a [bug co
 
     sysadmin@appserver:/var/canvas$ sudo gem install bundler --version 1.13.6
     sysadmin@appserver:/var/canvas$ bundle config build.thrift --with-cppflags='-D_FORTIFY_SOURCE=0'
-    sysadmin@appserver:/var/canvas$ bundle install --path vendor/bundle
+    sysadmin@appserver:/var/canvas$ bundle _1.13.6_ install --path vendor/bundle
 
 Yarn Installation
 ------
