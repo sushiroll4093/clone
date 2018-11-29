@@ -4,7 +4,7 @@ See the [[Production Start]] guide for instructions on standing up a production-
 
 If you need help installing Canvas or troubleshooting your installation, your best bet is to join the community mailing list or the IRC channel (see the [[Home]] page) and ask specific questions there. It's likely that somebody else has already tackled the same problem. Note that a common category of questions are those that stem from following this guide instead of the [[Production Start]] guide. If you are **sure** that you want to continue with the Quick Start guide, read on.
 
-##Setup
+## Setup
 
 ### Automated Setup
 
