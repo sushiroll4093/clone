@@ -4,7 +4,9 @@ See the [[Production Start]] guide for instructions on standing up a production-
 
 If you need help installing Canvas or troubleshooting your installation, your best bet is to join the community mailing list or the IRC channel (see the [[Home]] page) and ask specific questions there. It's likely that somebody else has already tackled the same problem. Note that a common category of questions are those that stem from following this guide instead of the [[Production Start]] guide. If you are **sure** that you want to continue with the Quick Start guide, read on.
 
-## Automated Setup
+##Setup
+
+### Automated Setup
 
 If you are running macOS or Ubuntu, you can clone the repository and run the [docker_dev_setup.sh](https://github.com/instructure/canvas-lms/blob/master/script/docker_dev_setup.sh) script to automatically setup a development environment with [Docker](https://www.docker.com/).
 
@@ -12,15 +14,15 @@ If you are running macOS or Ubuntu, you can clone the repository and run the [do
 ./script/docker_dev_setup.sh
 ```
 
-## Manual Setup
+### Manual Setup
 
 This tutorial is targeting POSIX-based systems like macOS and Linux. This tutorial was written and tested using Ubuntu's latest LTS 18.04.1, macOS 10.14 Mojave, and Debian 9.5 Stretch. If you have a different system, consider setting up a server or virtual machine running the latest [Ubuntu LTS](http://www.ubuntu.com/). We'll assume you've either done so or are familiar with these working parts enough to do translations yourself.
 
-### Getting the code
+#### Getting the code
 
 There are two primary ways to get a copy of Canvas: git or zip/tar download.
 
-### Using Git
+#### Using Git
 
 If you don't already have [Git](http://git-scm.com/), you can install it on Debian/Ubuntu by running
 
@@ -36,14 +38,14 @@ Once you have a copy of Git installed on your system, getting the latest source 
 ~$ git checkout stable
 ```
 
-### Using a Tarball or a Zip Download
+#### Using a Tarball or a Zip Download
 
 You can also download a tarball or zip file.
   
    * [Canvas Tarball](http://github.com/instructure/canvas-lms/tarball/stable)
    * [Canvas Zip](http://github.com/instructure/canvas-lms/zipball/stable)
 
-### Application root
+#### Application root
 
 Wherever you check out the code to, we're going to call that your application root. The application root is the folder that has folders such as *app*, *config*, and *script*. For the purposes of this tutorial, we'll assume your application root is */home/user/canvas*.
 
