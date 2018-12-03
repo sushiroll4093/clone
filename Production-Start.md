@@ -246,7 +246,7 @@ In many notification emails, and other events that aren't triggered by a web req
     sysadmin@appserver:/var/canvas$ cp config/domain.yml.example config/domain.yml
     sysadmin@appserver:/var/canvas$ nano config/domain.yml
 
-Note that the optional *files_domain* field is required if you plan to host user-uploaded files and wish to be secure. *files_domain* must be a different hostname from the browser's perspective, even though it can be the same Apache server, and even the same IP address.
+Note that the optional *files_domain* field is required if you plan to host user-uploaded files and wish to be secure, or if you want to allow custom Javascript in custom themes. *files_domain* must be a different hostname from the browser's perspective, even though it can be the same Apache server, and even the same IP address.
 
 Security configuration
 ---------------------
