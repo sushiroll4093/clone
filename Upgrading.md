@@ -66,7 +66,7 @@ yarn install
 Compiled Assets
 -------------
 
-Regardless of how upgrade your Canvas installation, once you are done, you will need to recompile a number of assets, such as Javascript and CSS files. We provide a tool that can do this for you.
+Regardless of how you upgrade your Canvas installation, once you are done, you will need to recompile a number of assets, such as Javascript and CSS files. We provide a tool that can do this for you.
 
 ```
 $GEM_HOME/bin/bundle exec rake canvas:compile_assets
