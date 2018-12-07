@@ -184,11 +184,11 @@ Yarn Installation
 ------
 
 Canvas now prefers yarn instead of npm.
-(Note, as of 15Sep2018, the required yarn version is 1.9.4, specifically `sudo apt-get update && sudo apt-get install yarn=1.9.4-1`)
+(Note, as of 15Sep2018, the required yarn version is 1.10.1, specifically `sudo apt-get update && sudo apt-get install yarn=1.10.1-1`)
 
     sysadmin@appserver:/var/canvas$ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
     sysadmin@appserver:/var/canvas$ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-    sysadmin@appserver:/var/canvas$ sudo apt-get update && sudo apt-get install yarn=1.9.4-1
+    sysadmin@appserver:/var/canvas$ sudo apt-get update && sudo apt-get install yarn=1.10.1-1
 
 
 Also, make sure python is installed (needed for contextify package)
