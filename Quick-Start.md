@@ -81,7 +81,9 @@ $ sudo apt-get install -y nodejs build-essential
 
 [Yarn installation](https://github.com/instructure/canvas-lms/blob/stable/package.json#L7):
 ```
-$ npm install -g yarn@1.9.4
+$ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+$ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+$ sudo apt-get update && sudo apt-get install yarn=1.10.1-1
 ```
 
 After installing Postgres, you will need to set your system username as a postgres superuser.  You can do so by running the following commands:
