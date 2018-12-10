@@ -117,7 +117,7 @@ Canvas uses Bundler as an additional layer on top of Ruby Gems to manage version
 You can install Bundler using Ruby Gems:
 
 ```
-$ gem install bundler
+$ gem install bundler -v 1.13.6
 ```
 
 On Debian 8 Jessie, you'll need to substitute `gem` with `gem2.4`.
