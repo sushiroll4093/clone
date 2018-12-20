@@ -44,6 +44,20 @@ Try checking the *error_reports* table in the database for any messages possibly
 sysadmin@appserver:~$ psql canvas_production -c "select message, backtrace from error_reports order by id desc limit 1;"
 ```
 
+### I got the server running, but can't access it remotely
+
+Following the Quick Start guide when you run 
+
+```
+~/canvas$ bundle exec rails server
+```
+
+It binds to localhost. If you need it to bind to localhost and be accessible on your network try
+
+```
+bundle exec rails s -b 0.0.0.0 -p 3000
+```
+
 ### How do I access the Rails console?
 
 If you followed the [[Production Start]] instructions, you can get a Rails console open by running (with appropriate adjustments):
