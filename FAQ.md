@@ -3,7 +3,7 @@ Frequently Asked Questions
 
 ### What open-source license is Canvas released under?
 
-We have released Canvas under the [AGPLv3](http://www.gnu.org/licenses/agpl.html). Note that we sell commercial licenses as well.
+We have released Canvas under the [AGPLv3](http://www.gnu.org/licenses/agpl.html).
 
 ### Can I contribute back?
 
@@ -31,9 +31,9 @@ Yes, there are some. Canvas runs on the exact same code as we release to github,
 * Gauge
 * Canvas Data
 
-### How do I get professional services and support?
+### How do I get support?
 
-You will need to buy a commercial license. See [our website](http://www.instructure.com/) for more information on pricing.
+https://github.com/instructure/canvas-lms/wiki#getting-help
 
 ### I'd like to contribute to Canvas.
 
