@@ -71,7 +71,7 @@ To use develop against production code, checkout the `origin/stable` branch:
 
 ### Using a Tarball or a Zip
 
-You can also download a tarball or zip file.
+You can also download a tarball or zip file:
   
    * [Canvas Tarball](http://github.com/instructure/canvas-lms/tarball/stable)
    * [Canvas Zip](http://github.com/instructure/canvas-lms/zipball/stable)
