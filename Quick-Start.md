@@ -13,6 +13,8 @@ If you are running macOS or Ubuntu, you can clone the repository and run the [do
 ```
 ./script/docker_dev_setup.sh
 ```
+The [doc/docker directory](https://github.com/instructure/canvas-lms/blob/master/doc/docker/) has more detailed information about [using Docker for Canvas Development](https://github.com/instructure/canvas-lms/blob/master/doc/docker/developing_with_docker.md).
+
 
 ### Manual Setup
 
