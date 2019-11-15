@@ -264,11 +264,6 @@ Make sure you can run a spec file (the full suite takes too long to run locally)
 bundle exec rspec spec/models/assignment_spec.rb
 ```
 
-If you get a warning saying that you have the wrong version of Bundle installed, try this:
-```
-bundle exec rspec spec/models/assignment_spec.rb
-```
-
 ### File Generation
 
 Canvas needs to build a number of assets before it will work correctly. You will need to run:
