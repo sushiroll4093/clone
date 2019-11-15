@@ -185,10 +185,14 @@ Before we set up all the tables in your database, our Rails code depends on a sm
 
 ### Dynamic settings configuration
 
+We are starting to migrate some configuration into consul. To make this easier locally, we provide a config file called dynamic_settings.yml which will be read from in no consul.yml is configured. Currently this is needed to integrate with other local services (rce-api, mathman, etc), to test the high-availability cache, or to configure LTI 1.3 public keys. If you don't need any of this functionality, you can skip it.
+
 This config file is useful if you don't want to run a consul cluster with canvas. Just provide the config data you would like for the DynamicSettings class to find, and it will use it whenever a call for consul data is issued. Data should be shaped like the example below, one key for the related set of data, and a hash of key/value pairs (no nesting)
 ```
 ~/canvas$ cp config/dynamic_settings.yml.example config/dynamic_settings.yml
 ```
+
+Without consul, you'll want to either remove the `ha_cache` section or at least the `consul_event: "canvas/dev/invalidate_ha_cache"` line, which requires consul functionality to work.
 
 ### Database configuration
 
