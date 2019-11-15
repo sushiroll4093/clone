@@ -163,15 +163,6 @@ If you hit an error with the eventmachine gem, you might have to set the followi
 ~/canvas$ bundle config build.eventmachine --with-cppflags=-I/usr/local/opt/openssl/include
 ```
 
-### JavaScript Runtime
-
-You'll also need a JavaScript runtime to translate our CoffeeScript code to JavaScript and a few other things.  We use Node.js for this. macOS users can download the installer from [node.js](http://nodejs.org). Linux users should already have it from the `apt-get install` step above.
-
-CoffeeScript can be installed the same way as on other platforms, through `npm` (which is included with the nodeJS installation):
-```
-$ sudo npm install -g coffee-script@1.6.2
-```
-
 ## Data setup
 
 ### Canvas default configuration
