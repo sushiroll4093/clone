@@ -17,19 +17,22 @@ If you are interested in finding out more about plugins for Canvas by Instructur
 
 ### Are there any code differences between the open source and hosted offerings?
 
-Yes, there are some. Canvas runs on the exact same code as we release to github, and as of this writing the code that we deploy to our production environment is pushed the same day to github. However, there are a few plugins and extensions that we provide for customers that we don't open source right now. These include:
+Yes, there are some. Canvas runs on the exact same code as we release to github, and as of this writing the code that we deploy to our production environment is pushed the same day to github. [See the list of repositories and projects](https://github.com/instructure).
 
-* Quizzes.next
-* Mastery Paths
+The plugins and extensions that we don't open source right now include:
+
+* New Quizzes
+* MasteryPaths
+* Plagiarism Platform
 * Proprietary SIS integrations
 * Migration tools for commercial LMSs
-* Other minor customizations that only apply to our hosted environment
 * Chat tool
 * SCORM import tool
 * Catalog
-* Canvas DocViewer (edited)
 * Gauge
 * Canvas Data
+* DocViewer
+* Other minor customizations that only apply to a hosted environment
 
 ### How do I get support?
 
