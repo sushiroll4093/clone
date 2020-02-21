@@ -181,6 +181,16 @@ This config file is useful if you don't want to run a consul cluster with canvas
 ~/canvas$ cp config/dynamic_settings.yml.example config/dynamic_settings.yml
 ```
 
+### File Generation
+
+Canvas needs to build a number of assets before it will work correctly. You will need to run:
+
+```
+~/canvas$ bundle exec rails canvas:compile_assets
+```
+
+Note that we've seen trouble with npm trying to hold too many files open at once.  If you see an error with `libuv` while running npm, try increasing your `ulimit`.  To do this in macOS add `ulimit -n 4096` to your `~/.bash_profile` or `~/.zsh_profile`.
+
 ### Database configuration
 
 Now we need to set up your database configuration. We have provided a sample file for quickstarts, so you just need to copy it in. You'll also want to create two databases. Depending on your OS (i.e. on Linux), you may need to use a postgres user to create the database, and configure database.yml to use a specific username to connect. See the [[Production Start]] tutorial for details on doing that. On macOS your local user will have permissions to create databases already, so no special configuration is necessary.
@@ -255,15 +265,6 @@ Make sure you can run a spec file (the full suite takes too long to run locally)
 bundle exec rspec spec/models/assignment_spec.rb
 ```
 
-### File Generation
-
-Canvas needs to build a number of assets before it will work correctly. You will need to run:
-
-```
-~/canvas$ bundle exec rails canvas:compile_assets
-```
-
-Note that we've seen trouble with npm trying to hold too many files open at once.  If you see an error with `libuv` while running npm, try increasing your `ulimit`.  To do this in macOS add `ulimit -n 4096` to your `~/.bash_profile` or `~/.zsh_profile`.
 
 ## Performance Tweaks
 
