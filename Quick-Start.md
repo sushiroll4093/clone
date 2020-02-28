@@ -325,14 +325,21 @@ Canvas relies heavily on background job processors to perform tasks that take to
 ```
 
 ## Running Canvas securely locally
-* Install [puma-dev](github.com/puma/puma-dev)
-* Follow the set up instructions
-* Add `export THEADS=1` to ~/.powconfig
-* In Canvas, in domain.yml add `ssl: true` under the development section.
-* In session_store.yml under development, add `secure: true`
-* To start for Mac, set up puma-dev in launchctl `launchctl load ~/Library/LaunchAgents/io.puma.dev.plist`
-* You can view server logs by tailing the logs in `log/development.log`
-* On MacOS, you can have the certificates accepted by opening Keychain Access, and move the Puma-dev CA to System.
+Install [puma-dev](github.com/puma/puma-dev)
+
+Follow the set up instructions
+
+Add `export THEADS=1` to ~/.powconfig
+
+In Canvas, in domain.yml add `ssl: true` under the development section.
+
+In session_store.yml under development, add `secure: true`
+
+To start for Mac, set up puma-dev in launchctl `launchctl load ~/Library/LaunchAgents/io.puma.dev.plist`
+
+You can view server logs by tailing the logs in `log/development.log`
+
+On MacOS, you can have the certificates accepted by opening Keychain Access, and move the Puma-dev CA to System.
 
 
 ## Troubleshooting
