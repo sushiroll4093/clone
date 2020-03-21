@@ -533,8 +533,8 @@ production:
 Then specify your redis instance information in `redis.yml`, by coping and editing [redis.yml.example](https://github.com/instructure/canvas-lms/blob/stable/config/redis.yml.example):
 
     sysadmin@appserver:/var/canvas$ cd /var/canvas/
-    sysadmin@appserver:/var/canvas$ cp config/redis.yml.example config/redis.yml
-    sysadmin@appserver:/var/canvas$ nano config/redis.yml
+    sysadmin@appserver:/var/canvas$ sudo cp config/redis.yml.example config/redis.yml
+    sysadmin@appserver:/var/canvas$ sudo nano config/redis.yml
     sysadmin@appserver:/var/canvas$ sudo chown canvasuser config/redis.yml
     sysadmin@appserver:/var/canvas$ sudo chmod 400 config/redis.yml
 
