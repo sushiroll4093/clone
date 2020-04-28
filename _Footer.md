@@ -1,1 +1,1 @@
-rr?
+Get started with Canvas LMS now.
