@@ -1,7 +1,4 @@
-Troubleshooting
-==========
-
-Is your question not on here? Please contact us over [our user mailing list](http://groups.google.com/group/canvas-lms-users).
+Is your question not on here? Please contact us on [our user mailing list](http://groups.google.com/group/canvas-lms-users).
 
 ### How do I get Canvas to see my changes to the configuration files?
 
@@ -38,7 +35,7 @@ https://<your-canvas-hostname>/jobs
 
 ### Something else is broken.
 
-Try checking the *error_reports* table in the database for any messages possibly pertaining to the problem:
+Try checking the _error_reports_ table in the database for any messages possibly pertaining to the problem:
 
 ```
 sysadmin@appserver:~$ psql canvas_production -c "select message, backtrace from error_reports order by id desc limit 1;"
@@ -46,7 +43,7 @@ sysadmin@appserver:~$ psql canvas_production -c "select message, backtrace from 
 
 ### I got the server running, but can't access it remotely
 
-Following the Quick Start guide when you run 
+Following the Quick Start guide when you run
 
 ```
 ~/canvas$ bundle exec rails server
@@ -74,6 +71,7 @@ The [[Quick Start]] instructions use the default RAILS_ENV value (development), 
 ~$ cd ~/canvas
 ~/canvas $ GEM_HOME=~/gems script/console
 ```
+
 Accessing a Rails console gives you unprecedented control over Canvas' inner workings. Be sure you know what you're doing.
 
 ### I get this error message during install: `uninitialized constant Rake::DSL`
@@ -87,6 +85,7 @@ Reset the test database using `RAILS_ENV=test rake db:test:reset` then the specs
 ### Multiple failing specs due to ForeignKeyViolation but work in isolation
 
 Errors of this sort:
+
 ```
 ActiveRecord::InvalidForeignKey:
         PG::ForeignKeyViolation: ERROR:  insert or update on table "enrollment_terms" violates foreign key constraint "fk_rails_e182f18b93"
