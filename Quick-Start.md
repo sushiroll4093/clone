@@ -1,4 +1,4 @@
-This guide is intended for those who want to get a version of Canvas LMS running as quickly as possible (e.g. for a development environment). The environment produced by this guide is lacking in several features (e.g. [emails are not sent out](#a-note-about-emails), [delayed jobs are not daemonized](#a-note-about-long-running-jobs), [there is no proper application server provided](#ready-set-go)) and **is not suitable for production use**. 
+This guide is intended for those who want to get a version of Canvas LMS running as quickly as possible (e.g. for a development environment). The environment produced by this guide is lacking in several features (e.g. [emails are not sent out](#a-note-about-emails), [delayed jobs are not daemonized](#a-note-about-long-running-jobs), [there is no proper application server provided](#ready-set-go)) and **is not suitable for production use**.
 
 See the [[Production Start]] guide for instructions on standing up a production-ready system.
 
@@ -8,13 +8,13 @@ If you need help installing Canvas or troubleshooting your installation, your be
 
 ### Automated Setup
 
-If you are running macOS or Ubuntu, you can clone the repository and run the [docker_dev_setup.sh](https://github.com/instructure/canvas-lms/blob/master/script/docker_dev_setup.sh) script to automatically setup a development environment with [Docker](https://www.docker.com/).
+If you are running macOS or Ubuntu, you can clone the repository and run the [docker_dev_setup.sh](https://github.com/instructure/canvas-lms/blob/master/script/docker_dev_setup.sh) script to automatically setup a development environment with [Docker](https://www.docker.com/). It is recommended that you have at least 150GB of available hard drive space, 8GB of RAM, and a quad-core CPU to use this script.
 
 ```
 ./script/docker_dev_setup.sh
 ```
-The [doc/docker directory](https://github.com/instructure/canvas-lms/blob/master/doc/docker/) has more detailed information about [using Docker for Canvas Development](https://github.com/instructure/canvas-lms/blob/master/doc/docker/developing_with_docker.md).
 
+The [doc/docker directory](https://github.com/instructure/canvas-lms/blob/master/doc/docker/) has more detailed information about [using Docker for Canvas Development](https://github.com/instructure/canvas-lms/blob/master/doc/docker/developing_with_docker.md).
 
 ### Manual Setup
 
@@ -43,13 +43,13 @@ Once you have a copy of Git installed on your system, getting the latest source 
 #### Using a Tarball or a Zip Download
 
 You can also download a tarball or zip file.
-  
-   * [Canvas Tarball](http://github.com/instructure/canvas-lms/tarball/stable)
-   * [Canvas Zip](http://github.com/instructure/canvas-lms/zipball/stable)
+
+- [Canvas Tarball](http://github.com/instructure/canvas-lms/tarball/stable)
+- [Canvas Zip](http://github.com/instructure/canvas-lms/zipball/stable)
 
 #### Application root
 
-Wherever you check out the code to, we're going to call that your application root. The application root is the folder that has folders such as *app*, *config*, and *script*. For the purposes of this tutorial, we'll assume your application root is */home/user/canvas*.
+Wherever you check out the code to, we're going to call that your application root. The application root is the folder that has folders such as _app_, _config_, and _script_. For the purposes of this tutorial, we'll assume your application root is _/home/user/canvas_.
 
 ## Dependency Installation
 
@@ -57,8 +57,7 @@ Canvas requires Ruby 2.4 or greater. A minimum version of 2.4.4 is recommended.
 
 ### External Dependencies
 
-
-### Debian/Ubuntu 
+### Debian/Ubuntu
 
 We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install. If you're running Ubuntu 14.04 Trusty, you'll need to add a PPA in order to get Ruby 2.4:
 
@@ -73,22 +72,25 @@ $ sudo apt-get install ruby2.4 ruby2.4-dev zlib1g-dev libxml2-dev \
                        libsqlite3-dev postgresql-9.5 libpq-dev \
                        libxmlsec1-dev curl make g++
 ```
-> Note: In Ubuntu, in case you encounter any error such as E: Package 'postgresql-9.5' has no installation candidate, it may be because postgresql-9.5 is not available in that Ubuntu version. See  https://www.postgresql.org/download/linux/ubuntu/
+
+> Note: In Ubuntu, in case you encounter any error such as E: Package 'postgresql-9.5' has no installation candidate, it may be because postgresql-9.5 is not available in that Ubuntu version. See https://www.postgresql.org/download/linux/ubuntu/
 
 Node.js installation:
+
 ```
 $ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 $ sudo apt-get install -y nodejs build-essential
 ```
 
 [Yarn installation](https://github.com/instructure/canvas-lms/blob/stable/package.json#L7):
+
 ```
 $ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 $ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 $ sudo apt-get update && sudo apt-get install yarn=1.10.1-1
 ```
 
-After installing Postgres, you will need to set your system username as a postgres superuser.  You can do so by running the following commands:
+After installing Postgres, you will need to set your system username as a postgres superuser. You can do so by running the following commands:
 
 ```
 sudo -u postgres createuser $USER
@@ -113,7 +115,6 @@ $ brew install postgresql@9.5 node@10 xmlsec1
 
 Most of Canvas' dependencies are Ruby Gems. Ruby Gems are a Ruby-specific package management system that operates orthogonally to operating-system package management systems.
 
-
 ### Bundler
 
 Canvas uses Bundler as an additional layer on top of Ruby Gems to manage versioned dependencies. Bundler is great!
@@ -128,13 +129,13 @@ On Debian 8 Jessie, you'll need to substitute `gem` with `gem2.4`.
 
 ## Canvas Dependencies
 
-Once you have installed Bundler, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler. 
+Once you have installed Bundler, **please navigate to the Canvas application root**, where you can install all of the Canvas dependencies using Bundler.
 
 ```
 ~$ cd canvas
 ~/canvas$ bundle install
 ~/canvas$ yarn install --pure-lockfile
-# Sometimes you have to run this command twice if there is an error 
+# Sometimes you have to run this command twice if there is an error
 ~/canvas$ yarn install --pure-lockfile
 ```
 
@@ -145,6 +146,7 @@ If you're on macOS Mavericks or macOS Yosemite and hit an error with the thrift 
 ```
 
 If you are on El Capitan and encounter an error with the thrift gem that has something like the following in the text.
+
 ```
 compact_protocol.c:431:41: error: shifting a negative signed value is undefined [-Werror,-Wshift-negative-value]
 ```
@@ -177,6 +179,7 @@ Before we set up all the tables in your database, our Rails code depends on a sm
 ### Dynamic settings configuration
 
 This config file is useful if you don't want to run a consul cluster with canvas. Just provide the config data you would like for the DynamicSettings class to find, and it will use it whenever a call for consul data is issued. Data should be shaped like the example below, one key for the related set of data, and a hash of key/value pairs (no nesting)
+
 ```
 ~/canvas$ cp config/dynamic_settings.yml.example config/dynamic_settings.yml
 ```
@@ -189,7 +192,7 @@ Canvas needs to build a number of assets before it will work correctly. You will
 ~/canvas$ bundle exec rails canvas:compile_assets
 ```
 
-Note that we've seen trouble with npm trying to hold too many files open at once.  If you see an error with `libuv` while running npm, try increasing your `ulimit`.  To do this in macOS add `ulimit -n 4096` to your `~/.bash_profile` or `~/.zsh_profile`.
+Note that we've seen trouble with npm trying to hold too many files open at once. If you see an error with `libuv` while running npm, try increasing your `ulimit`. To do this in macOS add `ulimit -n 4096` to your `~/.bash_profile` or `~/.zsh_profile`.
 
 ### Database configuration
 
@@ -230,7 +233,7 @@ could not connect to server: Connection refused
     TCP/IP connections on port 5432?
 ```
 
-then postgres may not be running.  To start it:
+then postgres may not be running. To start it:
 
 ```
 $ initdb /usr/local/var/postgres -E utf8
@@ -265,7 +268,6 @@ Make sure you can run a spec file (the full suite takes too long to run locally)
 bundle exec rspec spec/models/assignment_spec.rb
 ```
 
-
 ## Performance Tweaks
 
 Installing redis will significantly improve your Canvas performance. For detailed instructions, see [[Production Start#redis]]. On macOS, use the following:
@@ -296,7 +298,7 @@ config.action_view.cache_template_loading = true
 ' > config/environments/development-local.rb
 ```
 
-Please be aware that the instructions described in the [[Production Start]] tutorial will give you a *much* faster Canvas installation.
+Please be aware that the instructions described in the [[Production Start]] tutorial will give you a _much_ faster Canvas installation.
 
 ## A note about emails
 
@@ -304,7 +306,7 @@ Canvas will often attempt to send email. With the Quick Start instructions, emai
 
 ## Ready, Set, Go!
 
-Now you just need to start the Canvas server! You will need to run the *rails server* daemon:
+Now you just need to start the Canvas server! You will need to run the _rails server_ daemon:
 
 ```
 ~/canvas$ bundle exec rails server
@@ -325,10 +327,10 @@ Canvas relies heavily on background job processors to perform tasks that take to
 ```
 
 ## Running Canvas securely locally
+
 Install [puma-dev](github.com/puma/puma-dev) and follow the set up instructions. Add `export THEADS=1` to ~/.powconfig. In Canvas, in domain.yml add `ssl: true` under the development section. In session_store.yml under development, add `secure: true`.
 
 To start for Mac, set up puma-dev in launchctl `launchctl load ~/Library/LaunchAgents/io.puma.dev.plist`. You can view server logs by tailing the logs in `log/development.log`. You can have the certificates accepted by opening Keychain Access, and move the Puma-dev CA to System.
-
 
 ## Troubleshooting
 
