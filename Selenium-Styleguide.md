@@ -1,81 +1,80 @@
-# Selenium Spec Guidelines
 ## Guidelines for writing good selenium specs
 
 ### What should NOT be tested with selenium
 
-* animations
+- animations
 
-* Redundant page loads (e.g. Only test a link or button that goes to another page if its been broken before. In a helper, avoid loading a page then clicking another link to get to a page. In a before_filter, don't load a page, modify data, and then refresh the page.)
+- Redundant page loads (e.g. Only test a link or button that goes to another page if its been broken before. In a helper, avoid loading a page then clicking another link to get to a page. In a before_filter, don't load a page, modify data, and then refresh the page.)
 
-* Anything else multiple times, for example, test creation of items with selenium once, but if that data is needed in another spec, just use database seeding.
+- Anything else multiple times, for example, test creation of items with selenium once, but if that data is needed in another spec, just use database seeding.
 
 ### Standards and Conventions
 
-**Commit Message:** any commit dealing with just specs needs to have the commit message prefixed with spec: *example* - "spec: adding selenium specs to assignments spec"
+**Commit Message:** any commit dealing with just specs needs to have the commit message prefixed with spec: _example_ - "spec: adding selenium specs to assignments spec"
 
 ## Selector best practices
 
-* don't depend on element types, or exact descendants from parents. Use .some_selector not div.some_selector. Explicitly looking for a div, p, span, a, or an h4 is bad because if we have to change the html to restyle or something then the test breaks. Even adding the div in div.some_selector is superfluous. One exception: elements that that you can't swap out a different element for like a select or textarea(select.course_id is fine). We try to enforce the same policy on the javascript we write (ie: $('#something div p').click... is discouraged) and anything submitted to the server via normal html forms depends on having names and/or ids) so there should always be some combination of id and/or classes you can use to select an important element.
+- don't depend on element types, or exact descendants from parents. Use .some_selector not div.some_selector. Explicitly looking for a div, p, span, a, or an h4 is bad because if we have to change the html to restyle or something then the test breaks. Even adding the div in div.some_selector is superfluous. One exception: elements that that you can't swap out a different element for like a select or textarea(select.course_id is fine). We try to enforce the same policy on the javascript we write (ie: \$('#something div p').click... is discouraged) and anything submitted to the server via normal html forms depends on having names and/or ids) so there should always be some combination of id and/or classes you can use to select an important element.
 
-* don't use xpath. especially stuff like '//div[@class="something_special"]/div[3]/span[2]/select'. That gives no indication of what you are selecting and will break if any html structure is changed/added. besides we are all use to using css selectors for stylesheets and jQuery.
+- don't use xpath. especially stuff like '//div[@class="something_special"]/div[3]/span[2]/select'. That gives no indication of what you are selecting and will break if any html structure is changed/added. besides we are all use to using css selectors for stylesheets and jQuery.
 
-* be careful to reasonably ensure that you are selecting the right thing on the page. ex: `f('.name')` could find the wrong link if there was anything else with the class .name (highly likely) on the page. Doing something like #user_details_form .name would be better.
+- be careful to reasonably ensure that you are selecting the right thing on the page. ex: `f('.name')` could find the wrong link if there was anything else with the class .name (highly likely) on the page. Doing something like #user_details_form .name would be better.
 
-* to find elements use the helper methods `f('some selector')`, `ff('some selector')`, `fj('some selector')`, `ffj('some selector')`
-     * f - use instead of `driver.find_element` - returns first matched element
-     * ff - use instead of `driver.find_elements` - returns all matched elements
-     * fj - use instead of `find_with_jquery` - returns first matched element, only use if you are doing jquery specific things - example - `fj('some_selector:nth-child(3)')`
-     * ffj- use instead of `find_all_with_jquery` - returns all matched elements, only use if you are doing jquery specific things - `ffj('some_selector:visible')`
-<br />
-<br />
-* dont rely on the english version of what a link text says. ex: dont do driver.find_element(:link, 'New Topic') if we ever run the specs testing out the ui in a different language that will break.
+- to find elements use the helper methods `f('some selector')`, `ff('some selector')`, `fj('some selector')`, `ffj('some selector')`
+  _ f - use instead of `driver.find_element` - returns first matched element
+  _ ff - use instead of `driver.find_elements` - returns all matched elements
+  _ fj - use instead of `find_with_jquery` - returns first matched element, only use if you are doing jquery specific things - example - `fj('some_selector:nth-child(3)')`
+  _ ffj- use instead of `find_all_with_jquery` - returns all matched elements, only use if you are doing jquery specific things - `ffj('some_selector:visible')`
+  <br />
+  <br />
+- dont rely on the english version of what a link text says. ex: dont do driver.find_element(:link, 'New Topic') if we ever run the specs testing out the ui in a different language that will break.
 
-* just so you know, I try (and encourage others) to stick to a scheme where classes and ids that are just for css styling use dashes but classes/ids that are there for javascript hooks use underscores so .no-text-shadow would be a less useful selenium selector (purely cosmetic) than #thing_that_tiggers_dialog (probably tied to js)
+- just so you know, I try (and encourage others) to stick to a scheme where classes and ids that are just for css styling use dashes but classes/ids that are there for javascript hooks use underscores so .no-text-shadow would be a less useful selenium selector (purely cosmetic) than #thing_that_tiggers_dialog (probably tied to js)
 
-* when you find a key token (like seeing a `<select name="assignment_to_never_drop">` ) it is often useful to do a global search for "assignment_to_never_drop" in the project and look for javascript that uses that token and use that as a clue for what the selector that the javascript is using to add it's functionality (in this case you would find `$("select[name='assignment_to_never_drop']")` in a js file).
+- when you find a key token (like seeing a `<select name="assignment_to_never_drop">` ) it is often useful to do a global search for "assignment_to_never_drop" in the project and look for javascript that uses that token and use that as a clue for what the selector that the javascript is using to add it's functionality (in this case you would find `$("select[name='assignment_to_never_drop']")` in a js file).
 
-* you can assume that if the javascript uses that selector then you can use it and it is not going to be brittle because if something changes, the javascript will break too.
-* The order of things you should look for when selecting is -
+- you can assume that if the javascript uses that selector then you can use it and it is not going to be brittle because if something changes, the javascript will break too.
+- The order of things you should look for when selecting is -
 
-* The name attribute if it is an input/textarea/select (because changing that name would mean we changed not just client side code but also server side code, in fact it would probably mean we changed a database column name: `<input name="discussion\_topic[title] />` maps directly to the title column in the discussion_topics table, that is probably not going to change).
-* `#an_id_that_is_underscored`: Since you can assume an id is unique to the page, you wont accidentally select something you didn't mean to and because it uses underscores you can assume the js uses it too.
-* `#an_id` .followed_by_an_underscored_class: again, by using an id you know you are starting from the right spot and using an underscored class name means the js probably uses it too.
+- The name attribute if it is an input/textarea/select (because changing that name would mean we changed not just client side code but also server side code, in fact it would probably mean we changed a database column name: `<input name="discussion\_topic[title] />` maps directly to the title column in the discussion_topics table, that is probably not going to change).
+- `#an_id_that_is_underscored`: Since you can assume an id is unique to the page, you wont accidentally select something you didn't mean to and because it uses underscores you can assume the js uses it too.
+- `#an_id` .followed_by_an_underscored_class: again, by using an id you know you are starting from the right spot and using an underscored class name means the js probably uses it too.
 
+## Selector examples: (bad example _=>_ good example)
 
-## Selector examples: (bad example *=>* good example)
+- `h2.title` **=>** `#content .title`
 
-* `h2.title`  **=>**  `#content .title`
+- `//div[@class="form_rules"]/div[2]/select` **=>** `#add_group select.rule_type`
 
-* `//div[@class="form_rules"]/div[2]/select`  **=>**  `#add_group select.rule_type`
+- `//div[@class="form_rules"]/div[3]/span[@class="never_drop_assignment"]/select` **=>** `select[name='assignment_to_never_drop']`
 
-* `//div[@class="form_rules"]/div[3]/span[@class="never_drop_assignment"]/select`  **=>**  `select[name='assignment_to_never_drop']`
+- `//div[@class="form_rules"]/div[2]//input` **=>** `.form_rules [name="scores_to_drop"]`
 
-* `//div[@class="form_rules"]/div[2]//input`  **=>**  `.form_rules [name="scores_to_drop"]`
+- `div.something` **=>** `.something`
 
-* `div.something`  **=>**  `.something`
+- `#edit_dialog form div input.title` **=>** `#edit_dialog input.title ('form' and 'div' dont add any value)`
 
-* `#edit_dialog form div input.title`  **=>**  `#edit_dialog input.title  ('form' and 'div' dont add any value)`
+- `.anything_else_before div#an_id.or-along-with-it` **=>** `#an_id` (since it is an id you can assume it is unique to the page)
 
-* `.anything_else_before div#an_id.or-along-with-it `  **=>**  `#an_id`  (since it is an id you can assume it is unique to the page)
+- `f('button[type="submit"]').click` **=>** `f(‘form_selector’).submit`
 
-* `f('button[type="submit"]').click`  **=>**  `f(‘form_selector’).submit`
-
-* `f(‘#some_id’).find_element(:css, ‘.some_css’)` **=>**  `f(‘#some_id .some_css’)` (chaining finds results in two separate requests from the client, so it slows down the test)
+- `f(‘#some_id’).find_element(:css, ‘.some_css’)` **=>** `f(‘#some_id .some_css’)` (chaining finds results in two separate requests from the client, so it slows down the test)
 
 ## PostgreSQL selector example: (bad example => good example)
 
-* `f(“#context_module_item_2)` - (don’t expect the tag ID to always be the same)  **=>** `tag = ContentTag.last f("#context_module_item_#{tag.id}")`
+- `f(“#context_module_item_2)` - (don’t expect the tag ID to always be the same) **=>** `tag = ContentTag.last f("#context_module_item_#{tag.id}")`
 
 ## ID, CSS, and other selenium type examples (most common uses)
 
-* `f(‘.some_class’)` - use this one for class attribute or when chaining selectors together
-* `f(‘#some_id .some_class’)` - chaining example
+- `f(‘.some_class’)` - use this one for class attribute or when chaining selectors together
+- `f(‘#some_id .some_class’)` - chaining example
 
 ## Helper methods that should be used
 
 clicking a select option -
-* `click_option(‘css_selector’, ‘option_text’)` - there is an option third parameter that you can pass to override the default text option.
-* override example - `click_option(‘css_selector’, ‘some_value’, :value)`
+
+- `click_option(‘css_selector’, ‘option_text’)` - there is an option third parameter that you can pass to override the default text option.
+- override example - `click_option(‘css_selector’, ‘some_value’, :value)`
 
 wait_for_animations - add this to wait for jQuery animations
 
@@ -129,12 +128,15 @@ drag_with_js(‘selector’, x, y) - use this instead of driver.action.drag_and_
 ## Context / Describe
 
 Context: use context when you are testing the same feature but in a different way
-* example - context “calendar as a teacher”, context “calendar as a student”
+
+- example - context “calendar as a teacher”, context “calendar as a student”
 
 Describe: use describe when you are testing a feature or certain part of a feature
-* example - describe “main calendar”, describe “mini calendar”, describe “calendar context list”
+
+- example - describe “main calendar”, describe “mini calendar”, describe “calendar context list”
 
 ## Selenium Spec File Standards (Common Example)
+
 ```ruby
 require File.expand_path(File.dirname(__FILE__) + '/common') #helper methods
 
@@ -180,10 +182,11 @@ describe "name of the feature you are testing" do
   end
 ```
 
-# Other random selenium advice #
+# Other random selenium advice
 
-* As with all spec writing, use factories as frequently as possible, that way if a model changes, fewer specs need to be fixed.
-* marking specs as pending -
+- As with all spec writing, use factories as frequently as possible, that way if a model changes, fewer specs need to be fixed.
+- marking specs as pending -
+
 ```ruby
 it "should be a good description for the test case of the feature" do
   #marking a spec as pending with no do end block doesn't run the spec
@@ -202,17 +205,18 @@ it "should be a good description for the test case of the feature" do
 end
 ```
 
-* try not to use wait_for_dom_ready or keep_trying_until. they really slow down the tests; keep_trying_until contains a sleep. if you are thinking of throwing one in, you may be doing something wrong. But yes, sometimes they are necessary.
+- try not to use wait_for_dom_ready or keep_trying_until. they really slow down the tests; keep_trying_until contains a sleep. if you are thinking of throwing one in, you may be doing something wrong. But yes, sometimes they are necessary.
 
-* if you are getting element not found in cache error make sure the page hasn’t done a refresh or there has been an ajax reload on the element you are checking for. This mainly happens when you save an element into a variable and the page reloads so there isn’t a reference to that element anymore.  If you run into any other element caching issue, try using find_with_jquery, since it bypasses the selenium element cache.
+- if you are getting element not found in cache error make sure the page hasn’t done a refresh or there has been an ajax reload on the element you are checking for. This mainly happens when you save an element into a variable and the page reloads so there isn’t a reference to that element anymore. If you run into any other element caching issue, try using find_with_jquery, since it bypasses the selenium element cache.
 
-* if you are ever confused about when to use context / describe / shared examples take a look in all of the files first and don’t be afraid to ask.
+- if you are ever confused about when to use context / describe / shared examples take a look in all of the files first and don’t be afraid to ask.
 
-* remember, you are validating the UI - example: it is good to make sure when adding an assignment that the assignment count in the database goes up by 1. You also need to check that it is displayed in the UI as well.
+- remember, you are validating the UI - example: it is good to make sure when adding an assignment that the assignment count in the database goes up by 1. You also need to check that it is displayed in the UI as well.
 
-* if you add a user stick to the naming convention - anything@example.com
+- if you add a user stick to the naming convention - anything@example.com
 
-* uploading files - most basic syntax example -
+- uploading files - most basic syntax example -
+
 ```ruby
 name, path, data = get_file({:text => 'testfile1.txt', :image => 'graded.png'})
 f('.file_name').send_keys(path)
