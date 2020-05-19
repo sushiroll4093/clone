@@ -39,6 +39,7 @@ The plugins and extensions that we don't open source right now include:
 - Gauge
 - Canvas Data
 - DocViewer
+- New Analytics
 - Other minor customizations that only apply to a hosted environment
 
 ### How do I get support?
