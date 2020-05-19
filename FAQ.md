@@ -36,10 +36,10 @@ The plugins and extensions that we don't open source right now include:
 - Chat tool
 - SCORM import tool
 - Catalog
-- Gauge
 - Canvas Data
 - DocViewer
 - New Analytics
+- QR Login Code generation
 - Other minor customizations that only apply to a hosted environment
 
 ### How do I get support?
