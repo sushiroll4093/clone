@@ -59,27 +59,34 @@ Canvas requires Ruby 2.4 or greater. A minimum version of 2.4.4 is recommended. 
 
 ### Debian/Ubuntu
 
-We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install. If you're running Ubuntu 14.04 Trusty, you'll need to add a PPA in order to get Ruby 2.4:
+We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install.
+
+On Ubuntu 16.04 you need a PPA to get Ruby 2.4
 
 ```
 $ sudo apt-get install software-properties-common
 $ sudo add-apt-repository ppa:brightbox/ruby-ng
 $ sudo apt-get update
-```
-
-```
 $ sudo apt-get install ruby2.4 ruby2.4-dev zlib1g-dev libxml2-dev \
                        libsqlite3-dev postgresql-9.5 libpq-dev \
-                       libxmlsec1-dev curl make g++
+                       libxmlsec1-dev curl build-essential
+```
+
+On Ubuntu 18.04 LTS (Debian 10 should be similar) you can simply do:
+```
+$ sudo apt-get update
+$ sudo apt install ruby ruby-dev postgresql zlib1g-dev libxml2-dev libsqlite3-dev libpq-dev libxmlsec1-dev curl build-essential
 ```
 
 > Note: In Ubuntu, in case you encounter any error such as E: Package 'postgresql-9.5' has no installation candidate, it may be because postgresql-9.5 is not available in that Ubuntu version. See https://www.postgresql.org/download/linux/ubuntu/
 
 Node.js installation:
 
+You need a newer version of Node.js then either 18.04 or 16.04 has.
+
 ```
 $ curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-$ sudo apt-get install -y nodejs build-essential
+$ sudo apt-get install -y nodejs 
 ```
 
 [Yarn installation](https://github.com/instructure/canvas-lms/blob/stable/package.json#L7):
