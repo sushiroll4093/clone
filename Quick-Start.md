@@ -18,7 +18,7 @@ The [doc/docker directory](https://github.com/instructure/canvas-lms/blob/master
 
 ### Manual Setup
 
-This tutorial is targeting POSIX-based systems like macOS and Linux. This tutorial was written and tested using Ubuntu's latest LTS 18.04.1, macOS 10.14 Mojave, and Debian 9.5 Stretch. If you have a different system, consider setting up a server or virtual machine running the latest [Ubuntu LTS](http://www.ubuntu.com/). We'll assume you've either done so or are familiar with these working parts enough to do translations yourself.
+This tutorial is targeting POSIX-based systems like macOS and Linux. This tutorial was written and tested using Ubuntu's latest LTS 18.04.1, macOS 10.14 Mojave, and Debian 9.5 Stretch. If you have a different system, consider setting up a server or virtual machine running the Ubuntu 18.04 LTS (Ubuntu 20.04 has a newer version of Ruby that isn't supported yet) . We'll assume you've either done so or are familiar with these working parts enough to do translations yourself.
 
 #### Getting the code
 
@@ -53,7 +53,7 @@ Wherever you check out the code to, we're going to call that your application ro
 
 ## Dependency Installation
 
-Canvas requires Ruby 2.4 or greater. A minimum version of 2.4.4 is recommended.
+Canvas requires Ruby 2.4 or greater. A minimum version of 2.4.4 is recommended.  Ruby 2.7+ is not supported.
 
 ### External Dependencies
 
@@ -312,7 +312,13 @@ Now you just need to start the Canvas server! You will need to run the _rails se
 ~/canvas$ bundle exec rails server
 ```
 
-Open up a browser on the same computer as the one running the server and navigate to [[http://localhost:3000/]] and log in with the user credentials you set up during database configuration. If you don't have a browser running on the same computer, just use the hostname of the computer, and go to http://&lt;hostname&gt;:3000/.
+Open up a browser on the same computer as the one running the server and navigate to [[http://localhost:3000/]] and log in with the user credentials you set up during database configuration. If you don't have a browser running on the same computer:
+
+```
+~/canvas$ bundle exec rails server --binding=IPAddress
+```
+
+Then you can connect using the external hostname or IP address of the computer, be going to http://&lt;hostname&gt;:3000/.
 
 ## Logging in For the First Time
 
