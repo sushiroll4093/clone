@@ -53,21 +53,21 @@ Wherever you check out the code to, we're going to call that your application ro
 
 ## Dependency Installation
 
-Canvas requires Ruby 2.4 or greater. A minimum version of 2.4.4 is recommended.  Ruby 2.7+ is not supported.
+Canvas requires Ruby 2.6 or greater. Ruby 2.7+ is not supported.
 
 ### External Dependencies
 
 ### Debian/Ubuntu
 
-We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install.
+We now need to install the Ruby libraries and packages that Canvas needs. On Debian/Ubuntu, there are a few packages you're going to need to install. Depending on the currently-required version of Ruby and whether it is available from your version of Debian/Ubuntu, additional steps may be required to install Ruby (such as using a Ruby environment manager like `rbenv`).
 
-On Ubuntu 16.04 you need a PPA to get Ruby 2.4
+On Ubuntu 16.04 you need a PPA to get Ruby 2.6
 
 ```
 $ sudo apt-get install software-properties-common
 $ sudo add-apt-repository ppa:brightbox/ruby-ng
 $ sudo apt-get update
-$ sudo apt-get install ruby2.4 ruby2.4-dev zlib1g-dev libxml2-dev \
+$ sudo apt-get install ruby2.6 ruby2.6-dev zlib1g-dev libxml2-dev \
                        libsqlite3-dev postgresql-9.5 libpq-dev \
                        libxmlsec1-dev curl build-essential
 ```
@@ -106,7 +106,7 @@ sudo -u postgres psql -c "alter user $USER with superuser" postgres
 
 ### macOS
 
-For macOS, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 2.4. You can find out what version of Ruby your Mac came with by running:
+For macOS, you'll need to install the [Command Line Tools for Xcode](http://developer.apple.com/downloads), and make sure you have Ruby 2.6. You can find out what version of Ruby your Mac came with by running:
 
 ```
 $ ruby -v
@@ -129,10 +129,8 @@ Canvas uses Bundler as an additional layer on top of Ruby Gems to manage version
 You can install Bundler using Ruby Gems:
 
 ```
-$ sudo gem install bundler -v 1.13.6
+$ sudo gem install bundler
 ```
-
-On Debian 8 Jessie, you'll need to substitute `gem` with `gem2.4`.
 
 ## Canvas Dependencies
 
