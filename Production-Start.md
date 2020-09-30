@@ -97,7 +97,7 @@ As an example:
 
 # Dependency Installation
 
-Canvas now requires Ruby 2.4.0, as of the 2017-04-22 release.
+Canvas now requires Ruby 2.6, as of the 2020-10-07 release. Ruby 2.7+ support is untested.
 
 ## External dependencies
 
@@ -111,10 +111,10 @@ $ sudo add-apt-repository ppa:brightbox/ruby-ng
 $ sudo apt-get update
 ```
 
-Now, We install Ruby 2.4 via the following command:
+Now, We install Ruby 2.6 via the following command:
 
 ```
-$ sudo apt-get install ruby2.4 ruby2.4-dev zlib1g-dev libxml2-dev \
+$ sudo apt-get install ruby2.6 ruby2.6-dev zlib1g-dev libxml2-dev \
                        libsqlite3-dev postgresql libpq-dev \
                        libxmlsec1-dev curl make g++
 ```
@@ -155,8 +155,8 @@ Most of Canvas' dependencies are Ruby Gems. Ruby Gems are a Ruby-specific packag
 
 Canvas uses Bundler as an additional layer on top of Ruby Gems to manage versioned dependencies. Bundler is great!
 
-    sysadmin@appserver:/var/canvas$ sudo gem install bundler --version 1.13.6
-    sysadmin@appserver:/var/canvas$ bundle _1.13.6_ install --path vendor/bundle
+    sysadmin@appserver:/var/canvas$ sudo gem install bundler --version 2.1.4
+    sysadmin@appserver:/var/canvas$ bundle _2.1.4_ install --path vendor/bundle
 
 ### Note on Mac OS X Mavericks
 
